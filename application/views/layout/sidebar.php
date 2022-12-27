@@ -66,8 +66,6 @@
         </li>
 
         <!-- menu -->
-        <br>
-        <br>
         <li class="nav-header">Anggota</li>
         <li class="nav-item">
           <a href="anggota" class="nav-link">
@@ -90,7 +88,7 @@
         <li class="nav-header">Pakan</li>
         <li class="nav-item">
           <a href="pakan" class="nav-link">
-            <i class="nav-icon far fa-drumstick"></i>
+            <i class="nav-icon far fa-cheese"></i>
             <p>
               Pakan
             </p>
