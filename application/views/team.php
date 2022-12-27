@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>DataTables</h1>
+          <h1>Data Team</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,9 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                Tambah
+              </button>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -40,12 +42,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php $no = 1 ?>
-                    <?php foreach ($data as $row) :?>
+                  <?php $no = 1 ?>
+                  <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?=$row->nama_team?></td>
-                    <td><?=$row->id_anggota?></td>
+                    <td><?= $row->nama_team ?></td>
+                    <td><?= $row->id_anggota ?></td>
                     <td>Aksi</td>
                   </tr>
                   <?php endforeach; ?>
@@ -65,3 +67,28 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- MODAL -->
+
+<div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Tambah Team</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Rehan pki&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+              <button type="button" class="btn btn-primary">Simpan</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
