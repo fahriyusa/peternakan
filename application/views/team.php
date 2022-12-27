@@ -33,17 +33,22 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
+                    <th>No</th>
                     <th>Team</th>
                     <th>Anggota</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
+                    <?php $no = 1 ?>
+                    <?php foreach ($data as $row) :?>
                   <tr>
-                    <td>rendi</td>
-                    <td>anak</td>
-                    <td>pki</td>
+                    <td><?= $no++ ?></td>
+                    <td><?=$row->nama_team?></td>
+                    <td><?=$row->id_anggota?></td>
+                    <td>Aksi</td>
                   </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
