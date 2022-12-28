@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Pakan</h1>
+          <h1>Ambil Pakan</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-            <li class="breadcrumb-item active">Data Pakan</li>
+            <li class="breadcrumb-item active">Ambil Pakan</li>
           </ol>
         </div>
       </div>
@@ -36,8 +36,8 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Team</th>
-                    <th>Tanggal Produksi Pakan</th>
+                    <th>Anggota</th>
+                    <th>Tanggal Ambil Pakan</th>
                     <th>Jumlah</th>
                     <th>Aksi</th>
                   </tr>
@@ -47,8 +47,8 @@
                   <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->id_team ?></td>
-                    <td><?= $row->tgl_ambil_pakan ?></td>
+                    <td><?= $row->id_anggota ?></td>
+                    <td><?= $row->tanggal ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td>
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit
@@ -90,12 +90,12 @@
             <form>
               <div class="card-body">
               <div class="form-group">
-                <label for="exampleInputTeam">Team</label>
-                <input type="team" class="form-control" id="exampleInputTeam" placeholder="Team">
+                <label for="exampleInputAnggota">Anggota</label>
+                <input type="anggota" class="form-control" id="exampleInputAnggota" placeholder="Anggota">
               </div>
               <div class="form-group">
-                <label for="exampleInputTanggal">Tanggal Produksi Pakan</label>
-                <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Produksi Pakan">
+                <label for="exampleInputTanggal">Tanggal Ambil Pakan</label>
+                <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Ambil Pakan">
               </div>
               <div class="form-group">
                 <label for="exampleInputJumlah">Jumlah</label>
