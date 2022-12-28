@@ -43,10 +43,11 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php foreach ($data as $row):
+                     ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->tanggal_ambil ?></td>
+                    <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     
                     <td>Aksi</td>
