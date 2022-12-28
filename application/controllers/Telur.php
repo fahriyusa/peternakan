@@ -7,7 +7,7 @@ class Telur extends CI_Controller {
         parent::__construct();   
         $this->load->model('M_telur');
     }
-	public function telur()
+	public function index()
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();

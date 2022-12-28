@@ -103,7 +103,7 @@
         </li>
         <li class="nav-header">Telur</li>
         <li class="nav-item">
-          <a href="telur/telur" class="nav-link">
+          <a href="telur" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Telur
