@@ -69,7 +69,7 @@
         <li class="nav-header">Anggota</li>
         <li class="nav-item">
           <a href="anggota" class="nav-link">
-            <i class="fa-solid far nav-icon fa-user"></i>
+            <i class="fa-solid fa-user"></i>&emsp;
             <p>
               Anggota
             </p>
@@ -78,8 +78,7 @@
         <li class="nav-header">Team</li>
         <li class="nav-item">
           <a href="team" class="nav-link">
-          <i class="fa-solid fa-user-group"></i>
-          <i class="far"></i>
+          <i class="fa-solid fa-users"></i>&emsp;
             <p>
               Team
             </p>
@@ -88,16 +87,24 @@
         <li class="nav-header">Pakan</li>
         <li class="nav-item">
           <a href="pakan" class="nav-link">
-            <i class="nav-icon far fa-cheese"></i>
+            <i class="fa-solid fa-cheese"></i>&emsp;
             <p>
-              Pakan
+              Data Pakan
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pakan" class="nav-link">
+            <i class="fa-solid fa-cheese"></i>&emsp;
+            <p>
+             Ambil Pakan
             </p>
           </a>
         </li>
         <li class="nav-header">Telur</li>
         <li class="nav-item">
           <a href="telur" class="nav-link">
-            <i class="nav-icon far fa-egg"></i>
+            <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Telur
             </p>
@@ -106,7 +113,7 @@
         <li class="nav-header">Panen</li>
         <li class="nav-item">
           <a href="panen" class="nav-link">
-            <i class="nav-icon far fa-drumstick"></i>
+            <i class="fa-solid fa-sack-dollar"></i>&emsp;
             <p>
               Panen
             </p>
@@ -115,7 +122,7 @@
         <li class="nav-header">Jadwal</li>
         <li class="nav-item">
           <a href="jadwal" class="nav-link">
-            <i class="nav-icon far fa-calendar-alt"></i>
+            <i class="fa-solid fa-calendar-alt"></i>&emsp;
             <p>
               Jadwal
             </p>
