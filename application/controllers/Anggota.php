@@ -19,4 +19,11 @@ class Anggota extends CI_Controller {
 		$this->load->view('v_anggota', $data);
         $this->load->view('layout/footer');
 	}
+    public function tambah_aksi()
+    {
+        $this->M_Anggota->insert_data($data, 'anggota');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Data Berhasil Ditambahkan!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('v_anggota');
+    }
 }
