@@ -4,9 +4,12 @@ defined('BASEPATH') or exit ('No Direct script access allowed');
 class M_Anggota extends CI_Model
 {
 
-    public function get_data($table)
+    //get
+
+    public function getAnggota()
     {
-        return $this->db->get($table);
+        $query = $this->db->get('anggota');
+        return $query->result();
     }
 
 }

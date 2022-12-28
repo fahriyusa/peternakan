@@ -44,12 +44,20 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $no = 1 ?>
+                  <?php foreach ($data as $row): ?>
                   <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $row->nama_anggota ?></td>
+                    <td><?= $row->tanggal_gabung ?></td>
+                    <td><?= $row->status ?></td>
+                    <td><?= $row->jabatan ?></td>
                     <td>
-                        <button type="button" class="btn btn-warning">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">Delete</button>
                     </td>
                   </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

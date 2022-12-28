@@ -9,8 +9,9 @@ class Anggota extends CI_Controller {
     }
 	public function index()
 	{
-        $data['title'] = 'Anggota';
-        $data['anggota'] = $this->M_Anggota->get_data('anggota')->result();
+        //mengambil data
+        $query = $this->M_Anggota->getAnggota();
+        $data = array('data' => $query);
 
         //menampilkan view
         $this->load->view('layout/header');
