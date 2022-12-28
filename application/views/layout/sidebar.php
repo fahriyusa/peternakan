@@ -103,6 +103,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="ambil_telur" class="nav-link">
+            <i class="nav-icon far fa-egg"></i>
+            <p>
+              Ambil Telur
+            </p>
+          </a>
+        </li>
         <li class="nav-header">Panen</li>
         <li class="nav-item">
           <a href="panen" class="nav-link">
