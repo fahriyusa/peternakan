@@ -34,8 +34,8 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <tr>
-                    <th>Id</th>
+                  <tr class="text-center">
+                    <th>No</th>
                     <th>Nama Anggota</th>
                     <th>Tanggal Gabung</th>
                     <th>Status</th>
@@ -46,7 +46,7 @@
                 <tbody>
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row): ?>
-                  <tr>
+                  <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= $row->nama_anggota ?></td>
                     <td><?= $row->tanggal_gabung ?></td>
@@ -97,13 +97,17 @@
                     <label for="exampleInputTanggal">Tanggal Gabung</label>
                     <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Gabung">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputStatus">Status</label>
-                    <input type="text" class="form-control" id="exampleInputStatus" placeholder="Status">
+                  <div class="container">
+                    <label>Status</label>
+                        <select class="form-control" type="select"name="status">
+                        <option value="">--Pilih--</option>
+                                <option value="aktif">Aktif</option>
+                                <option value="non aktif">Non aktif</option>
+                              </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputJabatan">Jabatan</label>
-                    <input type="text" class="form-control" id="exampleInputJabatan" placeholder="Jabatan">
+                    <input type="text" class="form-control" id="exampleInputJabata n" placeholder="Jabatan">
                   </div>
                 <!-- /.card-body -->
                 <div class="modal-footer">
