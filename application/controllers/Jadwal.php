@@ -65,4 +65,5 @@ class Jadwal extends CI_Controller {
         {
             $this->jadwal_model->delete($id_team);
             redirect('buku');
-        }}
+        }
+    }

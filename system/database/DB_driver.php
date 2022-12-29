@@ -1984,6 +1984,19 @@ abstract class CI_DB_driver {
 		return $item.$alias;
 	}
 
+	function anggota_enum($table, $field)
+	{
+		$query = "SHOW COLUMNS FROM" . $table . "LIKE'$field'";
+		$row = $this->query("SHOW COLUMNS FROM" . $table . "LIKE'$field'")->row()->type;
+		$regex = "/'(.*?)'/";
+		preg_match_all($regex, $row, $enum_array);
+		$enum_fields = $enum_array[1];
+		foreach ($enum_fields as $key=>$value){
+			$enums[$value] = $value;
+		}
+		return $enums;
+	}
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -1997,3 +2010,4 @@ abstract class CI_DB_driver {
 	}
 
 }
+

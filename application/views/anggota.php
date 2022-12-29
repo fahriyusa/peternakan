@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                Tambah
+                <i class="fa fa-add"></i></a>
               </button>
             </div>
             <!-- /.card-header -->
@@ -37,9 +37,9 @@
                   <tr class="text-center">
                     <th>No</th>
                     <th>Nama Anggota</th>
-                    <th>Tanggal Gabung</th>
                     <th>Status</th>
                     <th>Jabatan</th>
+                    <th>Tanggal Gabung</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -49,14 +49,17 @@
                   <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= $row->nama_anggota ?></td>
-                    <td><?= $row->tanggal_gabung ?></td>
-                    <td><?= $row->status ?></td>
+                    <td><?= $row->status_txt ?></td>
                     <td><?= $row->jabatan ?></td>
+                    <td><?= $row->tanggal_gabung ?></td>
                     <td>
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                        data-target="#modal-edit">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                        data-target="#modal-delete">Delete</button>
+                      <a class="btn btn-warning"
+                        href="<?= base_url('Anggota/update_anggota') ?>/<?= $row->id_anggota ?>"><i
+                          class="fa fa-pencil"></i></a>
+                      <a class="btn btn-danger" href="<?= base_url('Anggota/delete_anggota') ?>/<?= $row->id_anggota ?>"
+                        onclick="return confirm('Apakah Anda ingin menghapus si : (<?= $row->nama_anggota ?>)');"><i
+                          class="fa fa-trash"></i></a>
+
                     </td>
                   </tr>
                   <?php endforeach; ?>
@@ -96,10 +99,6 @@
             <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota" placeholder="Nama Anggota">
           </div>
           <div class="form-group">
-            <label for="exampleInpTanggal">Tanggal Gabung</label>
-            <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung" placeholder="Tanggal Gabung">
-          </div>
-          <div class="form-group">
             <label>Status</label>
             <select class="form-control" type="select" name="status">
               <option value="">--Pilih--</option>
@@ -110,6 +109,11 @@
           <div class="form-group">
             <label for="Jabatan">Jabatan</label>
             <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
+          </div>
+          <div class="form-group">
+            <label for="exampleInpTanggal">Tanggal Gabung</label>
+            <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung"
+              placeholder="Tanggal Gabung">
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
