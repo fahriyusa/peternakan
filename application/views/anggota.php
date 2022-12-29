@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                + Tambah Anggota
+                Tambah
               </button>
             </div>
             <!-- /.card-header -->
@@ -53,8 +53,10 @@
                     <td><?= $row->status ?></td>
                     <td><?= $row->jabatan ?></td>
                     <td>
-                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">Delete</button>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                        data-target="#modal-edit">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                        data-target="#modal-delete">Delete</button>
                     </td>
                   </tr>
                   <?php endforeach; ?>
@@ -78,49 +80,48 @@
 <!-- MODAL -->
 
 <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Tambah Anggota</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputNama">Nama Anggota</label>
-                    <input type="nama" class="form-control" id="exampleInputNama" placeholder="Nama Anggota">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputTanggal">Tanggal Gabung</label>
-                    <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Gabung">
-                  </div>
-                  <div class="container">
-                    <label>Status</label>
-                        <select class="form-control" type="select"name="status">
-                        <option value="">--Pilih--</option>
-                                <option value="aktif">Aktif</option>
-                                <option value="non aktif">Non aktif</option>
-                              </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputJabatan">Jabatan</label>
-                    <input type="text" class="form-control" id="exampleInputJabata n" placeholder="Jabatan">
-                  </div>
-                <!-- /.card-body -->
-                <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" id="tombolSimpan">Simpan</button>
-                    </div>
-              </form>
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Anggota</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <!-- /.modal -->
-      
+      <!-- form start -->
+      <form method="post" action="<?= base_url('Anggota/insert_anggota') ?>">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="nama_anggota">Nama Anggota</label>
+            <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota" placeholder="Nama Anggota">
+          </div>
+          <div class="form-group">
+            <label for="exampleInpTanggal">Tanggal Gabung</label>
+            <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung" placeholder="Tanggal Gabung">
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select class="form-control" type="select" name="status">
+              <option value="">--Pilih--</option>
+              <option value="a">Aktif</option>
+              <option value="na">Non aktif</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Jabatan">Jabatan</label>
+            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
+          </div>
+          <!-- /.card-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
+          </div>
+      </form>
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
