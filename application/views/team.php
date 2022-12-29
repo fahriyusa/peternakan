@@ -93,25 +93,34 @@
             <div class="modal-body">
               <label>Nama Team</label>
              <input type="text" name="nama_team" class="form-control mb-2" placeholder="Nama Team">
-             <label>Nama Anggota</label>
-             <select name="nama_anggota" class="form-control">
-              <?php foreach ($datateam as $key ) : ?>
-              <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
+             <div class="row">
+              <!-- /.col -->
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Pilih Anggota</label>
+                  <div class="select2-purple">
+                    <select class="select2 " multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-purple" style="width: 465px;">
+                    <?php foreach ($team->result() as $row ) : ?>
+              <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
               <?php endforeach ?>
-             </select>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
             </div>
+            <!-- /.row -->
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
             </form>
           </div>
-          <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.card -->
       </div>
-      <!-- /.modal -->
-
+    </div>
       <!-- modal edit -->
       <div class="modal fade" id="modal-edit">
         <div class="modal-dialog">
@@ -124,6 +133,7 @@
             </div>
             <form method="POST">
             <div class="modal-body">
+              
               <label>Nama Team</label>
              <input type="text" name="nama_team" class="form-control mb-2" placeholder="Nama Team">
              <label>Nama Anggota</label>
@@ -136,6 +146,7 @@
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="button" class="btn btn-primary">Simpan</button>
+              
             </div>
             </form>
           </div>
