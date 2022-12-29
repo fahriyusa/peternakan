@@ -35,10 +35,12 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Tanggal Datang</th>
-                    <th>Sumber</th>
-                    <th>Aksi</th>
+                    <th>no</th>
+                    <th>Nama</th>
+                    <th>Tanggal Ambil</th>
+                    <th>jumlah</th>
+                    <th>Harga</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,9 +48,11 @@
                   <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
+                    <td><?= $row->id_anggota ?></td>
                     <td><?= $row->tanggal_ambil ?></td>
-                    <td><?= $row->sumber ?></td>
-                    
+                    <td><?= $row->jumlah ?></td>
+                    <td><?= $row->harga ?></td>
+                    <td><?= $row->total ?></td>
                     <td>Aksi</td>
                   </tr>
                   <?php endforeach; ?>
@@ -75,7 +79,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Tambah Telur</h4>
+              <h4 class="modal-title">Tambah Team</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -91,17 +95,52 @@
 
                     <label > Sumber </label>
                     <div class="input-group">
-                      <input type="text" class="form-control" required autocomplete="off" name="sumber" id="search-box" placeholder="Contoh Sumber : PT Jaya Abadi" type="text" value="">
-                        <span class="input-group-btn">
-                        </span>
-                    </div>
+                          <input type="text" class="form-control" required autocomplete="off" name="sumber" id="search-box" placeholder="Contoh Sumber : PT Jaya Abadi" type="text" value="">
+                            <span class="input-group-btn">
+                            </span>
+											</div>
+                    
+                      <label> Tanggal Ambil </label>
+                      <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
+                      
+                      <label> Nama </label>
+                    <select name="nama_anggota" class="form-control">
+                      <option value="">Pilih</option>
+                    </select>
+
+                    <label> Jumlah </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" required autocomplete="off" name="jumlah" id="search-box" placeholder="Contoh Jumlah : 500000" type="text" value="">
+                            <span class="input-group-btn">
+                            </span>
+											</div>
+                    
+                    <label> Harga </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" required autocomplete="off" name="jumlah" id="search-box" placeholder="Contoh Jumlah : 500000" type="text" value="">
+                            <span class="input-group-btn">
+                            </span>
+											</div>
+                    <label> Total </label>
+                    <div class="input-group">
+                          <input type="text" class="form-control" required autocomplete="off" name="Total" id="search-box" type="text" value="">
+                            <span class="input-group-btn">
+                            </span>
+											</div>
+
+                      <label> Pembeli </label>
+                    <div class="input-group">
+                          <input type="text" class="form-control" required autocomplete="off" name="pembeli" id="search-box" type="text" value="">
+                            <span class="input-group-btn">
+                            </span>
+											</div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="button" class="btn btn-primary">Simpan</button>
             </div>
           </div>
           <!-- /.modal-content -->

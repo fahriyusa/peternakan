@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Telur</h1>
+          <h1>Data Pakan</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-            <li class="breadcrumb-item active">Data Telur</li>
+            <li class="breadcrumb-item active">Data Pakan</li>
           </ol>
         </div>
       </div>
@@ -36,8 +36,9 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Tanggal Datang</th>
-                    <th>Sumber</th>
+                    <th>Team</th>
+                    <th>Tanggal Produksi Pakan</th>
+                    <th>Jumlah</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -46,10 +47,15 @@
                   <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->tanggal_ambil ?></td>
-                    <td><?= $row->sumber ?></td>
-                    
-                    <td>Aksi</td>
+                    <td><?= $row->id_team ?></td>
+                    <td><?= $row->tgl_ambil_pakan ?></td>
+                    <td><?= $row->jumlah ?></td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
+                      </button>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -75,33 +81,31 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Tambah Telur</h4>
+              <h4 class="modal-title">Tambah Pakan</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <div class="container">
-                <div class="row mt-4">
-                  <div class="col">
-                    
-
-                    <label> Tanggal Datang </label>
-                      <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
-
-                    <label > Sumber </label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" required autocomplete="off" name="sumber" id="search-box" placeholder="Contoh Sumber : PT Jaya Abadi" type="text" value="">
-                        <span class="input-group-btn">
-                        </span>
-                    </div>
-                  </div>
-                </div>
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputTeam">Team</label>
+                <input type="team" class="form-control" id="exampleInputTeam" placeholder="Team">
               </div>
-            </div>
+              <div class="form-group">
+                <label for="exampleInputTanggal">Tanggal Produksi Pakan</label>
+                <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Produksi Pakan">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputJumlah">Jumlah</label>
+                <input type="number" class="form-control" id="exampleInputJumlah" placeholder="Jumlah">
+              </div>
+                  </div>
+              <!-- /.card-body -->
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="button" class="btn btn-primary">Simpan</button>
             </div>
           </div>
           <!-- /.modal-content -->
