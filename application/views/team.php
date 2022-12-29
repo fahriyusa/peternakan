@@ -97,7 +97,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form  method="POST">
+            <form  method="POST" action="<?= base_url('Team/insert_team') ?>">
             <div class="modal-body">
               <label>Nama Team</label>
              <input type="text" name="nama_team" class="form-control mb-2" placeholder="Nama Team">

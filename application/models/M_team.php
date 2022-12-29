@@ -28,6 +28,11 @@ class M_team extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    //insert
+    public function insert_team($data)
+    {
+        $this->db->insert('team',$data);
+    }
 
     // CREATE
     public function create_team($team,$anggota){

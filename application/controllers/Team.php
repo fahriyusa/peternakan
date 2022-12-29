@@ -20,13 +20,26 @@ class Team extends CI_Controller {
 	}
 
     //insert
-    public function insert()
-    {
-        $anggota = $this->input->post('anggota',TRUE);
-        $team = $this->input->post('team',TRUE);
-        $this->M_team->insert_team($anggota,$team);
-        redirect('team');
-    }
+    public function insert_team()
+	{
+		$data = array(
+		  'nama_team' => $this->input->post('nama_team'),
+		);
+		$this->db->insert('team',$data);
+
+		$anggota = $this->input->post('anggota');
+		//mendapatkan id product
+		$id_team = $this->db->insert_id();
+		foreach($anggota as $row){
+			$data = array(
+				  'id_team' => $id_team,
+				  'id_anggota' => $row
+				);
+			$this->db->insert('team',$data);
+		}
+		 
+		redirect('team');
+	}
 
     //get data anggota by id
     public function get_anggota_by_id()
