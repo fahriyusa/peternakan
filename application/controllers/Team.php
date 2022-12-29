@@ -10,9 +10,8 @@ class Team extends CI_Controller {
 	public function index()
 	{
         //mengambil data
-        $data['anggota'] = $this->M_team->data_anggota();
-        $data['team'] = $this->M_team->data_team();
-        $data['join2table'] = $this->M_team->join2table()->result();
+        $data['anggota'] = $this->M_team->get_anggota();
+        $data['team'] = $this->M_team->get_team();
         //menampilkan view
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');

@@ -26,15 +26,12 @@
 
           <div class="card">
             <div class="card-header">
-<<<<<<< HEAD
+
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
                   Tambah Team
                 </button>
-=======
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                Tambah
-              </button>
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
+
+
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -48,11 +45,11 @@
                   </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
+
                     <?php $no=1 ?>
                     <?php
-                    if(isset($join2table)>0){
-                    foreach($join2table as $row){
+                    if(isset($team)>0){
+                    foreach($team as $row){
                       ?>
                   <tr>      
                     <td><?= $no++?></td>
@@ -66,16 +63,6 @@
                     Hapus
                     </button>
                     </td>
-=======
-                  <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
-                  <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $row->nama_team ?></td>
-                    <td><?= $row->id_anggota ?></td>
-                    <td>Aksi</td>
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
-                  </tr>
                   <?php } ?>
                   <?php } ?>
                 </tbody>
@@ -95,26 +82,21 @@
 </div>
 <!-- /.content-wrapper -->
 
-<<<<<<< HEAD
+
 <!-- modal Tambah -->
-=======
+
 <!-- MODAL -->
 
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
+
 <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-<<<<<<< HEAD
               <h4 class="modal-title">Tambah Nama Team</h4>
-=======
-              <h4 class="modal-title">Tambah Team</h4>
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-<<<<<<< HEAD
             <form  method="POST">
             <div class="modal-body">
               <label>Nama Team</label>
@@ -124,9 +106,9 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Pilih Anggota</label>
-                  <div class="select2-purple">
-                    <select class="select2 " multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-purple" style="width: 465px;">
-                    <?php foreach ($team->result() as $row ) : ?>
+                  <div class="select2-blue">
+                    <select class="select2 " name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
+                    <?php foreach ($anggota->result() as $row ) : ?>
               <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
               <?php endforeach ?>
                     </select>
@@ -168,15 +150,14 @@
               <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
               <?php endforeach ?>
              </select>
-=======
+
             <div class="modal-body">
               <p>Rehan pki&hellip;</p>
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
+
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Simpan</button>
-<<<<<<< HEAD
+              <button type="submit" class="btn btn-primary">Simpan</button>
               
             </div>
             </form>
@@ -203,15 +184,58 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-danger">Hapus</button>
+              <button type="submit" class="btn btn-danger">Hapus</button>
             </div>
             </form>
-=======
+
             </div>
->>>>>>> 24e286e8ad7da90f1b5d0f38db6498c87a3a8c9b
+
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bootstrap-select').selectpicker();
+ 
+            //GET UPDATE
+            $('.update-record').on('click',function(){
+                var id_team = $(this).data('id_team');
+                var nama_team = $(this).data('nama_team');
+                $(".strings").val('');
+                $('#UpdateModal').modal('show');
+                $('[name="edit_id"]').val(id_team);
+                $('[name="package_edit"]').val(nama_team);
+                //AJAX REQUEST TO GET SELECTED PRODUCT
+                $.ajax({
+                    url: "<?php echo site_url('team/get_anggota_by_team');?>",
+                    method: "POST",
+                    data :{id_team:id_team},
+                    cache:false,
+                    success : function(data){
+                        var item=data;
+                        var val1=item.replace("[","");
+                        var val2=val1.replace("]","");
+                        var values=val2;
+                        $.each(values.split(","), function(i,e){
+                            $(".strings option[value='" + e + "']").prop("selected", true).trigger('change');
+                            $(".strings").selectpicker('refresh');
+ 
+                        });
+                    }
+                     
+                });
+                return false;
+            });
+ 
+            //GET CONFIRM DELETE
+            $('.delete-record').on('click',function(){
+                var id_team = $(this).data('id_team');
+                $('#DeleteModal').modal('show');
+                $('[name="delete_id"]').val(id_team);
+            });
+ 
+        });
+    </script>

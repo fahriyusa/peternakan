@@ -20,40 +20,42 @@ class M_team extends CI_Model
         return $query;
     }
 
-
-
-    public function data_anggota(){
-        $this->db->select('*');
-        $this->db->from('anggota');
-        $query = $this->db->get();
-        return $query;
-    }
-    public function data_team(){
+    //READ
+    function get_team(){
         $this->db->select('*');
         $this->db->from('team');
         $this->db->join('anggota','anggota.id_anggota = team.id_anggota');
         $query = $this->db->get();
-        return $query;
-    }
-    function join2table(){
-        $this->db->select('*');
-        $this->db->from('team');
-        $this->db->join('anggota','anggota.id_anggota = team.id_anggota');
-        $query = $this->db->get();
-        return $query;
-    }
-    public function getdata()
-    {
-        $query = $this->db->query("SELECT * FROM anggota ORDER BY nama_anggota ASC");
         return $query->result();
     }
-    public function proses_tambah_data()
-    {
-        $data = [
-            "nama_team" => $this->input->post('nama_team'),
-            "nama_anggota" => $this->input->post('nama_anggota')
-        ];
-        $this->db->insert('team', $data);
+
+    // CREATE
+    public function create_team($team,$anggota){
+        $this->db->trans_start();
+            //INSERT TO team
+            $data  = array(
+                'nama_team' => $team
+            );
+            $this->db->insert('team', $data);
+            $anggota = $this->input->post('anggota');
+            //GET ID team
+            $id_team = $this->db->insert_id();
+            $result = array();
+                foreach($anggota AS $key => $val){
+                     $result[] = array(
+                      'id_team'   => $id_team,
+                      'id_anggota' => $_POST['anggota'][$key]
+                     );
+                }      
+            //MULTIPLE INSERT TO DETAIL TABLE
+            $this->db->insert_batch('anggota', $result);
+        $this->db->trans_complete();
+    }
+    // DELETE
+    function delete_team($id){
+        $this->db->trans_start();
+            $this->db->delete('team', array('id_team' => $id));
+        $this->db->trans_complete();
     }
 
 }
