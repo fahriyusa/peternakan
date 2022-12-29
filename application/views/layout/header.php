@@ -18,6 +18,8 @@
     <link rel="stylesheet"
         href="<?= base_url('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
     <!-- iCheck -->
+      <!-- Select2 -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css')?>">
     <link rel="stylesheet" href="<?= base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
     <!-- JQVMap -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/jqvmap/jqvmap.min.css') ?>">

@@ -28,7 +28,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Login Untuk masuk ke dashboard</p>
 
-                <form action="<?= site_url('Auth/login'); ?>" method="post">
+                <form action="<?= site_url('login/login_aksi'); ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" id="username" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
