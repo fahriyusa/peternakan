@@ -32,19 +32,19 @@ class Telur extends CI_Controller {
 		$this->load->view('ambil_telur', $data);
         $this->load->view('layout/footer');
 	}
-    public function addTelur()
+    public function insert_telur()
     {
-        $telur = $this->M_telur;
-        $validation = $this->form_validation;
-        $validation->set_rules($telur->rules());
+        
+        $tanggal = $this->input->post('tanggal');
+        $sumber = $this->input->post('sumber');
+ 
+        $data = array(
+            'tanggal' => $tanggal,
+            'sumber' => $sumber,
+        );
+        $this->M_telur->insert_telur($data, 'telur');
+        redirect('Telur');
 
-        if ($validation->run()) {
-            $telur->save();
-        }
-        $data["title"] = "Tambah Telur";
-        $this->load->view('layout/header');
-        $this->load->view('layout/sidebar');
-		$this->load->view('telur', $data);
-        $this->load->view('layout/footer');
-    }
+
+   }
 }

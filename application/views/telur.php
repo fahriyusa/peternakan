@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                Tambah
+                +Tambah
               </button>
             </div>
             <!-- /.card-header -->
@@ -46,10 +46,15 @@
                   <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->tanggal_ambil ?></td>
+                    <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
+                    <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                        data-target="#modal-edit">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                        data-target="#modal-delete">Delete</button>
                     
-                    <td>Aksi</td>
+                  </td>                    
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -80,14 +85,15 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <div class="container">
+            <form method="post" action="<?= base_url('Telur/insert_telur') ?>">
+            <div class="card-body">
+              <div class="form-group">
                 <div class="row mt-4">
                   <div class="col">
                     
 
                     <label> Tanggal Datang </label>
-                      <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
+                      <input type="date" value="<?= date('Y-m-d');?>" name="tanggal" class="form-control">
 
                     <label > Sumber </label>
                     <div class="input-group">
@@ -101,7 +107,7 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
             </div>
           </div>
           <!-- /.modal-content -->

@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                Tambah
+                +Tambah
               </button>
             </div>
             <!-- /.card-header -->
@@ -42,10 +42,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php $no = 1 ?> 
+                  <?php 
+                  if(isset($jadwal)>0){
+                    foreach($jadwal as $row) {
+                      ?>
+                   
                   <tr>
-                    <td><?= $no++ ?></td>
+                    <td><?= $no++?></td>
                     <td><?= $row->id_team ?></td>
                     <td><?= $row->status ?></td>
                     <td>
@@ -53,7 +57,7 @@
         <a class="btn btn-danger" href="<?=base_url('jadwal/delete')?>/<?=$row->id_team?>">delete</a>
       </td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php }} ?>
                 </tbody>
               </table>
             </div>
@@ -84,7 +88,7 @@
               </div>
             <div class="modal-body">
             </div>
-                <form action="<?=base_url('jadwal/simpan')?>" method="post">
+                <form action="<?=base_url('jadwal/insert')?>" method="post">
                 <div class="container">
                     <label>Team</label>
                         <select class="form-control" type="select"name="team">
@@ -93,7 +97,7 @@
                                 <option value="team 2">Team 2</option>
                                 <option value="team 3">Team 3</option>
                               </select>
-                           
+                  </div>
                               <div class="container">
                     <label>Status</label>
                         <select class="form-control" type="select"name="status">
@@ -101,11 +105,15 @@
                                 <option value="aktif">Aktif</option>
                                 <option value="non aktif">Non aktif</option>
                               </select>
-                              <br>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button class="btn btn-primary mt-2" type="submit">simpan</button>
-                 </div>
+                              <center class="m-20">
+                                
+                        <button type="Submit" id="simpan" name="simpan" class="btn btn-primary" style="border: 0.5rem">Simpan</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius:0.5rem" >Batal</button>
+
+               
+                      </center>
                   </br>
+                  </div>
           </div>
           <!-- /.modal-content -->
         </div>
