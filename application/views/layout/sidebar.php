@@ -112,7 +112,7 @@
         </li>
         <li class="nav-item">
           <a href="telur/ambilTelur" class="nav-link">
-            <i class="nav-icon far fa-egg"></i>
+            <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Ambil Telur
             </p>

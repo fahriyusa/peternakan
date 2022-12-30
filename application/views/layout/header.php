@@ -18,8 +18,8 @@
     <link rel="stylesheet"
         href="<?= base_url('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
     <!-- iCheck -->
-      <!-- Select2 -->
-    <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css')?>">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
     <!-- JQVMap -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/jqvmap/jqvmap.min.css') ?>">
@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/plugins/daterangepicker/daterangepicker.css') ?>">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/summernote/summernote-bs4.min.css') ?>">
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/fullcalendar/main.css') ?>">
     <!-- DataTables -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
     <link rel="stylesheet"
