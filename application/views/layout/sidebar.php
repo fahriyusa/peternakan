@@ -103,7 +103,7 @@
         </li>
         <li class="nav-header">Telur</li>
         <li class="nav-item">
-          <a href="<?=  base_url('telur') ?>" class="nav-link">
+          <a href="telur" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Telur
@@ -111,13 +111,8 @@
           </a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
           <a href="telur/ambilTelur" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
-=======
-          <a href="<?=  base_url() ?>ambiltelur" class="nav-link">
-            <i class="nav-icon far fa-egg"></i>
->>>>>>> f7f519bc48f0044f0de5cffa262c59aad5209c7f
             <p>
               Ambil Telur
             </p>
