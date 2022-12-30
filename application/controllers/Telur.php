@@ -20,10 +20,13 @@ class Telur extends CI_Controller {
         $this->load->view('layout/footer');
 	}
     
+    // Ambil Telur
     public function ambilTelur()
 	{
         //mengambil data
-        $query = $this->M_telur->getAmbilTelur();
+        $data['anggota'] = $this->M_telur->get_anggota();
+        $data['team'] = $this->M_telur->getAmbilTelur();
+        $query = $this->M_telur->join_anggota_telur();
         $data = array('data' => $query);
 
         //menampilkan view
@@ -32,7 +35,8 @@ class Telur extends CI_Controller {
 		$this->load->view('ambil_telur', $data);
         $this->load->view('layout/footer');
 	}
-
+    
+    // Telur
     public function insert_telur()
     {
         
@@ -49,6 +53,7 @@ class Telur extends CI_Controller {
 
    }
 
+   // Telur
     public function simpan_telur()
     {
         $tanggal = $this->input->post('tanggal');
@@ -56,5 +61,17 @@ class Telur extends CI_Controller {
         $id = $this->input->post('id');
         $this->M_telur->simpan_telur($tanggal,$sumber);
         redirect('telur');
+    }
+
+    
+    // Ambil Telur
+    public function get_anggota_by_id()
+    {
+        $id_anggota = $this->input->post('id_anggota');
+        $data  = $this->M_telur->get_anggota_by_id($id_anggota)->result();
+        foreach ($data as $result){
+            $value[] = (float) $result->id_anggota;
+        }
+        echo json_encode($value);
     }
 }

@@ -46,10 +46,10 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php foreach($data as $row){?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->id_anggota ?></td>
+                    <td><?= $row->nama_anggota ?></td>
                     <td><?= $row->tanggal_ambil ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td><?= $row->harga ?></td>
@@ -63,7 +63,7 @@
                       </button>
                     </td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -97,9 +97,9 @@
                 <div class="row mt-4">
                   <div class="col">
                   <label> Nama </label>
-                    <select class="form-control" name="nama_anggota">
-                      <?php foreach($layanan as $l){ ?>
-                      <option value="<?php echo $l['id_anggota']; ?>"><?php echo $l['nama_anggota']; ?>Pilih</option>
+                    <select class="form-control" name="anggota[]">
+                      <?php foreach($anggota as $row){ ?>
+                      <option value="<?php echo $row['id_anggota']; ?>"><?php echo $row['nama_anggota']; ?>Pilih</option>
                     <?php } ?>
                     </select>
 
