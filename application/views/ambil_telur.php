@@ -54,7 +54,14 @@
                     <td><?= $row->jumlah ?></td>
                     <td><?= $row->harga ?></td>
                     <td><?= $row->total ?></td>
-                    <td>Aksi</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      Edit
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">
+                      Hapus
+                      </button>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -90,8 +97,10 @@
                 <div class="row mt-4">
                   <div class="col">
                   <label> Nama </label>
-                    <select name="nama_anggota" class="form-control">
-                      <option value="">Pilih</option>
+                    <select class="form-control" name="nama_anggota">
+                      <?php foreach($layanan as $l){ ?>
+                      <option value="<?php echo $l['id_anggota']; ?>"><?php echo $l['nama_anggota']; ?>Pilih</option>
+                    <?php } ?>
                     </select>
 
                       <label> Tanggal Ambil </label>
