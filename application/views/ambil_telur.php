@@ -97,9 +97,10 @@
                 <div class="row mt-4">
                   <div class="col">
                   <label> Nama </label>
-                    <select class="form-control" name="anggota[]">
+                    <select class="form-control" name="anggota">
                       <?php foreach($anggota as $row){ ?>
-                      <option value="<?php echo $row['id_anggota']; ?>"><?php echo $row['nama_anggota']; ?>Pilih</option>
+                        <option> pilih anggota </option>
+                      <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
                     <?php } ?>
                     </select>
 

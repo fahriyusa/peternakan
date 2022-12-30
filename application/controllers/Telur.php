@@ -24,10 +24,13 @@ class Telur extends CI_Controller {
     public function ambilTelur()
 	{
         //mengambil data
-        $data['anggota'] = $this->M_telur->get_anggota();
-        $data['team'] = $this->M_telur->getAmbilTelur();
         $query = $this->M_telur->join_anggota_telur();
-        $data = array('data' => $query);
+        $data = array(
+            'data' => $query,
+            'anggota' =>  $this->M_telur->get_anggota(),
+            'team' => $this->M_telur->getAmbilTelur()
+
+        );
 
         //menampilkan view
         $this->load->view('layout/header');

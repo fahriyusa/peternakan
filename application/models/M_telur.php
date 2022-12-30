@@ -30,7 +30,7 @@ class M_telur extends CI_Model
     
     public function get_anggota()
     {
-        $query = $this->db->get('anggota');
+        $query = $this->db->get('anggota')->result();
         return $query;
     }
 
