@@ -10,13 +10,15 @@ class M_telur extends CI_Model
         return $query->result();
     }
 
-    public function save()
+    public function getAmbilTelur()
     {
-        $data = array(
-            "tanggal_ambil" => $this->input->post('tanggal_ambil'),
-            "sumber" => $this->input->post('sumber')
-        );
-        return $this->db->insert($this->table, $data);
+        $query = $this->db->get('ambil_telur');
+        return $query->result();
     }
 
+    public function simpan_telur($tanggal,$sumber,$id)
+    {
+        $hasil = $this->db->query("INSERT INTO telur (tanggal,sumber,id) VALUES ('$tanggal','$sumber','$id')");
+        return $hasil; 
+    }
 }
