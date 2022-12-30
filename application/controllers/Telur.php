@@ -32,6 +32,23 @@ class Telur extends CI_Controller {
 		$this->load->view('ambil_telur', $data);
         $this->load->view('layout/footer');
 	}
+<<<<<<< HEAD
+    public function insert_telur()
+    {
+        
+        $tanggal = $this->input->post('tanggal');
+        $sumber = $this->input->post('sumber');
+ 
+        $data = array(
+            'tanggal' => $tanggal,
+            'sumber' => $sumber,
+        );
+        $this->M_telur->insert_telur($data, 'telur');
+        redirect('Telur');
+
+
+   }
+=======
 
     public function simpan_telur()
     {
@@ -41,4 +58,5 @@ class Telur extends CI_Controller {
         $this->M_telur->simpan_telur($tanggal,$sumber);
         redirect('telur');
     }
+>>>>>>> c54117997eabbe12e2b3ee1897e118137b46cb04
 }
