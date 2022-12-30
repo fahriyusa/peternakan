@@ -34,28 +34,6 @@ class M_team extends CI_Model
         $this->db->insert('team',$data);
     }
 
-    // CREATE
-    public function create_team($team,$anggota){
-        $this->db->trans_start();
-            //INSERT TO team
-            $data  = array(
-                'nama_team' => $team
-            );
-            $this->db->insert('team', $data);
-            $anggota = $this->input->post('anggota');
-            //GET ID team
-            $id_team = $this->db->insert_id();
-            $result = array();
-                foreach($anggota AS $key => $val){
-                     $result[] = array(
-                      'id_team'   => $id_team,
-                      'id_anggota' => $_POST['anggota'][$key]
-                     );
-                }      
-            //MULTIPLE INSERT TO DETAIL TABLE
-            $this->db->insert_batch('anggota', $result);
-        $this->db->trans_complete();
-    }
     // DELETE
     function delete_team($id){
         $this->db->trans_start();

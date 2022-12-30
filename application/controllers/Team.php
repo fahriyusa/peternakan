@@ -28,7 +28,7 @@ class Team extends CI_Controller {
 		$this->db->insert('team',$data);
 
 		$anggota = $this->input->post('anggota');
-		//mendapatkan id product
+		//mendapatkan id anggota
 		$id_team = $this->db->insert_id();
 		foreach($anggota as $row){
 			$data = array(
@@ -37,7 +37,6 @@ class Team extends CI_Controller {
 				);
 			$this->db->insert('team',$data);
 		}
-		 
 		redirect('team');
 	}
 
