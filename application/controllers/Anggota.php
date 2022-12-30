@@ -20,6 +20,8 @@ class Anggota extends CI_Controller
         $this->load->view('anggota', $data);
         $this->load->view('layout/footer');
     }
+
+    //insert
     public function insert_anggota()
     {
         $nama_anggota = $this->input->post('nama_anggota');
@@ -33,6 +35,13 @@ class Anggota extends CI_Controller
             'jabatan' => $jabatan,
         );
         $this->M_Anggota->insert_anggota($data, 'anggota');
+        redirect('Anggota');
+    }
+
+    //delete
+    public function delete_anggota($id_anggota)
+    {
+        $this->M_Anggota->delete_anggota($id_anggota);
         redirect('Anggota');
     }
 }

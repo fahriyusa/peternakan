@@ -97,7 +97,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form  method="POST">
+            <form  method="POST" action="<?= base_url('Team/insert_team') ?>">
             <div class="modal-body">
               <label>Nama Team</label>
              <input type="text" name="nama_team" class="form-control mb-2" placeholder="Nama Team">
@@ -143,22 +143,18 @@
             <div class="modal-body">
               
               <label>Nama Team</label>
-             <input type="text" name="nama_team" class="form-control mb-2" placeholder="Nama Team">
+             <input type="text" name="edit_team" class="form-control mb-2" placeholder="Nama Team">
              <label>Nama Anggota</label>
-             <select name="id_anggota" class="form-control">
+             <select name="edit_anggota" class="form-control">
               <?php foreach ($datateam as $key ) : ?>
               <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
               <?php endforeach ?>
              </select>
-
-            <div class="modal-body">
-              <p>Rehan pki&hellip;</p>
-
             </div>
             <div class="modal-footer justify-content-between">
+            <input type="hidden" name="edit_id" required
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
-              
             </div>
             </form>
           </div>
@@ -168,7 +164,7 @@
       </div>
       <!-- /.modal -->
 
-            <!-- modal edit -->
+            <!-- modal hapus -->
             <div class="modal fade" id="modal-hapus">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -183,6 +179,7 @@
               Apakah anda yakin akan menghapus data ini?
             </div>
             <div class="modal-footer justify-content-between">
+            <input type="hidden" name="delete_id" required>
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="submit" class="btn btn-danger">Hapus</button>
             </div>
@@ -205,9 +202,9 @@
                 var id_team = $(this).data('id_team');
                 var nama_team = $(this).data('nama_team');
                 $(".strings").val('');
-                $('#UpdateModal').modal('show');
+                $('#modal-edit').modal('show');
                 $('[name="edit_id"]').val(id_team);
-                $('[name="package_edit"]').val(nama_team);
+                $('[name="edit_team"]').val(nama_team);
                 //AJAX REQUEST TO GET SELECTED PRODUCT
                 $.ajax({
                     url: "<?php echo site_url('team/get_anggota_by_team');?>",
@@ -233,7 +230,7 @@
             //GET CONFIRM DELETE
             $('.delete-record').on('click',function(){
                 var id_team = $(this).data('id_team');
-                $('#DeleteModal').modal('show');
+                $('#modal-hapus').modal('show');
                 $('[name="delete_id"]').val(id_team);
             });
  

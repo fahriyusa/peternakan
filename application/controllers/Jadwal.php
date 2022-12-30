@@ -57,4 +57,43 @@ public function update(){
 }
 
 
+<<<<<<< HEAD
     
+=======
+        $Arrinsert = array(
+            'team'=>$team,
+            'status'=>$status,
+        );
+        $this->jadwal_model->insert($Arrinsert);
+        redirect('Jadwal');
+    }
+    //halaman edit
+    public function edit($id_team)
+    {
+        $query = $this->jadwal_model->getbyid($id);
+        $data = array ('jadwal'=>$query);
+        $this->load->view('jadwal',$data);
+    }
+        //simpan edit
+        public function simpan_edit()
+        {
+            $id_team = $this->input->post('id_team');
+            $team = $this->input->post('team');
+            $status = $this->input->post('status');
+
+            $Arraupdate = array(
+                'id_team'=>$id,
+                'team'=>$team,
+                'status'=>$status
+            );
+            $this->jadwal_model->update($id_team,$Arraupdate);
+        redirect('Jadwal');
+            }
+    //hapus
+    public function delete($id_team)
+        {
+            $this->jadwal_model->delete($id_team);
+            redirect('buku');
+        }
+    }
+>>>>>>> c54117997eabbe12e2b3ee1897e118137b46cb04

@@ -43,7 +43,8 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php foreach ($data as $row):
+                     ?>
                   <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $row->tanggal ?></td>
