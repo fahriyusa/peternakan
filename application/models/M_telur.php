@@ -23,10 +23,13 @@ class M_telur extends CI_Model
 
     }
 
-    public function simpan_telur($tanggal,$sumber,$id)
-    {
+   public function delete_data($id)
+   {
+        $this->db->where('id', $id);
+        $this->db->delete('telur');
+   }
 
-        $hasil = $this->db->query("INSERT INTO telur (tanggal,sumber,id) VALUES ('$tanggal','$sumber','$id')");
-        return $hasil; 
-    }
+
+
+
 }

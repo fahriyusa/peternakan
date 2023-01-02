@@ -45,16 +45,21 @@ class Telur extends CI_Controller {
         );
         $this->M_telur->insert_telur($data, 'telur');
         redirect('Telur');
-
-
-   }
-
-    public function simpan_telur()
-    {
-        $tanggal = $this->input->post('tanggal');
-        $sumber = $this->input->post('sumber');
-        $id = $this->input->post('id');
-        $this->M_telur->simpan_telur($tanggal,$sumber);
-        redirect('telur');
     }
+
+
+    
+
+    public function edit_data($id)
+    {
+        $data['data'] = $this->M_telur->getTelur_id($id);
+        //gunakan var_dump untuk mengetahui apakah mendapatkan data/tidak
+        var_dump($data);
+    }
+    public function delete_data($id)
+     {
+        //lempar kedalam model untuk menyimpan database
+        $this->M_telur->delete_data($id);
+        redirect('Telur');
+     }
 }
