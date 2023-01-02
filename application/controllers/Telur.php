@@ -56,7 +56,7 @@ class Telur extends CI_Controller {
         );
         $this->M_telur->insert_telur($data, 'telur');
         redirect('Telur');
-<<<<<<< HEAD
+
     }
 
 
@@ -74,10 +74,6 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_data($id);
         redirect('Telur');
      }
-=======
-
-
-   }
 
    // Telur
     public function simpan_telur()
@@ -100,5 +96,5 @@ class Telur extends CI_Controller {
         }
         echo json_encode($value);
     }
->>>>>>> 707aa10bbf69f6d5293917ef8fb3dc478773be8c
+
 }
