@@ -8,7 +8,15 @@ class M_Pakan extends CI_Model
 
     public function getPakan()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+    {
+        $query = $this->db->get('data_pakan');
+        return $query->result();
+    }
+    public function getambilPakan()
+>>>>>>> ae6fd1621115c3419a222cefca3ad25fe09dc37d
     {
         $query = $this->db->get('data_pakan');
         return $query->result();

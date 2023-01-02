@@ -15,6 +15,7 @@ class Pakan extends CI_Controller {
 	{
         //mengambil data
 <<<<<<< HEAD
+<<<<<<< HEAD
         $data['data'] = $this->db->get('data_pakan')->result();
 =======
         $query = $this->M_Pakan->getPakan();
@@ -44,6 +45,25 @@ class Pakan extends CI_Controller {
         redirect('pakan');
     }
    
+=======
+
+    public function ambil_pakan()
+	{
+        //mengambil data
+        $query = $this->M_Pakan->getambilPakan();
+=======
+        $query = $this->M_Pakan->getPakan();
+>>>>>>> ae6fd1621115c3419a222cefca3ad25fe09dc37d
+        $data = array('data' => $query);
+
+        //menampilkan view
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+		    $this->load->view('ambil_pakan', $data);
+        $this->load->view('layout/footer');
+	}
+<<<<<<< HEAD
+>>>>>>> ae6fd1621115c3419a222cefca3ad25fe09dc37d
 =======
 
     public function ambil_pakan()
