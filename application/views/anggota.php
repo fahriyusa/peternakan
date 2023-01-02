@@ -60,7 +60,7 @@
                       </td>
                       <td>
                         <a class="btn btn-warning"
-                          href="<?= base_url('Anggota/update_anggota') ?>/<?= $row->id_anggota ?>"><i
+                          href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
                             class="fa fa-edit"></i></a>
                         <a class="btn btn-danger" href="<?= base_url('Anggota/delete_anggota') ?>/<?= $row->id_anggota ?>"
                           onclick="return confirm('Apakah Anda ingin menghapus si : (<?= $row->nama_anggota ?>)');"><i

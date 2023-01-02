@@ -29,7 +29,7 @@ class Anggota extends CI_Controller
     public function edit($id_anggota)
     {
         $where = array(
-            'id_buku' => $id_anggota
+            'id_anggota' => $id_anggota
         );
         $query = $this->M_anggota->edit_data($where, 'anggota')->result();
         $data = array('data' => $query);
