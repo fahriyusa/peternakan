@@ -47,4 +47,13 @@ class M_telur extends CI_Model
         return $hasil; 
     }
 
+    // // Hitung Jumlah Ammbil Telur
+    // public function hitungTelur($jumlah)
+    // {
+    //     $this->db->select_sum('harga');
+    //     $this->db->where('jumlah',$jumlah);
+    //     $query = $this->db->get('total');
+    //     return $query->result();
+    // }
+
 }
