@@ -28,27 +28,6 @@ class M_jadwal extends CI_Model
         return $query->result();
     }
 //create
-public function create_jadwal($jadwal,$team) {
-    $this->db->trans_start();
-    //INSERT 
-    $data = array(
-        'status' => $status
-    );
-    $this->db->insert('jadwal', $data);
-    $team = $this->input->post('team');
-    //GED id 
-    $id_jadwal= $this->db->insert_id();
-    $result = array();
-    foreach($team AS $key => $val){
-        $result[] = array(
-            'id_jadwal'   => $id_jadwal,
-            'id_team' => $_POST['team'][$key]
-           );                                
-}
-    //MULTIPLE INSERT TO DETAIL TABLE
-    $this->db->insert_batch('team', $result);
-    $this->db->trans_complete();
-}
 // DELETE
 function delete_jadwal($id){
     $this->db->trans_start();

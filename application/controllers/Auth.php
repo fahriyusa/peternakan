@@ -18,7 +18,9 @@ class Auth extends CI_Controller
         $username = $this->input->post('username'); // Ambil isi dari inputan username pada form login
         $password = md5($this->input->post('password')); // Ambil isi dari inputan password pada form login dan encrypt dengan md5
 
+        
         $user = $this->M_auth->get($username); // Panggil fungsi get yang ada di UserModel.php
+        
         if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
             $this->session->set_flashdata('message', 'Username tidak ditemukan'); // Buat session flashdata
             redirect('auth'); // Redirect ke halaman login
@@ -34,9 +36,22 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($session); // Buat session sesuai $session
                 redirect('dashboard'); // Redirect ke halaman dashboard
             } else {
-                $this->session->set_flashdata('message', 'Password e salah bro'); // Buat session flashdata
+                $this->session->set_flashdata('message','Password e Salah Bolo'); // Buat session flashdata
                 redirect('auth'); // Redirect ke halaman login
             }
         }
     }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect ('Auth');
+
+    }
+
+    public function registrasi()
+    
+    {
+        $this->load->view('auth/registrasi');
+    } 
 }

@@ -6,6 +6,10 @@ class Pakan extends CI_Controller {
     {
         parent::__construct();   
         $this->load->model('M_Pakan');
+
+        if ($this->session->userdata('authenticated') != true) {
+			redirect(base_url("auth"));
+		}
     }
 	public function index()
 	{
