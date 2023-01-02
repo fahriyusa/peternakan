@@ -50,11 +50,8 @@
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                        data-target="#modal-edit">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                        data-target="#modal-delete">Delete</button>
-                    
+                    <a class="btn btn-warning" href="<?=base_url('Telur/id')?>/<?=$row->id?>">Edit</a>
+                    <a class="btn btn-danger" href="<?=base_url('Telur/delete_data')?>/<?=$row->id?>">delete</a>
                   </td>                    
                   </tr>
                   <?php endforeach; ?>
@@ -111,6 +108,14 @@
               <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
             </div>
           </div>
+
+
+
+
+
+
+
+          
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

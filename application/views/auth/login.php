@@ -27,8 +27,8 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Login Untuk masuk ke dashboard</p>
-
-                <form action="<?= site_url('login/login_aksi'); ?>" method="post">
+                <?php echo $this->session->flashdata('message') ?>
+                <form action="<?= site_url('Auth/login'); ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" id="username" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
@@ -65,7 +65,7 @@
                     <a href="#">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="registrasi" class="text-center">Register a new membership</a>
+                    <a href="<?= base_url('Auth/registrasi')?>" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
