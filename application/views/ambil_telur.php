@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Telur</h1>
+          <h1>Ambil Telur</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-            <li class="breadcrumb-item active">Data Telur</li>
+            <li class="breadcrumb-item active">Ambil Telur</li>
           </ol>
         </div>
       </div>
@@ -41,21 +41,29 @@
                     <th>jumlah</th>
                     <th>Harga</th>
                     <th>Total</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php foreach($data as $row){?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->id_anggota ?></td>
+                    <td><?= $row->nama_anggota ?></td>
                     <td><?= $row->tanggal_ambil ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td><?= $row->harga ?></td>
                     <td><?= $row->total ?></td>
-                    <td>Aksi</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      Edit
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">
+                      Hapus
+                      </button>
+                    </td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -79,7 +87,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Tambah Team</h4>
+              <h4 class="modal-title">Tambah Transaksi Telur</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -88,25 +96,16 @@
               <div class="container">
                 <div class="row mt-4">
                   <div class="col">
-                    
+                  <label> Nama </label>
+                    <select class="form-control" name="anggota">
+                      <?php foreach($anggota as $row){ ?>
+                        <option> pilih anggota </option>
+                      <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
+                    <?php } ?>
+                    </select>
 
-                    <label> Tanggal Datang </label>
-                      <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
-
-                    <label > Sumber </label>
-                    <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="sumber" id="search-box" placeholder="Contoh Sumber : PT Jaya Abadi" type="text" value="">
-                            <span class="input-group-btn">
-                            </span>
-											</div>
-                    
                       <label> Tanggal Ambil </label>
                       <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
-                      
-                      <label> Nama </label>
-                    <select name="nama_anggota" class="form-control">
-                      <option value="">Pilih</option>
-                    </select>
 
                     <label> Jumlah </label>
                       <div class="input-group">
@@ -126,14 +125,7 @@
                           <input type="text" class="form-control" required autocomplete="off" name="Total" id="search-box" type="text" value="">
                             <span class="input-group-btn">
                             </span>
-											</div>
-
-                      <label> Pembeli </label>
-                    <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="pembeli" id="search-box" type="text" value="">
-                            <span class="input-group-btn">
-                            </span>
-											</div>
+                    </div>  
                   </div>
                 </div>
               </div>
