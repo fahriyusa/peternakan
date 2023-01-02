@@ -6,6 +6,10 @@ class Panen extends CI_Controller {
     {
         parent::__construct();   
         $this->load->model('M_panen');
+        
+        if ($this->session->userdata('authenticated') != true) {
+			redirect(base_url("auth"));
+		}
     }
 	public function index()
 	{
