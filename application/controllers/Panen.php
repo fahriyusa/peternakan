@@ -69,9 +69,10 @@ class Panen extends CI_Controller
         $data = array ('panen'=>$query);
         $this->load->view('panen',$data);
     }
-    public function delete_data($id)
+    //delete
+    public function delete_panen($id)
     {
-        $this->db->where('id',$id);
-        $this->db->delete('panen');
+        $this->M_panen->delete_panen($id);
+        redirect('Panen');
     }
 }

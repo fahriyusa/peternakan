@@ -59,8 +59,13 @@
                     <td><?= $row->total ?></td>
                     <td><?= $row->buyer ?></td>
                     <td>
-                      <a class ="btn btn-warning" href ="<?base_url('Panen/update')?>/<?$row->id?>">Edit</a>
-                      <a class ="btn btn-danger" href ="<?base_url('Panen/delete_data')?>/<?$row->id?>">Delete</a>
+                      <a data-toggle="modal" data-target="#modal-edit<?= $row->id; ?>"
+                        class="btn btn-warning btn-circle" data-popup="tooltip" data-placement="top"
+                        title="Edit Data"><i class="fa fa-pencil"></i></a>
+
+                      <a class="btn btn-danger" href="<?= base_url('Panen/delete_panen') ?>/<?= $row->id ?>"
+                        onclick="return confirm('Apakah Anda ingin menghapus si : (<?= $row->tanggal ?>)');"><i 
+                          class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php 

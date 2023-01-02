@@ -47,9 +47,6 @@ class M_telur extends CI_Model
    }
 
 
-    //     $hasil = $this->db->query("INSERT INTO telur (tanggal,sumber,id) VALUES ('$tanggal','$sumber','$id')");
-    //     return $hasil; 
-    // }
 
     // // Hitung Jumlah Ammbil Telur
     // public function hitungTelur($jumlah)

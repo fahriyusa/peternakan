@@ -45,9 +45,9 @@ class M_panen extends CI_Model
     }
 
     //delete
-    public function delete_data($id)
+    public function delete_panen($id)
     {
-        $this->db->where('id',$id);
+        $this->db->where('id', $id);
         $this->db->delete('panen');
     }
 }
