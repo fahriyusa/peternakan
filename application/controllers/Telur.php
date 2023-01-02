@@ -47,7 +47,8 @@ class Telur extends CI_Controller {
     public function insert_telur()
     {
         
-        $tanggal = $this->input->post('tanggal');
+        $tanggal = $this->
+        input->post('tanggal');
         $sumber = $this->input->post('sumber');
  
         $data = array(
@@ -56,7 +57,6 @@ class Telur extends CI_Controller {
         );
         $this->M_telur->insert_telur($data, 'telur');
         redirect('Telur');
-<<<<<<< HEAD
     }
 
 
@@ -74,31 +74,4 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_data($id);
         redirect('Telur');
      }
-=======
-
-
-   }
-
-   // Telur
-    public function simpan_telur()
-    {
-        $tanggal = $this->input->post('tanggal');
-        $sumber = $this->input->post('sumber');
-        $id = $this->input->post('id');
-        $this->M_telur->simpan_telur($tanggal,$sumber);
-        redirect('telur');
-    }
-
-    
-    // Ambil Telur
-    public function get_anggota_by_id()
-    {
-        $id_anggota = $this->input->post('id_anggota');
-        $data  = $this->M_telur->get_anggota_by_id($id_anggota)->result();
-        foreach ($data as $result){
-            $value[] = (float) $result->id_anggota;
-        }
-        echo json_encode($value);
-    }
->>>>>>> 707aa10bbf69f6d5293917ef8fb3dc478773be8c
 }
