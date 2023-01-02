@@ -10,13 +10,26 @@ class Pakan extends CI_Controller {
 	public function index()
 	{
         //mengambil data
-        $query = $this->M_Pakan->getAnggota();
+        $query = $this->M_Pakan->getPakan();
         $data = array('data' => $query);
 
         //menampilkan view
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
 		    $this->load->view('pakan', $data);
+        $this->load->view('layout/footer');
+	}
+
+    public function ambil_pakan()
+	{
+        //mengambil data
+        $query = $this->M_Pakan->getambilPakan();
+        $data = array('data' => $query);
+
+        //menampilkan view
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+		    $this->load->view('ambil_pakan', $data);
         $this->load->view('layout/footer');
 	}
 }

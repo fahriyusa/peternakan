@@ -94,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pakan" class="nav-link">
+          <a href="Pakan/ambil_pakan" class="nav-link">
             <i class="fa-solid fa-cheese"></i>&emsp;
             <p>
              Ambil Pakan

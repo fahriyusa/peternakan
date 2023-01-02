@@ -21,6 +21,17 @@ class Anggota extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+    //update
+    public function edit($id_anggota)
+    {
+        $where = array(
+            'id_buku' => $id_anggota
+        );
+        $query = $this->M_anggota->edit_data($where, 'anggota')->result();
+        $data = array('data' => $query);
+        $this->load->view('update/anggota', $data);
+    }
+
     //insert
     public function insert_anggota()
     {
@@ -36,6 +47,16 @@ class Anggota extends CI_Controller
         );
         $this->M_Anggota->insert_anggota($data, 'anggota');
         redirect('Anggota');
+    }
+
+    //update
+    public function update_anggota($data, $id_anggota)
+    {
+        $this->db->set($data);
+        $this->db->where('id_anggota', $id_anggota);
+        $this->db->update('anggota');
+    
+        return $this->db->affected_rows();
     }
 
     //delete

@@ -53,7 +53,7 @@ $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
-
-
+//page
 $route['ambiltelur'] = 'Telur/ambilTelur';
+$route['ambilpakan'] = 'Telur/ambilPakan';
+
