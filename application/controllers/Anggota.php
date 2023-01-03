@@ -33,7 +33,10 @@ class Anggota extends CI_Controller
         );
         $query = $this->M_Anggota->update_anggota($where, 'anggota')->result();
         $data = array('data' => $query);
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
         $this->load->view('update/anggota', $data);
+        $this->load->view('layout/footer');
     }
 
     //insert
