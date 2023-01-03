@@ -7,11 +7,12 @@ class Telur extends CI_Controller {
         parent::__construct();   
         $this->load->model('M_telur');
 
-        if ($this->session->userdata('authenticated') != true) {
-			redirect(base_url("auth"));
-		}
+        // if ($this->session->userdata('authenticated') != true) {
+		// 	redirect(base_url("auth"));
+		// }
     }
-	public function index()
+	
+    public function index()
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();
@@ -59,14 +60,16 @@ class Telur extends CI_Controller {
         redirect('Telur');
     }
 
-
-    
-
     public function edit_data($id)
     {
-        $data['data'] = $this->M_telur->getTelur_id($id);
+        $id = $this->uri->segment(3);
+        $data['id'] = $this->M_telur->getTelur_id($id);
         //gunakan var_dump untuk mengetahui apakah mendapatkan data/tidak
-        var_dump($data);
+               //menampilkan view
+               $this->load->view('layout/header');
+               $this->load->view('layout/sidebar');
+               $this->load->view('update/telur', $data);
+               $this->load->view('layout/footer');
     }
     public function delete_data($id)
      {
@@ -74,4 +77,5 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_data($id);
         redirect('Telur');
      }
+
 }

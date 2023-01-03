@@ -68,7 +68,7 @@
         <!-- menu -->
         <li class="nav-header">Anggota</li>
         <li class="nav-item">
-          <a href="anggota" class="nav-link">
+          <a href="<?= base_url ('anggota')?>" class="nav-link">
             <i class="fa-solid fa-user"></i>&emsp;
             <p>
               Anggota
@@ -77,7 +77,7 @@
         </li>
         <li class="nav-header">Team</li>
         <li class="nav-item">
-          <a href="team" class="nav-link">
+          <a href="<?= base_url ('team')?>" class="nav-link">
           <i class="fa-solid fa-users"></i>&emsp;
             <p>
               Team
@@ -86,7 +86,7 @@
         </li>
         <li class="nav-header">Pakan</li>
         <li class="nav-item">
-          <a href="pakan" class="nav-link">
+          <a href="<?= base_url ('pakan')?>" class="nav-link">
             <i class="fa-solid fa-cheese"></i>&emsp;
             <p>
               Data Pakan
@@ -94,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="Pakan/ambil_pakan" class="nav-link">
+          <a href="<?= base_url ('Pakan/ambil_pakan')?>" class="nav-link">
             <i class="fa-solid fa-cheese"></i>&emsp;
             <p>
              Ambil Pakan
@@ -103,7 +103,7 @@
         </li>
         <li class="nav-header">Telur</li>
         <li class="nav-item">
-          <a href="telur" class="nav-link">
+          <a href="<?= base_url ('telur')?>" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Telur
@@ -111,7 +111,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="telur/ambilTelur" class="nav-link">
+          <a href="<?= base_url ('telur/ambilTelur')?>" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
             <p>
               Ambil Telur
@@ -120,7 +120,7 @@
         </li>
         <li class="nav-header">Panen</li>
         <li class="nav-item">
-          <a href="panen" class="nav-link">
+          <a href="<?= base_url ('panen')?>" class="nav-link">
             <i class="fa-solid fa-sack-dollar"></i>&emsp;
             <p>
               Panen
@@ -129,7 +129,7 @@
         </li>
         <li class="nav-header">Jadwal</li>
         <li class="nav-item">
-          <a href="jadwal" class="nav-link">
+          <a href="<?= base_url ('jadwal')?>" class="nav-link">
             <i class="fa-solid fa-calendar-alt"></i>&emsp;
             <p>
               Jadwal

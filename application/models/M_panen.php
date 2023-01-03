@@ -10,6 +10,16 @@ class M_panen extends CI_Model
         $query = $this->db->get('anggota');
         return $query;
     }
+
+    //get anggota by panen id
+    public function get_anggota_by_panen($id)
+    {
+        $this->db->select('*');
+        $this->db->from('anggota');
+        $this->db->join('panen', 'panen.id_anggota = anggota.id_anggota');
+        $query = $this->db->get();
+        return $query;
+    }
    
     //get
     public function get_panen()
@@ -32,16 +42,9 @@ class M_panen extends CI_Model
         return $query->row();
     }
     //update
-    public function update($id,$data)
+    public function update_panen($where,$table)
     {
-        $this->db->where('id',$id);
-        $this->update('panen',$this);   
-    }
-
-    public function simpan_update($id,$data)
-    {
-        $this->db->where('id',$id);
-        $this->db->update_panen('panen',$data);
+        return $this->db->get_where($table, $where);
     }
 
     //delete
