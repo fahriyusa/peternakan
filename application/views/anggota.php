@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah">
-                <i class="fa fa-add"></i> tambah</a>
+                <i class="fa fa-add"></i> Tambah Anggota</a>
               </button>
             </div>
             <!-- /.card-header -->
