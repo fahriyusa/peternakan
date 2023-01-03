@@ -47,10 +47,11 @@
                   <?php foreach ($data as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->id_team ?></td>
-                    <td><?= $row->tgl_ambil_pakan ?></td>
+                    <td><?= $row->team ?></td>
+                    <td><?= $row->tgl_produksi_pakan ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td>
+                    
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit
                       </button>
                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
@@ -87,25 +88,25 @@
               </button>
             </div>
             <!-- form start -->
-            <form>
+            <from method="post" action="<?= base_url('Pakan/insert_pakan')?>">
               <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputTeam">Team</label>
-                <input type="team" class="form-control" id="exampleInputTeam" placeholder="Team">
+                <input type="team" class="form-control" id="team" name="team" placeholder="Team">
               </div>
               <div class="form-group">
                 <label for="exampleInputTanggal">Tanggal Produksi Pakan</label>
-                <input type="date" class="form-control" id="exampleInputTanggal" placeholder="Tanggal Produksi Pakan">
+                <input type="date" class="form-control" id="tgl_produksi_pakan" name="tgl_produksi_pakan" placeholder="Tanggal Produksi Pakan">
               </div>
               <div class="form-group">
                 <label for="exampleInputJumlah">Jumlah</label>
-                <input type="number" class="form-control" id="exampleInputJumlah" placeholder="Jumlah">
+                <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah">
               </div>
                   </div>
               <!-- /.card-body -->
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Simpan</button>
+              <button type="button" class="btn btn-primary" >Simpan</button>
             </div>
           </div>
           <!-- /.modal-content -->

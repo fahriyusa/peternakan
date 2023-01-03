@@ -8,9 +8,9 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 
-		if ($this->session->userdata('authenticated') != true) {
-			redirect(base_url("auth"));
-		}
+		// if ($this->session->userdata('authenticated') != true) {
+		// 	redirect(base_url("auth"));
+		// }
 	}
 	public function index()
 	{

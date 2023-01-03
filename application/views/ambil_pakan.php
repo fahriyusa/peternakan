@@ -87,7 +87,7 @@
               </button>
             </div>
             <!-- form start -->
-            <form>
+            <from method="post" action="<?= base_url('Pakan/insert_pakan')?>">
               <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputAnggota">Anggota</label>

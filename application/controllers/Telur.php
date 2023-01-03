@@ -7,9 +7,9 @@ class Telur extends CI_Controller {
         parent::__construct();   
         $this->load->model('M_telur');
 
-        if ($this->session->userdata('authenticated') != true) {
-			redirect(base_url("auth"));
-		}
+        // if ($this->session->userdata('authenticated') != true) {
+		// 	redirect(base_url("auth"));
+		// }
     }
 	
     public function index()
@@ -48,7 +48,8 @@ class Telur extends CI_Controller {
     public function insert_telur()
     {
         
-        $tanggal = $this->input->post('tanggal');
+        $tanggal = $this->
+        input->post('tanggal');
         $sumber = $this->input->post('sumber');
  
         $data = array(
@@ -57,7 +58,6 @@ class Telur extends CI_Controller {
         );
         $this->M_telur->insert_telur($data, 'telur');
         redirect('Telur');
-
     }
 
     public function edit_data($id)
@@ -77,26 +77,5 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_data($id);
         redirect('Telur');
      }
-
-   // Telur
-    public function simpan_telur()
-    {
-        $this->db->where('id',$id);
-        $this->update('telur',$this);  
-        redirect('telur');
-    }
-
-    
-    // Ambil Telur
-    public function get_anggota_by_id()
-    {
-        $id_anggota = $this->input->post('id_anggota');
-        $data  = $this->M_telur->get_anggota_by_id($id_anggota)->result();
-        foreach ($data as $result){
-            $value[] = (float) $result->id_anggota;
-        }
-        echo json_encode($value);
-    }
-
 
 }
