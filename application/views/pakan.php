@@ -39,7 +39,7 @@
                     <th>Team</th>
                     <th>Tanggal Produksi Pakan</th>
                     <th>Jumlah</th>
-                    <th>Aksi</th>
+                    <th>Aksi</th> 
                   </tr>
                 </thead>
                 <tbody>
@@ -54,8 +54,11 @@
                     
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edit
                       </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
-                      </button>
+                      <a class="btn btn-danger" href="<?= base_url('Pakan/delete_pakan') ?>/<?= $row->id ?>"
+                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id ?>)');"><i
+                      class="fa fa-trash"></i></a>
+                      <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
+                      </button> -->
                     </td>
                   </tr>
                   <?php endforeach; ?>
@@ -106,7 +109,7 @@
               <!-- /.card-body -->
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary" >Simpan</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -114,3 +117,4 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+      
