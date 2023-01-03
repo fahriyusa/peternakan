@@ -59,9 +59,9 @@
                     <td><?= $row->total ?></td>
                     <td><?= $row->buyer ?></td>
                     <td>
-                      <a data-toggle="modal" data-target="#modal-edit<?= $row->id; ?>"
-                        class="btn btn-warning btn-circle" data-popup="tooltip" data-placement="top"
-                        title="Edit Data"><i class="fa fa-pencil"></i></a>
+                      <a class="btn btn-warning"
+                          href="<?= base_url('Panen/edit') ?>/<?= $row->id ?>"><i
+                            class="fa fa-edit"></i></a>
 
                       <a class="btn btn-danger" href="<?= base_url('Panen/delete_panen') ?>/<?= $row->id ?>"
                         onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->tanggal ?>)');"><i 
@@ -144,7 +144,7 @@
 </div>
 <!-- /.modal -->
 
- <!-- modal edit
+ <!--modal edit-->
  <?php foreach ($data as $row) { ?>
   <div class="modal fade" id="modal-edit<?= $row->id ?>">
     <div class="modal-dialog">
@@ -198,7 +198,7 @@
                 <button type="reset" class="btn btn-warning">Riset</button>
                 <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
               </div>
-            </form> -->
+            </form>
           </div>
           <!-- /.modal-content -->
         </div>

@@ -78,16 +78,23 @@ class Panen extends CI_Controller
             $this->M_panen->update($id,$data);
             redirect('Panen');
     }
-    public function edit()
+    //update
+    public function edit($id)
     {
-        $query = $this->M_panen->getById($id);
-        $data = array ('panen'=>$query);
-        $this->load->view('panen',$data);
+        $where = array(
+            'id' => $id
+        );
+        $query = $this->M_panen->update_panen($where, 'panen')->result();
+        $data = array('data' => $query);
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+        $this->load->view('update/panen', $data);
+        $this->load->view('layout/footer');
     }
     //delete
     public function delete_panen($id)
     {
-        $this->M_panen->delete_panen($id_anggota);
+        $this->M_panen->delete_panen($id);
         redirect('Panen');
     }
 }
