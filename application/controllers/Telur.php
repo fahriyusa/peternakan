@@ -11,7 +11,8 @@ class Telur extends CI_Controller {
 			redirect(base_url("auth"));
 		}
     }
-	public function index()
+	
+    public function index()
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();
@@ -59,14 +60,16 @@ class Telur extends CI_Controller {
 
     }
 
-
-    
-
     public function edit_data($id)
     {
-        $data['data'] = $this->M_telur->getTelur_id($id);
+        $id = $this->uri->segment(3);
+        $data['id'] = $this->M_telur->getTelur_id($id);
         //gunakan var_dump untuk mengetahui apakah mendapatkan data/tidak
-        var_dump($data);
+               //menampilkan view
+               $this->load->view('layout/header');
+               $this->load->view('layout/sidebar');
+               $this->load->view('update/telur', $data);
+               $this->load->view('layout/footer');
     }
     public function delete_data($id)
      {
@@ -78,10 +81,8 @@ class Telur extends CI_Controller {
    // Telur
     public function simpan_telur()
     {
-        $tanggal = $this->input->post('tanggal');
-        $sumber = $this->input->post('sumber');
-        $id = $this->input->post('id');
-        $this->M_telur->simpan_telur($tanggal,$sumber);
+        $this->db->where('id',$id);
+        $this->update('telur',$this);  
         redirect('telur');
     }
 
@@ -96,5 +97,6 @@ class Telur extends CI_Controller {
         }
         echo json_encode($value);
     }
+
 
 }

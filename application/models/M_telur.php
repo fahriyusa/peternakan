@@ -46,6 +46,16 @@ class M_telur extends CI_Model
         $this->db->delete('telur');
    }
 
+   public function getTelur_id($id)
+   {
+    return $this->db->get_where("telur",["id"=> $id])->row();
+   }
+
+   public function simpan_telur()
+   {
+    
+   }
+
 
 
     // // Hitung Jumlah Ammbil Telur

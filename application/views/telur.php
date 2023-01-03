@@ -50,8 +50,8 @@
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <a class="btn btn-warning" href="<?=base_url('Telur/id')?>/<?=$row->id?>">Edit</a>
-                    <a class="btn btn-danger" href="<?=base_url('Telur/delete_data')?>/<?=$row->id?>">delete</a>
+                    <a class="btn btn-warning" href="<?=base_url('Telur/edit_data/')?><?= $row->id?>">Edit</a>
+                    <a class="btn btn-danger" href="<?=base_url('Telur/delete_data')?><?=$row->id?>">Delete</a>
                   </td>                    
                   </tr>
                   <?php endforeach; ?>
