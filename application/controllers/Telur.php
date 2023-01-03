@@ -63,13 +63,13 @@ class Telur extends CI_Controller {
     public function edit_data($id)
     {
         $id = $this->uri->segment(3);
-        $data['id'] = $this->M_telur->getTelur_id($id);
-        //gunakan var_dump untuk mengetahui apakah mendapatkan data/tidak
-               //menampilkan view
-               $this->load->view('layout/header');
-               $this->load->view('layout/sidebar');
-               $this->load->view('update/telur', $data);
-               $this->load->view('layout/footer');
+        $where = array('id' => $id);
+        $data['telur']=$this->M_telur->edit_data($where,'telur')->result();
+
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+        $this->load->view('update/telur', $data);
+        $this->load->view('layout/footer');
     }
     public function delete_data($id)
      {
@@ -77,5 +77,4 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_data($id);
         redirect('Telur');
      }
-
 }

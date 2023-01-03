@@ -51,9 +51,9 @@ class M_telur extends CI_Model
     return $this->db->get_where("telur",["id"=> $id])->row();
    }
 
-   public function simpan_telur()
+   public function edit_data($where,$table)
    {
-    
+    return $this->db->get_where($table,$where);
    }
 
 
