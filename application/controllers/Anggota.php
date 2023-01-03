@@ -31,7 +31,7 @@ class Anggota extends CI_Controller
         $where = array(
             'id_anggota' => $id_anggota
         );
-        $query = $this->M_anggota->edit_data($where, 'anggota')->result();
+        $query = $this->m_Anggota-->update_anggota($where, 'anggota')->result();
         $data = array('data' => $query);
         $this->load->view('update/anggota', $data);
     }
@@ -54,13 +54,26 @@ class Anggota extends CI_Controller
     }
 
     //update
-    public function update_anggota($data, $id_anggota)
+    public function update_anggota()
     {
-        $this->db->set($data);
-        $this->db->where('id_anggota', $id_anggota);
-        $this->db->update('anggota');
-    
-        return $this->db->affected_rows();
+        $id_anggota = $this->input->post('id_anggota');
+        $nama_anggota = $this->input->post('nama_anggota');
+        $tanggal_gabung = $this->input->post('status');
+        $status = $this->input->post('status');
+        $jabatan = $this->input->post('jabatan');
+        
+        $data = array(
+            'nama_anggota' => $nama_anggota,
+            'tanggal_gabung' => $tanggal_gabung,
+            'status' => $status,
+            'jabatan' => $jabatan,
+        );
+
+        $where = array(
+            'id_anggota' => $id_anggota
+        );
+        $this->M_Anggota->update_anggota($where, $data, 'user');
+        redirect('Anggota');
     }
 
     //delete
