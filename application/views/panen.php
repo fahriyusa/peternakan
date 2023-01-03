@@ -64,7 +64,7 @@
                         title="Edit Data"><i class="fa fa-pencil"></i></a>
 
                       <a class="btn btn-danger" href="<?= base_url('Panen/delete_panen') ?>/<?= $row->id ?>"
-                        onclick="return confirm('Apakah Anda ingin menghapus si : (<?= $row->tanggal ?>)');"><i 
+                        onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->tanggal ?>)');"><i 
                           class="fa fa-trash"></i></a>
                     </td>
                   </tr>
@@ -106,14 +106,12 @@
             <input type="date" value="<?= date('Y-m-d');?>" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
           </div>
           <div class="form-group">
-            <label>Anggota</label>
-            <select class="form-control" type="select" name="id_anggota">
-              <option value="">--Pilih--</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
+          <label>Nama Anggota</label>
+             <select name="edit_anggota" class="form-control">
+              <?php foreach ($datateam as $key ) : ?>
+              <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
+              <?php endforeach ?>
+             </select>
           </div>
           <div class="form-group">
             <label for="jumlah">Jumlah</label>
@@ -133,7 +131,7 @@
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
           </div>
       </form>
@@ -146,21 +144,24 @@
 </div>
 <!-- /.modal -->
 
- <!-- modal edit -->
- <div class="modal fade" id="modal-edit">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Data Panen</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-              <form method="post" action="<?= base_url('panen/edit') ?>">
+ <!-- modal edit
+ <?php foreach ($data as $row) { ?>
+  <div class="modal fade" id="modal-edit<?= $row->id ?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Panen</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+              <form method="post" action="<?= base_url('Panen/update_panen') ?>">
+              <input type="hidden" name="id" id="id" value="<?= $row->id ?>" class="form-control">
               <div class="card-body">
               <div class="form-group">          
                 <label>Tanggal</label>
-                <input type="date" name="tanggal"  value="<?= date('Y-m-d');?>" class="form-control mb-2" placeholder="Tanggal">
+                <input type="date" value="<?= $row->tanggal ?>" class="form-control" id="tanggal"
+                name="tanggal" placeholder="Tanggal">
               </div>
               <div class="form-group">
                 <label>Anggota</label>
@@ -174,30 +175,36 @@
               </div>
                <div class="form-group">
                 <label for="jumlah">Jumlah</label>
-                <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah">
+                <input type="number" value="<?= $row->jumlah ?>" class="form-control" id="jumlah" name="jumlah"
+                placeholder="Jumlah">
               </div>
               <div class="form-group">
                 <label for="harga">Harga</label>
-                <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
+                <input type="number" value="<?= $row->harga ?>" class="form-control" id="harga" name="harga"
+                placeholder="Harga">
               </div>
               <div class="form-group">
                 <label for="total">Total</label>
-                <input type="number" class="form-control" id="total" name="total" placeholder="Total">
+                <input type="number" value="<?= $row->total ?>" class="form-control" id="total" name="total"
+                placeholder="Total">
               </div>
               <div class="form-group">
                 <label for="buyer">Buyer</label>
-                <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
+                <input type="text" value="<?= $row->buyer ?>" class="form-control" id="buyer" name="buyer"
+                placeholder="Buyer">
               </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                  <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
-                </div>
-            </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="reset" class="btn btn-warning">Riset</button>
+                <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
+              </div>
+            </form> -->
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-      </div>
+        <?php } ?>
+        </div>
       <!-- /.modal -->
-\
+
 
