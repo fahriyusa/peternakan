@@ -81,7 +81,7 @@ class Telur extends CI_Controller {
      // untuk menyimpan ambil telur
      public function simpan_ambiltelur()
      {
-        $id_anggota     =$this->input->post('id_angota');
+        $id_anggota     =$this->input->post('id_anggota');
         $tanggal_ambil  =$this->input->post('tanggal_ambil');
         $jumlah         =$this->input->post('jumlah');
         $harga          =$this->input->post('harga');
@@ -95,7 +95,7 @@ class Telur extends CI_Controller {
             'total' => $total
         );
         $this->M_telur->simpan_ambiltelur($data,'ambil_telur');
-        redirect('ambil_telur');
+        redirect('ambiltelur');
      }
 
      public function delete_ambiltelur($id_anggota)

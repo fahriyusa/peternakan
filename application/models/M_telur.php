@@ -16,7 +16,7 @@ class M_telur extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('anggota');
-        $this->db->join('ambil_telur', 'ambil_telur.id_anggota = anggota.id_anggota');
+        $this->db->join('ambil_telur', 'ambil_telur.id_anggota = anggota.id_anggota', 'LEFT');
         $query = $this->db->get();
         return $query->result();
     }
@@ -58,7 +58,7 @@ class M_telur extends CI_Model
 
 
 
-    // // Hitung Jumlah Ammbil Telur
+    // // Hitung Jumlah Ambil Telur
     // public function hitungTelur($jumlah)
     // {
     //     $this->db->select_sum('harga');
@@ -69,7 +69,7 @@ class M_telur extends CI_Model
 
     public function simpan_ambiltelur($data)
     {
-       $query = $this->db->table('ambil_telur')->insert($data);
+       $query = $this->db->insert('ambil_telur',$data);
        return $query;
     }
 

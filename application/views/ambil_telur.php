@@ -92,15 +92,16 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <from method="post" action="<?= base_url('Telur/simpan_ambiltelur')?>">
+            <form method="post" action="<?= base_url('Telur/simpan_ambiltelur')?>">
             <div class="modal-body">
               <div class="container">
                 <div class="row mt-4">
                   <div class="col">
                   <label> Nama </label>
                     <select class="form-control" name="id_anggota">
+                    <option> pilih anggota </option>
                       <?php foreach($anggota as $row){ ?>
-                        <option> pilih anggota </option>
+                        
                       <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
                     <?php } ?>
                     </select>
