@@ -25,7 +25,6 @@ class Anggota extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    //update
     public function edit($id_anggota)
     {
         $where = array(
@@ -64,18 +63,13 @@ class Anggota extends CI_Controller
         $tanggal_gabung = $this->input->post('status');
         $status = $this->input->post('status');
         $jabatan = $this->input->post('jabatan');
-        
         $data = array(
             'nama_anggota' => $nama_anggota,
             'tanggal_gabung' => $tanggal_gabung,
             'status' => $status,
-            'jabatan' => $jabatan,
+            'jabatan' => $jabatan
         );
-
-        $where = array(
-            'id_anggota' => $id_anggota
-        );
-        $this->M_Anggota->update_anggota($where, $data, 'user');
+        $this->M_Anggota->update_data($id_anggota, $data);
         redirect('Anggota');
     }
 

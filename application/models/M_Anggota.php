@@ -27,6 +27,11 @@ class M_Anggota extends CI_Model
     {
         return $this->db->get_where($table, $where);
     }
+    public function update_data($id_anggota,$data)
+    {
+        $this->db->where('id_anggota',$id_anggota);
+		$this->db->update('anggota',$data);
+    }
 
     //delete
     public function delete_anggota($id_anggota)
