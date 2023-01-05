@@ -38,10 +38,10 @@
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Anggota</th>
+                    <th>Buyer</th>
                     <th>Jumlah</th>
                     <th>Harga</th>
                     <th>Total</th>
-                    <th>Buyer</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -54,10 +54,10 @@
                     <td><?= $no++ ?></td>
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->id_anggota ?></td>
+                    <td><?= $row->buyer ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td><?= $row->harga ?></td>
                     <td><?= $row->total ?></td>
-                    <td><?= $row->buyer ?></td>
                     <td>
                       <a class="btn btn-warning"
                           href="<?= base_url('Panen/edit') ?>/<?= $row->id ?>"><i
@@ -107,11 +107,15 @@
           </div>
           <div class="form-group">
           <label>Nama Anggota</label>
-             <select name="edit_anggota" class="form-control">
-              <?php foreach ($datateam as $key ) : ?>
-              <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
+             <select class="select2" name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
+              <?php foreach ($anggota as $row ) : ?>
+              <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
               <?php endforeach ?>
              </select>
+          </div>
+          <div class="form-group">
+            <label for="buyer">Buyer</label>
+            <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
           </div>
           <div class="form-group">
             <label for="jumlah">Jumlah</label>
@@ -124,10 +128,6 @@
           <div class="form-group">
             <label for="total">Jumlah*Harga</label>
             <input type="number" class="form-control" id="total" name="total" placeholder="Total">
-          </div>
-          <div class="form-group">
-            <label for="buyer">Buyer</label>
-            <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
@@ -173,6 +173,11 @@
                   <option value="">4</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="buyer">Buyer</label>
+                <input type="text" value="<?= $row->buyer ?>" class="form-control" id="buyer" name="buyer"
+                placeholder="Buyer">
+              </div>
                <div class="form-group">
                 <label for="jumlah">Jumlah</label>
                 <input type="number" value="<?= $row->jumlah ?>" class="form-control" id="jumlah" name="jumlah"
@@ -187,11 +192,6 @@
                 <label for="total">Total</label>
                 <input type="number" value="<?= $row->total ?>" class="form-control" id="total" name="total"
                 placeholder="Total">
-              </div>
-              <div class="form-group">
-                <label for="buyer">Buyer</label>
-                <input type="text" value="<?= $row->buyer ?>" class="form-control" id="buyer" name="buyer"
-                placeholder="Buyer">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

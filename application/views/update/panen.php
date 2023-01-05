@@ -22,42 +22,43 @@
           <!-- /.card -->
           <div class="card card-info">
             
-          <form method="post" action="<?= base_url('panen') ?>">
+          <form method="post" action="<?= base_url('Panen/update_panen') ?>">
         <div class="card-body">
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="date" value="<?= date('Y-m-d');?>" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
+            <input type="date" class="form-control" name="tanggal" id="tanggal" value="<?= $data->tanggal ?>"
+              placeholder="Tanggal">
           </div>
           <div class="form-group">
-          <label>Nama Anggota</label>
-             <select name="edit_anggota" class="form-control">
-              <?php foreach ($datateam as $key ) : ?>
-              <option value="<?php echo $key->id_anggota?>"><?php echo $key->nama_anggota ?></option>
-              <?php endforeach ?>
-             </select>
-          </div>
-          <div class="form-group">
-            <label for="jumlah">Jumlah</label>
-            <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah">
-          </div>
-          <div class="form-group">
-            <label for="harga">Harga</label>
-            <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
-          </div>
-          <div class="form-group">
-            <label for="total">Jumlah*Harga</label>
-            <input type="number" class="form-control" id="total" name="total" placeholder="Total">
+          <label for="anggota">Nama Anggota</label>
+          <select class="select2" name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
+          <?php foreach ($anggota as $row ) : ?>
+          <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
+          <?php endforeach ?>
+          </select>
           </div>
           <div class="form-group">
             <label for="buyer">Buyer</label>
-            <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
+            <input type="text" class="form-control" id="buyer" name="buyer" value="<?= $data->buyer ?>" placeholder="Buyer">
+          </div>
+          <div class="form-group">
+            <label for="jumlah">Jumlah</label>
+            <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $data->jumlah ?>" placeholder="Jumlah">
+          </div>
+          <div class="form-group">
+            <label for="harga">Harga</label>
+            <input type="number" class="form-control" id="harga" name="harga" value="<?= $data->harga ?>" placeholder="Harga">
+          </div>
+          <div class="form-group">
+            <label for="total">Jumlah*Harga</label>
+            <input type="number" class="form-control" id="total" name="total" value="<?= $data->total ?>" placeholder="Total">
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
+            <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
+            <button type="submit" value="simpan" class="btn btn-primary" id="tombolSimpan">Simpan</button>
           </div>
-      </form>
+        </form>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->

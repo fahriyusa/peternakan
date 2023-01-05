@@ -37,7 +37,7 @@ class Panen extends CI_Controller
 		foreach($anggota as $row){
 			$data = array(
 				  'id' => $id,
-				  'id_anggota' => $row
+		 		  'id_anggota' => $row
 				);
 			$this->db->insert('panen',$data);
 		}
@@ -56,41 +56,68 @@ class Panen extends CI_Controller
         }
         echo json_encode($value);
     }
-    public function simpan_edit()
-    {
-            $id = $this->input->post('id');
-            $tanggal = $this->input->post('tanggal');
-            $anggota = $this->input->post('anggota');
-            $jumlah = $this->input->post('jumlah');
-            $harga = $this->input->post('harga');
-            $total = $this->input->post('total');
-            $buyer = $this->input->post('buyer');
+    // public function simpan_edit()
+    // {
+    //         $id = $this->input->post('id');
+    //         $tanggal = $this->input->post('tanggal');
+    //         $anggota = $this->input->post('anggota');
+    //         $jumlah = $this->input->post('jumlah');
+    //         $harga = $this->input->post('harga');
+    //         $total = $this->input->post('total');
+    //         $buyer = $this->input->post('buyer');
 
-            $data = array(
-                'tanggal' => $tanggal,
-                'id_anggota' => $anggota,
-                'jumlah' => $jumlah,
-                'harga' => $harga,
-                'total' => $total,
-                'buyer' => $buyer
+    //         $data = array(
+    //             'tanggal' => $tanggal,
+    //             'id_anggota' => $anggota,
+    //             'jumlah' => $jumlah,
+    //             'harga' => $harga,
+    //             'total' => $total,
+    //             'buyer' => $buyer
     
-            );
-            $this->M_panen->update($id,$data);
-            redirect('Panen');
-    }
+    //         );
+    //         $this->M_panen->update($id,$data);
+    //         redirect('Panen');
+    // }
     //update
     public function edit($id)
     {
         $where = array(
             'id' => $id
         );
-        $query = $this->M_panen->update_panen($where, 'panen')->result();
+        $query = $this->M_panen->update_panen($where, 'panen')->row();
         $data = array('data' => $query);
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('update/panen', $data);
         $this->load->view('layout/footer');
     }
+
+     //update
+     public function update_panen()
+     {
+         $id = $this->input->post('id');
+         $tanggal = $this->input->post('tanggal');
+         $anggota = $this->input->post('anggota');
+         $buyer = $this->input->post('buyer');
+         $jumlah = $this->input->post('jumlah');
+         $harga = $this->input->post('harga');
+         $total = $this->input->post('total');
+         
+         $data = array(
+             'tanggal' => $tanggal,
+             'anggota' => $anggota,
+             'buyer' => $buyer,
+             'jumlah' => $jumlah,
+             'harga' => $harga,
+             'total' => $total,
+         );
+ 
+         $where = array(
+             'id' => $id
+         );
+         $this->M_panen->update_panen($where, $data, 'user');
+         redirect('Panen');
+     }
     //delete
     public function delete_panen($id)
     {
