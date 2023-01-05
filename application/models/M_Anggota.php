@@ -23,14 +23,14 @@ class M_Anggota extends CI_Model
     }
 
     //update
-    public function update_anggota($where,$table)
+    public function update_anggota($where, $table)
     {
         return $this->db->get_where($table, $where);
     }
-    public function update_data($id_anggota,$data)
+    public function update_data($data, $where)
     {
-        $this->db->where('id_anggota',$id_anggota);
-		$this->db->update('anggota',$data);
+        $this->db->where($where);
+        $this->db->update('anggota', $data);
     }
 
     //delete

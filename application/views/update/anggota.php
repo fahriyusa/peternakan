@@ -22,8 +22,8 @@
   <!-- /.card -->
   <div class="card card-info">
     <form method="post" action="<?= base_url('Anggota/update_anggota') ?>">
-    <input type="hidden" class="form-control" name="id_anggota" id="id_anggota" >
-    <div class="card-body">
+      <input type="hidden" value="<?= $data->id_anggota ?>" class="form-control" name="id_anggota" id="id_anggota">
+      <div class="card-body">
         <div class="form-group">
           <label for="nama_anggota">Nama Anggota</label>
           <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota"
