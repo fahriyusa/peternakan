@@ -92,12 +92,13 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <from method="post" action="<?= base_url('Telur/simpan_ambiltelur')?>">
             <div class="modal-body">
               <div class="container">
                 <div class="row mt-4">
                   <div class="col">
                   <label> Nama </label>
-                    <select class="form-control" name="anggota">
+                    <select class="form-control" name="id_anggota">
                       <?php foreach($anggota as $row){ ?>
                         <option> pilih anggota </option>
                       <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
@@ -105,24 +106,24 @@
                     </select>
 
                       <label> Tanggal Ambil </label>
-                      <input type="date" value="<?= date('Y-m-d');?>" name="tgl" class="form-control">
+                      <input type="date" value="<?= date('Y-m-d');?>" name="tanggal_ambil" class="form-control">
 
                     <label> Jumlah </label>
                       <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="jumlah" id="search-box" placeholder="Contoh Jumlah : 500000" type="text" value="">
+                          <input type="text" class="form-control" required autocomplete="off" name="jumlah" id="search-box" placeholder="Contoh Jumlah : 10" type="text" value="">
                             <span class="input-group-btn">
                             </span>
 											</div>
                     
                     <label> Harga </label>
                       <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="jumlah" id="search-box" placeholder="Contoh Jumlah : 500000" type="text" value="">
+                          <input type="text" class="form-control" required autocomplete="off" name="harga" id="search-box" placeholder="Contoh Harga : 500000" type="text" value="">
                             <span class="input-group-btn">
                             </span>
 											</div>
                     <label> Total </label>
                     <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="Total" id="search-box" type="text" value="">
+                          <input type="text" class="form-control" required autocomplete="off" name="total" id="search-box" type="text" value="">
                             <span class="input-group-btn">
                             </span>
                     </div>  
@@ -132,9 +133,10 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
             </div>
           </div>
+          </form>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

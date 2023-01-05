@@ -15,8 +15,8 @@ class M_telur extends CI_Model
     public function join_anggota_telur()
     {
         $this->db->select('*');
-        $this->db->from('ambil_telur');
-        $this->db->join('anggota', 'anggota.id_anggota = ambil_telur.id_anggota');
+        $this->db->from('anggota');
+        $this->db->join('ambil_telur', 'ambil_telur.id_anggota = anggota.id_anggota');
         $query = $this->db->get();
         return $query->result();
     }
@@ -66,6 +66,12 @@ class M_telur extends CI_Model
     //     $query = $this->db->get('total');
     //     return $query->result();
     // }
+
+    public function simpan_ambiltelur($data)
+    {
+       $query = $this->db->table('ambil_telur')->insert($data);
+       return $query;
+    }
 
 
 }
