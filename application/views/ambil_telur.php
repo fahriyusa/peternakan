@@ -55,12 +55,12 @@
                     <td><?= $row->harga ?></td>
                     <td><?= $row->total ?></td>
                     <td>
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
-                      Edit
-                      </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">
-                      Hapus
-                      </button>
+                    <a class="btn btn-warning"
+                          href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
+                            class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id_anggota ?>"
+                          onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id_anggota ?>)');"><i
+                            class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php } ?>

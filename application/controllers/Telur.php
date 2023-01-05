@@ -97,4 +97,11 @@ class Telur extends CI_Controller {
         $this->M_telur->simpan_ambiltelur($data,'ambil_telur');
         redirect('ambil_telur');
      }
+
+     public function delete_ambiltelur($id_anggota)
+     {
+        //lempar kedalam model untuk menyimpan database
+        $this->M_telur->delete_ambiltelur($id_anggota);
+        redirect('ambiltelur');
+     }
 }
