@@ -57,11 +57,10 @@
                     <td><?=$row->nama_anggota?></td>
                     <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
-                    Edit
+                    <i class="fa-solid fa-pen-to-square"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">
-                    Hapus
-                    </button>
+                    <a class="btn btn-danger" href="<?= base_url('Team/delete_team') ?>/<?= $row->id_team ?>"
+                       onclick="return confirm('Apakah Anda ingin <?= $row->nama_team ?> ?');"><i class="fa-solid fa-trash"></i></a>
                     </td>
                   <?php } ?>
                   <?php } ?>
@@ -152,7 +151,7 @@
              </select>
             </div>
             <div class="modal-footer justify-content-between">
-            <input type="hidden" name="edit_id" required
+            <input type="hidden" name="edit_id" required>
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>

@@ -64,9 +64,9 @@ class Team extends CI_Controller {
     redirect('team');
     }
 
-    public function delete(){
-        $id = $this->input->post('delete_id',TRUE);
-        $this->M_team->delete_team($id);
+    public function delete_team($id_team)
+    {
+        $this->M_team->delete_team($id_team);
         redirect('team');
     }
 }
