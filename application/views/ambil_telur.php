@@ -56,7 +56,7 @@
                     <td><?= $row->total ?></td>
                     <td>
                     <a class="btn btn-warning"
-                          href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
+                          href="<?= base_url('Telur/edit_ambiltelur') ?>/<?= $row->id_anggota ?>"><i
                             class="fa fa-edit"></i></a>
                     <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id_anggota ?>"
                           onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id_anggota ?>)');"><i

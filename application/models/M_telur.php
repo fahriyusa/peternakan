@@ -83,5 +83,10 @@ class M_telur extends CI_Model
         return $query;
     }
 
+    public function edit_ambiltelur($where,$table)
+   {
+    return $this->db->get_where($table,$where);
+   }
+
 
 }
