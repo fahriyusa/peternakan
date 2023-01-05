@@ -38,7 +38,7 @@
     <link rel="stylesheet"
         href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
-
+    <link rel="icon" href="<?= base_url('assets/logo.png') ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
