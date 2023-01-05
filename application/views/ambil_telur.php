@@ -100,7 +100,7 @@
                   <label> Nama </label>
                     <select class="form-control" name="id_anggota">
                     <option> pilih anggota </option>
-                      <?php foreach($anggota as $row){ ?>
+                      <?php foreach($anggota->result() as $row){ ?>
                         
                       <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
                     <?php } ?>

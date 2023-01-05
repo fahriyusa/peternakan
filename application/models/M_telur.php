@@ -10,6 +10,13 @@ class M_telur extends CI_Model
         return $query->result();
     }
 
+        //get semua anggota
+    public function get_anggota()
+    {
+        $query = $this->db->get('anggota');
+        return $query;
+    }
+
     //select * FROM ambil_telur JOIN anggota ON anggota.id_anggota = ambil_telur.id_anggota;
     // Ambil Telur
     public function join_anggota_telur()
@@ -26,12 +33,6 @@ class M_telur extends CI_Model
     {
         $query = $this->db->get('ambil_telur');
         return $query->result();
-    }
-    
-    public function get_anggota()
-    {
-        $query = $this->db->get('anggota')->result();
-        return $query;
     }
 
     //insert
@@ -85,7 +86,7 @@ class M_telur extends CI_Model
 
     public function edit_ambiltelur($where,$table)
    {
-    return $this->db->get_where($table,$where);
+    return $this->db->get_where($table,['id' => $where]);
    }
 
 
