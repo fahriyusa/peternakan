@@ -12,6 +12,7 @@ class Telur extends CI_Controller {
 		// }
     }
 	
+    // view telur
     public function index()
 	{
         //mengambil data
@@ -33,7 +34,7 @@ class Telur extends CI_Controller {
         $data = array(
             'data' => $query,
             'anggota' =>  $this->M_telur->get_anggota(),
-            'team' => $this->M_telur->getAmbilTelur()
+            // 'team' => $this->M_telur->getAmbilTelur()
 
         );
 
@@ -44,12 +45,11 @@ class Telur extends CI_Controller {
         $this->load->view('layout/footer');
 	}
     
-    // Telur
+    // insert Telur
     public function insert_telur()
     {
         
-        $tanggal = $this->
-        input->post('tanggal');
+        $tanggal = $this->input->post('tanggal');
         $sumber = $this->input->post('sumber');
  
         $data = array(
@@ -57,7 +57,7 @@ class Telur extends CI_Controller {
             'sumber' => $sumber,
         );
         $this->M_telur->insert_telur($data, 'telur');
-        redirect('Telur');
+        redirect('telur');
     }
 
     public function edit_data($id)
@@ -94,5 +94,32 @@ class Telur extends CI_Controller {
         //lempar kedalam model untuk menyimpan database
         $this->M_telur->delete_data($id);
         redirect('Telur');
+     }
+
+     // untuk menyimpan ambil telur
+     public function simpan_ambiltelur()
+     {
+        $id_anggota     =$this->input->post('id_anggota');
+        $tanggal_ambil  =$this->input->post('tanggal_ambil');
+        $jumlah         =$this->input->post('jumlah');
+        $harga          =$this->input->post('harga');
+        $total          =$this->input->post('total');
+
+        $data = array(
+            'id_anggota' => $id_anggota,
+            'tanggal_ambil' => $tanggal_ambil,
+            'jumlah' => $jumlah,
+            'harga' => $harga,
+            'total' => $total
+        );
+        $this->M_telur->simpan_ambiltelur($data,'ambil_telur');
+        redirect('ambiltelur');
+     }
+
+     public function delete_ambiltelur($id_anggota)
+     {
+        //lempar kedalam model untuk menyimpan database
+        $this->M_telur->delete_ambiltelur($id_anggota);
+        redirect('ambiltelur');
      }
 }

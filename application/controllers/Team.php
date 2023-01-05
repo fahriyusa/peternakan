@@ -25,24 +25,24 @@ class Team extends CI_Controller {
 
     //insert
     public function insert_team()
-	{
-		$data = array(
-		  'nama_team' => $this->input->post('nama_team'),
-		);
-		$this->db->insert('team',$data);
+    {
+        // $data = array(
+        //   'nama_team' => $this->input->post('nama_team'),
+        // );
+        // $this->db->insert('team',$data);
 
-		$anggota = $this->input->post('anggota');
-		//mendapatkan id anggota
-		$id_team = $this->db->insert_id();
-		foreach($anggota as $row){
-			$data = array(
-				  'id_team' => $id_team,
-				  'id_anggota' => $row
-				);
-			$this->db->insert('team',$data);
-		}
-		redirect('team');
-	}
+        $anggota = $this->input->post('anggota');
+       
+         $data = array();
+         foreach ($anggota as $row) {
+             $data[] = array(
+                'nama_team' => $this->input->post('nama_team'),
+                'id_anggota' => $row
+            );
+         }
+         $this->db->insert_batch('team',$data);
+        redirect('team');
+    }
 
     //get data anggota by id
     public function get_anggota_by_id()
@@ -64,9 +64,9 @@ class Team extends CI_Controller {
     redirect('team');
     }
 
-    public function delete(){
-        $id = $this->input->post('delete_id',TRUE);
-        $this->M_team->delete_team($id);
+    public function delete_team($id_team)
+    {
+        $this->M_team->delete_team($id_team);
         redirect('team');
     }
 }

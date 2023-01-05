@@ -51,17 +51,4 @@ class Pakan extends CI_Controller {
 		    $this->load->view('ambil_pakan', $data);
         $this->load->view('layout/footer');
 	}
-
-     public function ambil_pakan()
-	{
-        //mengambil data
-        $query = $this->M_Pakan->getambilPakan();
-        $data = array('data' => $query);
-
-        //menampilkan view
-        $this->load->view('layout/header');
-        $this->load->view('layout/sidebar');
-		    $this->load->view('ambil_pakan', $data);
-        $this->load->view('layout/footer');
-	}
 }

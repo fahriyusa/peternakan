@@ -35,10 +35,11 @@ class M_team extends CI_Model
     }
 
     // DELETE
-    function delete_team($id){
-        $this->db->trans_start();
-            $this->db->delete('team', array('id_team' => $id));
-        $this->db->trans_complete();
+    public function delete_team($id_team)
+    {
+        $this->db->where('id_team', $id_team);
+        $this->db->delete('team');
+        var_dump($id_team);
     }
 
 }
