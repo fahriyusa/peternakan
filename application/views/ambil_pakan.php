@@ -42,7 +42,7 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody>  
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row): ?>
                   <tr>
