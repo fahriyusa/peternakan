@@ -4,12 +4,22 @@ defined('BASEPATH') or exit ('No Direct script access allowed');
 class M_Pakan extends CI_Model
 {
 
-    //get
+    
 
-    public function getAnggota()
+    //insert
+    public function insert_pakan($data)
     {
-        $query = $this->db->get('data_pakan');
-        return $query->result();
+        $this->db->insert('data_pakan',$data);
     }
+    //delete
+    public function delete_pakan($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('data_pakan');
+    }
+    
+    
+    
+
 
 }

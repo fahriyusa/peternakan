@@ -23,9 +23,9 @@ class M_Anggota extends CI_Model
     }
 
     //update
-    public function update_anggota()
+    public function update_anggota($where,$table)
     {
-        //
+        return $this->db->get_where($table, $where);
     }
 
     //delete

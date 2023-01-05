@@ -7,9 +7,9 @@ class Team extends CI_Controller {
         parent::__construct();   
         $this->load->model('M_team');
 
-        if ($this->session->userdata('authenticated') != true) {
-			redirect(base_url("auth"));
-		}
+        // if ($this->session->userdata('authenticated') != true) {
+		// 	redirect(base_url("auth"));
+		// }
     }
 	public function index()
 	{
