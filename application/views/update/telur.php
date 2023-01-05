@@ -19,24 +19,27 @@
 
     <!-- Main content -->
 <!-- /.card -->
-    <div class="card card-info">           
-      <form method="post" action="<?= base_url('Telur/edit_data') ?>">
+    <div class="card card-info">
+      <?php foreach ($telur as $row){?>          
+      <form method="post" action="<?= base_url('Telur/update') ?>">
+      <input type="hidden" name="id" value="<?=$row->id;?>">
         <div class="card-body">
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="date" class="form-control" id="tanggal" name="tanggal">
+            <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $row->tanggal;?>">
           </div>
           <div class="form-group">
             <label for="sumber">Sumber</label>
-            <input type="text" class="form-control" id="sumber" name="sumber">
+            <input type="text" class="form-control" id="sumber" name="sumber" value="<?= $row->sumber;?>">
           </div>
          <!-- /.card-body -->
           <div class="modal-footer">
             <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
             <button type="reset" class="btn btn-warning">Riset</button>
-            <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
+            <button type="submit" value="simpan" class="btn btn-success" id="tombolSimpan">Simpan</button>
           </div>
         </div>
       </form>
+      <?php  } ?>
     </div>
   </div> 

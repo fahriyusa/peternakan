@@ -62,7 +62,6 @@ class Telur extends CI_Controller {
 
     public function edit_data($id)
     {
-        $id = $this->uri->segment(3);
         $where = array('id' => $id);
         $data['telur']=$this->M_telur->edit_data($where,'telur')->result();
 
@@ -70,6 +69,25 @@ class Telur extends CI_Controller {
         $this->load->view('layout/sidebar');
         $this->load->view('update/telur', $data);
         $this->load->view('layout/footer');
+    }
+
+    public function update()
+    {
+        $id = $this->input->post('id');
+        $tanggal = $this->input->post('tanggal');
+        $sumber = $this->input->post('sumber');
+
+        $data = array(
+            'tanggal' => $tanggal,
+            'sumber' => $sumber
+        );
+
+        $where = array(
+            'id' => $id
+        );      
+        
+        $this->M_telur->update_data($where,$data,'telur');
+        redirect('telur');
     }
     public function delete_data($id)
      {

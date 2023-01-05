@@ -35,10 +35,10 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Tanggal Datang</th>
-                    <th>Sumber</th>
-                    <th>Aksi</th>
+                    <th><center>No</th>
+                    <th><center>Tanggal Datang</th>
+                    <th><center>Sumber</th>
+                    <th><center>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,8 +50,11 @@
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <a class="btn btn-warning" href="<?=base_url('Telur/edit_data/')?><?= $row->id?>">Edit</a>
-                    <a class="btn btn-danger" href="<?=base_url('Telur/delete_data')?><?=$row->id?>">Delete</a>
+                    <center><a class="btn btn-warning" href="<?=base_url('Telur/edit_data/'.$row->id);?>">
+                      <i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id ?>"
+                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id ?>)');"><i
+                      class="fa fa-trash"></i></a></center>
                   </td>                    
                   </tr>
                   <?php endforeach; ?>
