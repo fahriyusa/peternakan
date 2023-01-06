@@ -35,10 +35,10 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>no</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Tanggal Ambil</th>
-                    <th>jumlah</th>
+                    <th>Jumlah</th>
                     <th>Harga</th>
                     <th>Total</th>
                     <th>Aksi</th>
@@ -46,24 +46,26 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach($data as $row){?>
+                  <?php foreach( $data as $row): ?>
+                  
                   <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $row->nama_anggota ?></td>
-                    <td><?= $row->tanggal_ambil ?></td>
-                    <td><?= $row->jumlah ?></td>
-                    <td><?= $row->harga ?></td>
-                    <td><?= $row->total ?></td>
+                    <td><?= $no++; ?></td>
+                    <td><?= $row->nama_anggota; ?></td>
+                    <td><?= $row->tanggal_ambil; ?></td>
+                    <td><?= $row->jumlah; ?></td>
+                    <td><?= $row->harga; ?></td>
+                    <td><?= $row->total; ?></td>
                     <td>
                     <a class="btn btn-warning"
-                          href="<?= base_url('Telur/edit_ambiltelur') ?>/<?= $row->id_anggota ?>"><i
+                          href="<?= base_url('Telur/edit_ambiltelur') ?>/<?= $row->id ?>"><i
                             class="fa fa-edit"></i></a>
                     <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id_anggota ?>"
                           onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id_anggota ?>)');"><i
                             class="fa fa-trash"></i></a>
                     </td>
                   </tr>
-                  <?php } ?>
+                  <?php endforeach; ?>
+                 
                 </tbody>
               </table>
             </div>
@@ -122,12 +124,7 @@
                             <span class="input-group-btn">
                             </span>
 											</div>
-                    <label> Total </label>
-                    <div class="input-group">
-                          <input type="text" class="form-control" required autocomplete="off" name="total" id="search-box" type="text" value="">
-                            <span class="input-group-btn">
-                            </span>
-                    </div>  
+                     
                   </div>
                 </div>
               </div>
