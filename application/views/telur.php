@@ -43,16 +43,15 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row):
-                     ?>
-                  <tr>
+                  <?php foreach ($data as $row):?>
+                  <tr class="text-center" >
                     <td><?= $no++ ?></td>
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <center><a class="btn btn-warning" href="<?=base_url('Telur/edit_data/'.$row->id);?>">
+                    <center><a class="btn btn-outline-warning" href="<?=base_url('Telur/edit_data/'.$row->id);?>">
                       <i class="fa fa-edit"></i></a>
-                    <a class="btn btn-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id ?>"
+                    <a class="btn btn-outline-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id ?>"
                       onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id ?>)');"><i
                       class="fa fa-trash"></i></a></center>
                   </td>                    

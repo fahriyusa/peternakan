@@ -18,7 +18,7 @@
     </section>
 
     <!-- Main content -->
-<!-- /.card -->
+<!-- /.card --> 
     <div class="card card-info">
       <?php foreach ($telur as $row){?>          
       <form method="post" action="<?= base_url('Telur/update') ?>">
