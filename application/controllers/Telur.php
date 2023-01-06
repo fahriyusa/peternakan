@@ -17,7 +17,7 @@ class Telur extends CI_Controller {
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();
-        $data['anggota'] = $this->M_team->get_anggota();
+        $data['anggota'] = $this->M_telur->get_anggota();
         $data = array('data' => $query);
 
         //menampilkan view
