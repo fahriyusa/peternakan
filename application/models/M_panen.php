@@ -15,8 +15,8 @@ class M_panen extends CI_Model
     public function get_anggota_by_panen($id)
     {
         $this->db->select('*');
-        $this->db->from('anggota');
-        $this->db->join('panen', 'panen.id_anggota = anggota.id_anggota');
+        $this->db->from('panen');
+        $this->db->join('anggota', 'anggota.id_anggota = panen.id_anggota');
         $query = $this->db->get();
         return $query;
     }

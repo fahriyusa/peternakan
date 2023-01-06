@@ -9,8 +9,8 @@ class Anggota extends CI_Controller
         $this->load->model('M_Anggota');
 
         // if ($this->session->userdata('authenticated') != true) {
-		// 	redirect(base_url("auth"));
-		// }
+        // 	redirect(base_url("auth"));
+        // }
     }
     public function index()
     {
@@ -25,7 +25,6 @@ class Anggota extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    //update
     public function edit($id_anggota)
     {
         $where = array(
@@ -61,21 +60,20 @@ class Anggota extends CI_Controller
     {
         $id_anggota = $this->input->post('id_anggota');
         $nama_anggota = $this->input->post('nama_anggota');
-        $tanggal_gabung = $this->input->post('status');
+        $tanggal_gabung = $this->input->post('tanggal_gabung');
         $status = $this->input->post('status');
         $jabatan = $this->input->post('jabatan');
-        
+
         $data = array(
             'nama_anggota' => $nama_anggota,
             'tanggal_gabung' => $tanggal_gabung,
             'status' => $status,
-            'jabatan' => $jabatan,
+            'jabatan' => $jabatan
         );
-
         $where = array(
             'id_anggota' => $id_anggota
         );
-        $this->M_Anggota->update_anggota($where, $data, 'user');
+        $this->M_Anggota->update_data($data, $where);
         redirect('Anggota');
     }
 

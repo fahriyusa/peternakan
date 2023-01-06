@@ -59,11 +59,10 @@
                         <?= $row->tanggal_gabung ?>
                       </td>
                       <td>
-                        <a class="btn btn-warning"
-                          href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
+                        <a class="btn btn-warning" href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
                             class="fa fa-edit"></i></a>
                         <a class="btn btn-danger" href="<?= base_url('Anggota/delete_anggota') ?>/<?= $row->id_anggota ?>"
-                          onclick="return confirm('Apakah Anda ingin menghapus si : (<?= $row->nama_anggota ?>)');"><i
+                          onclick="return confirm('Apakah Anda ingin menghapus si : ( <?= $row->nama_anggota ?> )');"><i
                             class="fa fa-trash"></i></a>
                       </td>
                     </tr>
@@ -106,7 +105,7 @@
           <div class="form-group">
             <label>Status</label>
             <select class="form-control" type="select" name="status">
-              <option value="">--Pilih--</option>
+              <option value="">- Pilih -</option>
               <option value="a">Aktif</option>
               <option value="na">Non aktif</option>
             </select>

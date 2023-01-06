@@ -56,7 +56,7 @@
                     <td><?= $row->total ?></td>
                     <td>
                     <a class="btn btn-warning"
-                          href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
+                          href="<?= base_url('Telur/edit_ambiltelur') ?>/<?= $row->id_anggota ?>"><i
                             class="fa fa-edit"></i></a>
                     <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id_anggota ?>"
                           onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id_anggota ?>)');"><i
@@ -100,7 +100,7 @@
                   <label> Nama </label>
                     <select class="form-control" name="id_anggota">
                     <option> pilih anggota </option>
-                      <?php foreach($anggota as $row){ ?>
+                      <?php foreach($anggota->result() as $row){ ?>
                         
                       <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
                     <?php } ?>

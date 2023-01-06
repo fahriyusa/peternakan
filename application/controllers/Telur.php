@@ -17,6 +17,7 @@ class Telur extends CI_Controller {
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();
+        $data['anggota'] = $this->M_telur->get_anggota();
         $data = array('data' => $query);
 
         //menampilkan view
@@ -60,6 +61,7 @@ class Telur extends CI_Controller {
         redirect('telur');
     }
 
+    // Update Telur
     public function edit_data($id)
     {
         $where = array('id' => $id);
@@ -71,6 +73,7 @@ class Telur extends CI_Controller {
         $this->load->view('layout/footer');
     }
 
+    // Update Telur 
     public function update()
     {
         $id = $this->input->post('id');
@@ -122,4 +125,16 @@ class Telur extends CI_Controller {
         $this->M_telur->delete_ambiltelur($id_anggota);
         redirect('ambiltelur');
      }
+
+     //mengarahkan ke view edit ambil telur
+     public function edit_ambiltelur($id_anggota)
+    {
+        $data['row']=$this->M_telur->edit_ambiltelur($id_anggota,'ambil_telur')->row();
+        // $data['anggota'] = $this->M_telur->get_anggota();
+
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+        $this->load->view('update/ambiltelur', $data);
+        $this->load->view('layout/footer');
+    }
 }
