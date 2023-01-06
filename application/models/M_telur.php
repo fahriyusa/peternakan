@@ -40,9 +40,9 @@ class M_telur extends CI_Model
         $this->db->insert('telur',$data);
     }
 
-   public function delete_data($id)
+   public function delete_data($id_team)
    {
-        $this->db->where('id', $id);
+        $this->db->where('id_team', $id_team);
         $this->db->delete('telur');
    }
 

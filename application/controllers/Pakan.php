@@ -14,41 +14,84 @@ class Pakan extends CI_Controller {
 	public function index()
 	{
         //mengambil data
-        $data['data'] = $this->db->get('data_pakan')->result();
-        $query = $this->M_Pakan->getPakan();
-        $data = array('data' => $query);
+        $query = $this->M_Pakan->get_datapakan();
+        $data = array ('data' => $query);
         //menampilkan view
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
 		$this->load->view('pakan', $data);
         $this->load->view('layout/footer');
 	}
-    public function insert_pakan()
-    {
-        $team = $this->input->post('team');
-        $tgl_produksi_pakan = $this->input->post('tgl_produksi_pakan');
-        $jumlah = $this->input->post('jumlah');
 
-        $data = array(
-            'team' => $team,
-            'tgl_produksi_pakan' => $tgl_produksi_pakan,
-            'jumlah' => $jumlah,
+    //insert
+    public function insert_datapakan()
+    {
+        $id_team = $this->input->post('id_team');
+       
+        $data = array();
+        foreach ($id_pakan as $row) {
+            $data[] = array(
+            'tgl_produksi_pakan' => $this->input->post('tgl_produksi_pakan'),
+            'jumlah' => $this->input->post('jumlah'),  
+            'id_team' => $row
         );
-        $this->db->insert('data_pakan', $data);
-        redirect('pakan');
+    }
+        $this->db->insert_batch('data_pakan',$data);
+         redirect('data_pakan'); 
     }
 
-    public function ambil_pakan()
-	{
-        //mengambil data
-        $query = $this->M_Pakan->getambilPakan();
-        $query = $this->M_Pakan->getPakan();
-        $data = array('data' => $query);
+    //get data team by id
+    public function get_team_by_id()
+    {
+        $id = $this->input->post('id');
+        $data = $this->M_Panen->get_team_by_id($id)->result();
+        foreach ($data as $result) {
+            $value[] = (float) $result->id_team;
+        }
+     echo json_encode($value);
+    }
 
-        //menampilkan view
+
+    //edit data_pakan
+    public function edit_data($id)
+    {
+        $id = $this->uri->segment(3);
+        $where = array('id' => $id);
+        $data['data_pakan']=$this->M_Pakan->edit_data($where,'data_pakan')->result();
+
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-		    $this->load->view('ambil_pakan', $data);
+        $this->load->view('update/pakan', $data);
         $this->load->view('layout/footer');
-	}
+    }
+
+    //update data_pakan
+    public function update_dataPakan()
+   
+    {
+        $id = $this->input->post('id');
+        $id_team = $this->input->post('id_team');
+        $tgl_produksi_pakan = $this->input->post('tgl_produksi_pakan');
+        $jumlah = $this->input->post('jumlah');
+        
+        $data = array(
+            'id_team' => $id_team,
+            'tgl_produksi_pakan' => $tgl_produksi_pakan,
+            'jumlah' => $jumlah
+        );
+        $where = array(
+            'id' => $id
+        );
+
+        $this->M_Pakan->updatedataPakan($where,$data,'data_pakan');
+        redirect('update/pakan');
+    }  
+    
+    //delete
+    public function delete_pakan($id)
+    {
+        $this->M_Pakan->delete_pakan($id);
+        redirect('Pakan');
+    }
+
 }
