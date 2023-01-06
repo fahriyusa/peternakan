@@ -106,13 +106,13 @@
             <input type="date" value="<?= date('Y-m-d');?>" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
           </div>
           <div class="form-group">
-          <label>Nama Anggota</label>
-             <select class="select2" name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
-              <?php foreach ($anggota as $row ) : ?>
-              <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
-              <?php endforeach ?>
-             </select>
-          </div>
+                  <label>Nama Anggota</label>
+                  <select class="form-control select2" style="width: 100%;">
+                  <?php foreach ($anggota as $row ) : ?>
+                    <option value="<?= $row->id_anggota?>"><?= $row->nama_anggota ?></option>
+                    <?php endforeach ?>
+                  </select>
+                </div>
           <div class="form-group">
             <label for="buyer">Buyer</label>
             <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
@@ -126,7 +126,7 @@
             <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
           </div>
           <div class="form-group">
-            <label for="total">Jumlah*Harga</label>
+            <label for="total">Jumlah Harga</label>
             <input type="number" class="form-control" id="total" name="total" placeholder="Total">
           </div>
           <!-- /.card-body -->

@@ -20,9 +20,9 @@ class Panen extends CI_Controller
         $this->load->view('panen', $data) ;
         $this->load->view('layout/footer');
     }
+     
     public function insert_panen()
-    {      
-
+    { 
         $data = array(
             'tanggal' => $this->input->post('tanggal'),
             'jumlah' => $this->input->post('jumlah'),
@@ -32,7 +32,8 @@ class Panen extends CI_Controller
         );
             $this->db->insert('panen',$data);
             $anggota = $this->input->post('anggota');
-		//mendapatkan id anggota
+	
+            //mendapatkan id anggota
 		$id = $this->db->insert_id();
 		foreach($anggota as $row){
 			$data = array(
@@ -56,28 +57,28 @@ class Panen extends CI_Controller
         }
         echo json_encode($value);
     }
-    // public function simpan_edit()
-    // {
-    //         $id = $this->input->post('id');
-    //         $tanggal = $this->input->post('tanggal');
-    //         $anggota = $this->input->post('anggota');
-    //         $jumlah = $this->input->post('jumlah');
-    //         $harga = $this->input->post('harga');
-    //         $total = $this->input->post('total');
-    //         $buyer = $this->input->post('buyer');
+    public function simpan_edit()
+    {
+            $id = $this->input->post('id');
+            $tanggal = $this->input->post('tanggal');
+            $anggota = $this->input->post('anggota');
+            $jumlah = $this->input->post('jumlah');
+            $harga = $this->input->post('harga');
+            $total = $this->input->post('total');
+            $buyer = $this->input->post('buyer');
 
-    //         $data = array(
-    //             'tanggal' => $tanggal,
-    //             'id_anggota' => $anggota,
-    //             'jumlah' => $jumlah,
-    //             'harga' => $harga,
-    //             'total' => $total,
-    //             'buyer' => $buyer
+            $data = array(
+                'tanggal' => $tanggal,
+                'id_anggota' => $anggota,
+                'jumlah' => $jumlah,
+                'harga' => $harga,
+                'total' => $total,
+                'buyer' => $buyer
     
-    //         );
-    //         $this->M_panen->update($id,$data);
-    //         redirect('Panen');
-    // }
+            );
+            $this->M_panen->update($id,$data);
+            redirect('Panen');
+    }
     //update
     public function edit($id)
     {

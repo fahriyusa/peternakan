@@ -55,10 +55,10 @@
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
-            <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
-            <button type="submit" value="simpan" class="btn btn-primary" id="tombolSimpan">Simpan</button>
+          <a href="<?= base_url(); ?>/panen"  class="btn btn-danger">Batal</a>
+          <a href="<?= base_url(); ?>/panen"  class="btn btn-success" id="tombolSimpan">Simpan</a>
           </div>
-        </form>
+      </form>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
