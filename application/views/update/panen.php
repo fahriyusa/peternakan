@@ -23,6 +23,7 @@
           <div class="card card-info">
             
           <form method="post" action="<?= base_url('Panen/update_panen') ?>">
+            <input hidden name="id" type="text" value="<?= $data->id ?>" >
         <div class="card-body">
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
@@ -31,9 +32,10 @@
           </div>
           <div class="form-group">
           <label for="anggota">Nama Anggota</label><br>
-          <select class="select2" name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
+          <select class="form-control" name="id_anggota"  data-placeholder="Pilih Anggota">
+            <option value="1">pilih anggota</option>
           <?php foreach ($anggota as $row ) : ?>
-          <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
+          <option value="<?php echo $row->id_anggota ?>"><?php echo $row->nama_anggota ?></option>
           <?php endforeach ?>
           </select></br>
           </div>

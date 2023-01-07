@@ -42,10 +42,10 @@ class M_panen extends CI_Model
     {
         return $this->db->get_where($table, $where);
     }
-    public function update_data($data, $where)
+    public function update_data($where,$data, $table)
     {
         $this->db->where($where);
-        $this->db->update('panen', $data);
+        $this->db->update($table, $data);
     }
 
     //delete

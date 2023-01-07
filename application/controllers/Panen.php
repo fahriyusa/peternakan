@@ -60,19 +60,25 @@ class Panen extends CI_Controller
     //update
     public function edit($id)
     {
+       $anggota = $this->M_panen->get_anggota()->result();
+
         $where = array(
             'id' => $id
         );
         $query = $this->M_panen->update_panen($where, 'panen')->row();
-        $data = array('data' => $query);
+        $data = array(
+            'data' => $query,
+            'anggota'=> $anggota);
+        //var_dump($data);
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('update/panen', $data);
         $this->load->view('layout/footer');
     }
-    // Update Telur 
-    public function update()
+    // Update  
+    public function update_panen()
     {
+        $id = $this->input->post('id');
         $tanggal = $this->input->post('tanggal');
         $id_anggota = $this->input->post('id_anggota');
         $buyer = $this->input->post('buyer');
@@ -80,6 +86,7 @@ class Panen extends CI_Controller
         $harga = $this->input->post('harga');
         $total = $this->input->post('total');
              $data = array(
+
                 'tanggal' => $tanggal,
                 'id_anggota' => $id_anggota,
                 'buyer' => $buyer,
