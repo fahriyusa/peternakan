@@ -4,6 +4,8 @@ defined('BASEPATH') or exit ('No Direct script access allowed');
 class M_panen extends CI_Model
 {
 
+    
+
     //get semua anggota
     public function get_anggota()
     {
@@ -11,20 +13,14 @@ class M_panen extends CI_Model
         return $query;
     }
 
-    //get anggota by panen id
-    public function get_anggota_by_panen($id)
+    //select * FROM ambil_telur JOIN anggota ON anggota.id_anggota = ambil_telur.id_anggota;
+    // Ambil Telur
+    public function join_anggota_panen()
     {
         $this->db->select('*');
         $this->db->from('panen');
-        $this->db->join('anggota', 'anggota.id_anggota = panen.id_anggota');
+        $this->db->join('anggota', 'panen.id_anggota = anggota.id_anggota', 'LEFT');
         $query = $this->db->get();
-        return $query;
-    }
-   
-    //get
-    public function get_panen()
-    {
-        $query = $this->db->get('panen');
         return $query->result();
     }
     
@@ -42,9 +38,14 @@ class M_panen extends CI_Model
         return $query->row();
     }
     //update
-    public function update_panen($where,$table)
+    public function update_panen($where, $table)
     {
         return $this->db->get_where($table, $where);
+    }
+    public function update_data($data, $where)
+    {
+        $this->db->where($where);
+        $this->db->update('panen', $data);
     }
 
     //delete

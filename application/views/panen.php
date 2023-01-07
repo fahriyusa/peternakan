@@ -53,16 +53,14 @@
                   <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= $row->tanggal ?></td>
-                    <td><?= $row->id_anggota ?></td>
+                    <td><?= $row->nama_anggota ?></td>
                     <td><?= $row->buyer ?></td>
                     <td><?= $row->jumlah ?></td>
                     <td><?= $row->harga ?></td>
                     <td><?= $row->total ?></td>
                     <td>
-                      <a class="btn btn-warning"
-                          href="<?= base_url('Panen/edit') ?>/<?= $row->id ?>"><i
+                    <a class="btn btn-warning" href="<?= base_url('Panen/edit') ?>/<?= $row->id ?>"><i
                             class="fa fa-edit"></i></a>
-
                       <a class="btn btn-danger" href="<?= base_url('Panen/delete_panen') ?>/<?= $row->id ?>"
                         onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->tanggal ?>)');"><i 
                           class="fa fa-trash"></i></a>
@@ -98,21 +96,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <!-- form start -->
       <form method="post" action="<?= base_url('panen/insert_panen') ?>">
         <div class="card-body">
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
             <input type="date" value="<?= date('Y-m-d');?>" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
           </div>
+          <div class="col">
           <div class="form-group">
-                  <label>Nama Anggota</label>
-                  <select class="form-control select2" style="width: 100%;">
-                  <?php foreach ($anggota as $row ) : ?>
-                    <option value="<?= $row->id_anggota?>"><?= $row->nama_anggota ?></option>
-                    <?php endforeach ?>
-                  </select>
-                </div>
+            <label>Nama Anggota</label>
+            <select class="form-control" name="id_anggota">
+            <option> Pilih Anggota </option>
+            <?php foreach ($anggota->result() as $row ) { ?>
+            <option value="<?php echo $row->id_anggota; ?>"><?php echo $row->nama_anggota; ?></option>
+            <?php } ?>
+          </select>
+          </div>
           <div class="form-group">
             <label for="buyer">Buyer</label>
             <input type="text" class="form-control" id="buyer" name="buyer" placeholder="Buyer">
