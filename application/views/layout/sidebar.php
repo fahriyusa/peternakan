@@ -75,7 +75,7 @@
             </p>
           </a>
         </li>
-        <!-- menu -->
+
         <li class="nav-header">Anggota</li>
         <li class="nav-item">
           <a href="<?= base_url('anggota') ?>" class="nav-link">
@@ -85,6 +85,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-header">Team</li>
         <li class="nav-item">
           <a href="<?= base_url('team') ?>" class="nav-link">
@@ -94,6 +95,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-header">Pakan</li>
         <li class="nav-item">
           <a href="<?= base_url('pakan') ?>" class="nav-link">
@@ -103,6 +105,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-item">
           <a href="<?= base_url('Pakan/ambil_pakan') ?>" class="nav-link">
             <i class="fa-solid fa-cheese"></i>&emsp;
@@ -111,6 +114,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-header">Telur</li>
         <li class="nav-item">
           <a href="<?= base_url('telur') ?>" class="nav-link">
@@ -120,6 +124,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-item">
           <a href="<?= base_url('telur/ambilTelur') ?>" class="nav-link">
             <i class="fa-solid fa-egg"></i>&emsp;
@@ -128,6 +133,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-header">Panen</li>
         <li class="nav-item">
           <a href="<?= base_url('panen') ?>" class="nav-link">
@@ -137,6 +143,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-header">Jadwal</li>
         <li class="nav-item">
           <a href="<?= base_url('jadwal') ?>" class="nav-link">
@@ -146,6 +153,7 @@
             </p>
           </a>
         </li>
+        
         <br>
         <br>
         <!-- ./menu -->
