@@ -18,7 +18,8 @@ class Auth extends CI_Controller
     public function login()
     {
         $username = $this->input->post('username'); // Ambil isi dari inputan username pada form login
-        $password = md5($this->input->post('password')); // Ambil isi dari inputan password pada form login dan encrypt dengan md5
+        $password = md5($this->input->post('password'));
+        // Ambil isi dari inputan password pada form login dan encrypt dengan md5
 
         
         $username = $this->M_auth->get($username); // Panggil fungsi get yang ada di UserModel.php
