@@ -29,6 +29,19 @@
           <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota"
             value="<?= $data->nama_anggota ?>" placeholder="Nama Anggota">
         </div>
+
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control" id="username" name="username"
+            value="<?= $data->username ?>" placeholder="username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password"
+            value="<?= $data->password ?>" placeholder="password">
+        </div>
+
         <div class="form-group">
           <label>Status</label>
           <select class="form-control" type="select" name="status">
