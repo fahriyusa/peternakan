@@ -35,7 +35,7 @@ class Telur extends CI_Controller {
         $data = array(
             'data' => $query,
             'anggota' =>  $this->M_telur->get_anggota(),
-            // 'team' => $this->M_telur->getAmbilTelur()
+            // 'team' => $this->M_telur->getAmbilTelur() 
 
         );
 
@@ -82,7 +82,7 @@ class Telur extends CI_Controller {
 
         $data = array(
             'tanggal' => $tanggal,
-            'sumber' => $sumber
+            'sumber' => $sumber 
         );
 
         $where = array(
