@@ -21,7 +21,7 @@
 <!-- /.card -->
     <div class="card card-info">  
       <?php foreach ($data_pakan as $row){?>         
-      <form method="post" action="<?= base_url('Pakan/updatedataPakan') ?>">
+      <form method="post" action="<?= base_url('Pakan/update_dataPakan') ?>">
         <div class="card-body">
           <label>Team</label>
              <select name="edit_team" class="form-control">
@@ -38,10 +38,9 @@
             <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $row->jumlah ?>">
           </div>
          <!-- /.card-body -->
-          <div class="modal-footer">
-            <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
-            <button type="reset" class="btn btn-warning">Riset</button>
-            <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
+          <<div class="modal-footer">
+          <a href="<?= base_url(); ?>/pakan"  class="btn btn-danger">Batal</a>
+          <a href="<?= base_url(); ?>/pakan"  class="btn btn-success" id="tombolSimpan">Simpan</a>
           </div>
         </div>
       </form>

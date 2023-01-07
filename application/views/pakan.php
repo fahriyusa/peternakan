@@ -44,7 +44,7 @@
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
-                  <?php foreach ($data as $row): ?>
+                  <?php foreach ($data as $row) { ?>
                   <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $row->nama_team ?></td>
@@ -62,7 +62,7 @@
                       </button> -->
                     </td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -92,21 +92,21 @@
               </button>
             </div>
             <!-- form start -->
-            <from method="post" action="<?= base_url('Pakan/insert_datapakan')?>">
+            <form method="post" action="<?= base_url('Pakan/insert_datapakan')?>">
             <div class="modal-body">
               <div class="container">
               <div class="row mt-4">
                 <div class="col">
                   <label> Team </label>
-                  <select class="form-control" name="team">
+                  <select class="form-control" name="id_team">
                   <option> Pilih Team </option>
                   <?php foreach($team as $row) { ?>
-                      <option value="<?php echo $row->id_team; ?>"><?php echo $row->id_team; ?></option>
+                      <option value="<?php echo $row->id_team; ?>"><?php echo $row->nama_team; ?></option>
                     <?php } ?>
                   </select>
 
                   <label> Tanggal Produksi Pakan </label>
-                  <input type="date" value="<?= date('Y-m-d'); ?>" name="tgl_produksi_pakan" class="form-control">
+                  <input type="date" name="tgl_produksi_pakan" class="form-control">
                   
                   <label> Jumlah </label>
                   <div class="input-group">
@@ -131,57 +131,3 @@
       <!-- /.modal -->
       
 
-      
-
-<!-- MODAL EDIT -->
-<?php foreach ($data as $row) { ?>
-  <div class="modal fade" id="modal-edit<?= $row->id_team ?>">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Edit Data Pakan</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!-- form start -->
-        <form method="post" action="<?= base_url('Pakan/updatedataPakan') ?>">
-
-          <input type="hidden" name="id_team" id="id_team" value="<?= $row->id_team ?>" class="form-control">
-            <div class="form-group">
-              <label>Team</label>
-                <select name="edit_team" class="form-control">
-                  <?php foreach ($datapakan as $key ) : ?>
-                    <option value="<?php echo $key->id_team?>"><?php echo $key->id_team ?></option>
-                  <?php endforeach ?>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="tanggal">Tanggal Produksi Pakan</label>
-              <input type="date" value="<?= $row->tgl_produksi_pakan ?>" class="form-control" id="tgl_produksi_pakan" name="tgl_produksi_pakan"
-                placeholder="tgl_produksi_pakan">
-            </div>
-            <div class="form-group">
-              <label for="exampleInpTanggal">Jumlah</label>
-              <input type="number" value="<?= $row->jumlah ?>" class="form-control" name="jumlah"
-                id="jumlah" placeholder="Jumlah">
-            </div>
-            <!-- /.card-body -->
-             <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
-          </div>
-        </form>
-
-      </div>
-      <!-- /.card -->
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-<?php } ?>
-</div>
-<!-- /.modal -->
-
-    
-          
