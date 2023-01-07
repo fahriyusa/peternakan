@@ -1,62 +1,63 @@
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Update Data Telur</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= base_url('Dashboard') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Update Data Telur</li>
-            </ol>
-          </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Update Data Telur</h1>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="<?= base_url('Dashboard') ?>">Home</a></li>
+            <li class="breadcrumb-item active">Update Data Telur</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
-    <!-- Main content -->
-<!-- /.card -->
-    <div class="card card-info">       
-      <form method="post" action="<?= base_url('Telur/update_telur') ?>">
-        <div class="card-body">
-
-          <!-- <?php var_dump($row); ?> -->
-
-          <div class="form-group">
+  <!-- Main content -->
+  <!-- /.card -->
+  <div class="card card-info">
+    <form method="post" action="<?= base_url('Telur/update_telur') ?>">
+      <div class="card-body">
+        <!-- <?php var_dump($row); ?> -->
+        <div class="form-group">
           <label for="nama_anggota">Nama Anggota</label>
-            <select class="form-control" id="id_anggota" name="id_anggota" value="<?= $row['id_anggota'];?>">
-              <option> nama anggota </option>
-                <?php foreach($anggota->result() as $telo){ ?>
-                  <option value="<?php echo $telo->id_anggota?>"><?php echo $telo->nama_anggota ?></option>
-              <?php } ?> 
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="tanggal_ambil">Tanggal Ambil</label>
-            <input type="date" class="form-control" id="tanggal_ambil" name="tanggal_ambil" value="<?= $row['tanggal_ambil'];?>">
-          </div>
-
-          <div class="form-group">
-            <label for="jumlah">Jumlah</label>
-            <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?= $row['jumlah'];?>">
-          </div>
-
-          <div class="form-group">
-            <label for="harga">Harga</label>
-            <input type="text" class="form-control" id="harga" name="harga" value="<?= $row['harga'];?>">
-          </div>
-
-         <!-- /.card-body -->
-          <div class="modal-footer">
-            <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
-            <button type="reset" class="btn btn-warning">Riset</button>
-            <button type="submit" class="btn btn-success">Simpan</button>
-          </div>
+          <select class="form-control" id="id_anggota" name="id_anggota" value="<?= $row['id_anggota']; ?>">
+            <option> nama anggota </option>
+            <?php foreach ($anggota->result() as $telo) { ?>
+              <option value="<?php echo $telo->id_anggota ?>">
+                <?php echo $telo->nama_anggota ?>
+              </option>
+            <?php } ?>
+          </select>
         </div>
-      </form>
-    </div>
-  </div> 
+
+        <div class="form-group">
+          <label for="tanggal_ambil">Tanggal Ambil</label>
+          <input type="date" class="form-control" id="tanggal_ambil" name="tanggal_ambil"
+            value="<?= $row['tanggal_ambil']; ?>">
+        </div>
+
+        <div class="form-group">
+          <label for="jumlah">Jumlah</label>
+          <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?= $row['jumlah']; ?>">
+        </div>
+
+        <div class="form-group">
+          <label for="harga">Harga</label>
+          <input type="text" class="form-control" id="harga" name="harga" value="<?= $row['harga']; ?>">
+        </div>
+
+        <!-- /.card-body -->
+        <div class="modal-footer">
+          <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
+          <button type="reset" class="btn btn-warning">Riset</button>
+          <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

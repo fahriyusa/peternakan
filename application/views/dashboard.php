@@ -27,7 +27,9 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3><?=($data)?></h3>
+              <h3>
+                <?=($anggota) ?>
+              </h3>
 
               <p>Anggota</p>
             </div>
@@ -42,7 +44,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><?=($team) ?></h3>
 
               <p>Team</p>
             </div>
@@ -55,14 +57,16 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
-          <div class="small-box bg-warning">
+          <div class="small-box bg-primary">
             <div class="inner">
-              <h3>44</h3>
+              <h3>
+                <?=($data_pakan) ?>
+              </h3>
 
               <p>Data Pakan</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="ion ion-android-people"></i>
             </div>
             <a href="Pakan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
@@ -72,7 +76,9 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <h3>
+                <?=($ambil_pakan) ?>
+              </h3>
 
               <p>Ambil Pakan</p>
             </div>
@@ -87,7 +93,9 @@
           <!-- small box -->
           <div class="small-box bg-dark">
             <div class="inner">
-              <h3><?=($data)?></h3>
+              <h3 name="telur">
+                <?=($telur) ?>
+              </h3>
 
               <p>Telur</p>
             </div>
@@ -97,8 +105,39 @@
             <a href="Telur" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-               
-        
+
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-secondary">
+            <div class="inner">
+              <h3 name="ambil_telur">
+                <?=($ambil_telur) ?>
+              </h3>
+
+              <p>Ambil Telur</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-person"></i>
+            </div>
+            <a href="Telur/ambiltelur" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3 name="panen">
+                <?=($panen) ?>
+              </h3>
+              <p>Panen</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-person"></i>
+            </div>
+            <a href="Panen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
       </div>
       <!-- /.row -->
       <!-- Main row -->
@@ -498,7 +537,7 @@
                   </div>
                 </div>
                 <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
+                  <i class="fas fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
                   <i class="fas fa-times"></i>

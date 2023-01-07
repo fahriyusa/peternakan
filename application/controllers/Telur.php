@@ -25,19 +25,6 @@ class Telur extends CI_Controller {
 		$this->load->view('telur', $data);
         $this->load->view('layout/footer');
 	}
-<<<<<<< HEAD
-    
-    // Ambil Telur
-    public function ambilTelur()
-	{
-        //mengambil data
-        $query = $this->M_telur->join_anggota_telur();
-        $data = array(
-            'data' => $query,
-            'anggota' =>  $this->M_telur->get_anggota(),
-            // 'team' => $this->M_telur->getAmbilTelur() 
-=======
->>>>>>> 1f8409aa2961eb40750dd9119ae9f4227529afa9
 
     // insert Telur
     public function insert_telur()
@@ -74,7 +61,7 @@ class Telur extends CI_Controller {
 
         $data = array(
             'tanggal' => $tanggal,
-            'sumber' => $sumber 
+            'sumber' => $sumber
         );
 
         $where = array(

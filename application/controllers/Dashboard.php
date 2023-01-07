@@ -15,11 +15,20 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$anggota = $this->db->count_all_results('anggota');
-		$data = array('data' => $anggota);
-
+		$team = $this->db->count_all_results('team');
 		$telur = $this->db->count_all_results('telur');
-		$data = array('data' => $telur);
-		
+		$ambil_telur = $this->db->count_all_results('ambil_telur');
+		$ambil_pakan = $this->db->count_all_results('ambil_pakan');
+		$data_pakan = $this->db->count_all_results('data_pakan');
+		$panen = $this->db->count_all_results('panen');
+		$data = array('anggota' => $anggota,
+					  'team' => $team,
+					  'telur' => $telur,
+					  'ambil_telur' => $ambil_telur,
+					  'ambil_pakan' => $ambil_pakan,
+					  'data_pakan' => $data_pakan,
+					  'panen' => $panen);
+	
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('dashboard',$data);
