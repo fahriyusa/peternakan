@@ -114,7 +114,7 @@ class Telur extends CI_Controller {
         );
 
         $where = array(
-            'id' => $id
+            'id_anggota' => $id_anggota
         );      
         
         $this->M_telur->update_telur($where,$data,'ambil_telur');

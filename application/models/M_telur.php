@@ -41,7 +41,7 @@ class M_telur extends CI_Model
             $this->db->delete('telur');
     }
 
-    // Function ambil telur
+    // Function ambil telur-----------------------------------------------------------------------------------------------------------------------
 
     //Get Ambil Telur
     public function join_anggota_telur()
@@ -64,10 +64,10 @@ class M_telur extends CI_Model
        return $query;
     }
 
-
+ 
     public function edit_ambiltelur($where,$table)
     {
-        return $this->db->get_where($table,['id' => $where]);
+        return $this->db->get_where($table,['id_anggota' => $where]);
     }
     public function update_telur($where,$data,$table)
     {
@@ -76,9 +76,9 @@ class M_telur extends CI_Model
     }
 
    //delete ambil telur
-    public function delete_ambiltelur($id)
+    public function delete_ambiltelur($id_anggota)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id_anggota', $id_anggota);
         $this->db->delete('ambil_telur');
         return $query;
     }
