@@ -59,8 +59,8 @@
                     <a class="btn btn-warning"
                           href="<?= base_url('Telur/edit_ambiltelur') ?>/<?= $row->id ?>"><i
                             class="fa fa-edit"></i></a>
-                    <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id_anggota ?>"
-                          onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id_anggota ?>)');"><i
+                    <a class="btn btn-danger" href="<?= base_url('Telur/delete_ambiltelur') ?>/<?= $row->id ?>"
+                          onclick="return confirm('Apakah Anda ingin menghapus data : (<?= $row->id ?>)');"><i
                             class="fa fa-trash"></i></a>
                     </td>
                   </tr>

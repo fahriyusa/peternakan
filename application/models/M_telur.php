@@ -76,9 +76,9 @@ class M_telur extends CI_Model
     }
 
    //delete ambil telur
-    public function delete_ambiltelur($id_anggota)
+    public function delete_ambiltelur($id)
     {
-        $this->db->where('id_anggota', $id_anggota);
+        $this->db->where('id', $id);
         $this->db->delete('ambil_telur');
         return $query;
     }

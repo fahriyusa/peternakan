@@ -139,10 +139,10 @@ class Telur extends CI_Controller {
         redirect('ambiltelur');
      }
 
-     public function delete_ambiltelur($id_anggota)
+     public function delete_ambiltelur($id)
      {
         //lempar kedalam model untuk menyimpan database
-        $this->M_telur->delete_ambiltelur($id_anggota);
+        $this->M_telur->delete_ambiltelur($id);
         redirect('ambiltelur');
      }
 
