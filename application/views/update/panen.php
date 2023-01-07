@@ -9,7 +9,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?= base_url('Dashboard'); ?>">Home</a></li>
               <li class="breadcrumb-item active">Update Panen</li>
             </ol>
           </div>
@@ -30,12 +30,12 @@
               placeholder="Tanggal">
           </div>
           <div class="form-group">
-          <label for="anggota">Nama Anggota</label>
+          <label for="anggota">Nama Anggota</label><br>
           <select class="select2" name="anggota[]" multiple="multiple" data-placeholder="Pilih Anggota" data-dropdown-css-class="select2-blue" style="width: 465px;">
           <?php foreach ($anggota as $row ) : ?>
           <option value="<?php echo $row->id_anggota?>"><?php echo $row->nama_anggota ?></option>
           <?php endforeach ?>
-          </select>
+          </select></br>
           </div>
           <div class="form-group">
             <label for="buyer">Buyer</label>
@@ -56,7 +56,7 @@
           <!-- /.card-body -->
           <div class="modal-footer">
           <a href="<?= base_url(); ?>/panen"  class="btn btn-danger">Batal</a>
-          <a href="<?= base_url(); ?>/panen"  class="btn btn-success" id="tombolSimpan">Simpan</a>
+          <button type="submit" class="btn btn-success" id="Simpan">Simpan</button>
           </div>
       </form>
             <!-- /.card-body -->

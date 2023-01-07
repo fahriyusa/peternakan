@@ -17,7 +17,6 @@ class Telur extends CI_Controller {
 	{
         //mengambil data
         $query = $this->M_telur->getTelur();
-        $data['anggota'] = $this->M_telur->get_anggota();
         $data = array('data' => $query);
 
         //menampilkan view
@@ -26,6 +25,7 @@ class Telur extends CI_Controller {
 		$this->load->view('telur', $data);
         $this->load->view('layout/footer');
 	}
+<<<<<<< HEAD
     
     // Ambil Telur
     public function ambilTelur()
@@ -36,16 +36,9 @@ class Telur extends CI_Controller {
             'data' => $query,
             'anggota' =>  $this->M_telur->get_anggota(),
             // 'team' => $this->M_telur->getAmbilTelur() 
+=======
+>>>>>>> 1f8409aa2961eb40750dd9119ae9f4227529afa9
 
-        );
-
-        //menampilkan view
-        $this->load->view('layout/header');
-        $this->load->view('layout/sidebar');
-		$this->load->view('ambil_telur', $data);
-        $this->load->view('layout/footer');
-	}
-    
     // insert Telur
     public function insert_telur()
     {
@@ -72,7 +65,6 @@ class Telur extends CI_Controller {
         $this->load->view('update/telur', $data);
         $this->load->view('layout/footer');
     }
-
     // Update Telur 
     public function update()
     {
@@ -93,11 +85,54 @@ class Telur extends CI_Controller {
         redirect('telur');
     }
     public function delete_data($id)
-     {
+    {
         //lempar kedalam model untuk menyimpan database
         $this->M_telur->delete_data($id);
         redirect('Telur');
-     }
+    }
+
+
+    // Ambil Telur
+    public function ambilTelur()
+	{
+        //mengambil data
+        $query = $this->M_telur->join_anggota_telur();
+        $data = array(
+            'data' => $query,
+            'anggota' =>  $this->M_telur->get_anggota(),
+            // 'team' => $this->M_telur->getAmbilTelur()
+        );
+        
+
+        //menampilkan view
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+		$this->load->view('ambil_telur', $data);
+        $this->load->view('layout/footer');
+	}
+    
+     // edit ambil telur
+     public function update_telur()
+    {
+        $id_anggota     =$this->input->post('id_anggota');
+        $tanggal_ambil  =$this->input->post('tanggal_ambil');
+        $jumlah         =$this->input->post('jumlah');
+        $harga          =$this->input->post('harga');
+
+        $data = array(
+            'id_anggota' => $id_anggota,
+            'tanggal_ambil' => $tanggal_ambil,
+            'jumlah' => $jumlah,
+            'harga' => $harga
+        );
+
+        $where = array(
+            'id_anggota' => $id_anggota
+        );      
+        
+        $this->M_telur->update_telur($where,$data,'ambil_telur');
+        redirect('ambiltelur');
+    }
 
      // untuk menyimpan ambil telur
      public function simpan_ambiltelur()
@@ -106,35 +141,36 @@ class Telur extends CI_Controller {
         $tanggal_ambil  =$this->input->post('tanggal_ambil');
         $jumlah         =$this->input->post('jumlah');
         $harga          =$this->input->post('harga');
-        $total          =$this->input->post('total');
 
         $data = array(
             'id_anggota' => $id_anggota,
             'tanggal_ambil' => $tanggal_ambil,
             'jumlah' => $jumlah,
-            'harga' => $harga,
-            'total' => $total
+            'harga' => $harga
         );
         $this->M_telur->simpan_ambiltelur($data,'ambil_telur');
         redirect('ambiltelur');
      }
 
-     public function delete_ambiltelur($id_anggota)
+     public function delete_ambiltelur($id)
      {
         //lempar kedalam model untuk menyimpan database
-        $this->M_telur->delete_ambiltelur($id_anggota);
+        $this->M_telur->delete_ambiltelur($id);
         redirect('ambiltelur');
      }
 
      //mengarahkan ke view edit ambil telur
      public function edit_ambiltelur($id_anggota)
     {
-        $data['row']=$this->M_telur->edit_ambiltelur($id_anggota,'ambil_telur')->row();
-        // $data['anggota'] = $this->M_telur->get_anggota();
+        $data = [];
+        $data['row']=$this->M_telur->edit_ambiltelur($id_anggota,'ambil_telur')->row_array();
+        $data['anggota'] = $this->M_telur->get_anggota();
 
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('update/ambiltelur', $data);
         $this->load->view('layout/footer');
     }
+
+    
 }

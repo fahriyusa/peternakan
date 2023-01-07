@@ -7,12 +7,14 @@ class Auth extends CI_Controller
     //     parent::__construct();
     //     $this->load->model('M_auth');
     // }
-        // public function index()
-        // {
-        //     if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
-        //         redirect('dashboard'); // Redirect ke page dashboard
-        //     $this->load->view('auth/login'); // Load view login.php
-        // }
+
+    // public function index()
+    // {
+    //     if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
+    //         redirect('dashboard'); // Redirect ke page dashboard
+    //     $this->load->view('auth/login'); // Load view login.php
+    // }
+
     // public function login()
     // {
     //     $username = $this->input->post('username'); // Ambil isi dari inputan username pada form login
@@ -42,16 +44,22 @@ class Auth extends CI_Controller
     //     }
     // }
 
-    // public function logout()
-    // {
-    //     $this->session->sess_destroy();
-    //     redirect ('Auth');
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect ('Auth');
 
-    // }
+    }
 
+    // Function registrasi
     public function registrasi()
     
     {
         $this->load->view('auth/registrasi');
     } 
+
+    public function proses_registrasi()
+    {
+        // $this->form_validation->set_rules
+    }
 }

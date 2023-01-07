@@ -14,9 +14,21 @@ class Dashboard extends CI_Controller
 	}
 	public function index()
 	{
+		$anggota = $this->db->count_all_results('anggota');
+		$data = array('data' => $anggota);
+
+		$telur = $this->db->count_all_results('telur');
+		$data = array('data' => $telur);
+		
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
-		$this->load->view('dashboard');
+		$this->load->view('dashboard',$data);
 		$this->load->view('layout/footer');
+
+	}
+
+	public function jumlah()
+	{
+		
 	}
 }

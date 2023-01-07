@@ -3,91 +3,85 @@ defined('BASEPATH') or exit ('No Direct script access allowed');
 
 class M_telur extends CI_Model
 {
-    //get
+    //Get Telur
     public function getTelur()
     {
         $query = $this->db->get('telur');
         return $query->result();
     }
 
-        //get semua anggota
-    public function get_anggota()
+    //simpan telur
+    public function update_data($where,$data,$table)
     {
-        $query = $this->db->get('anggota');
-        return $query;
+        $this->db->where($where);
+        $this->db->update($table,$data);
     }
-
-    //select * FROM ambil_telur JOIN anggota ON anggota.id_anggota = ambil_telur.id_anggota;
-    // Ambil Telur
-    public function join_anggota_telur()
-    {
-        $this->db->select('*');
-        $this->db->from('anggota');
-        $this->db->join('ambil_telur', 'ambil_telur.id_anggota = anggota.id_anggota', 'LEFT');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    // Ambil Telur
-    public function getAmbilTelur()
-    {
-        $query = $this->db->get('ambil_telur');
-        return $query->result();
-    }
-
-    //insert
+    
+     //insert telur
     public function insert_telur($data)
     {
         $this->db->insert('telur',$data);
+    } 
+
+    //update TELUR
+    public function edit_data($where,$table)
+    {
+        return $this->db->get_where($table,$where);
+    }
+    public function update($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->update($table,$data);
     }
 
-   public function delete_data($id)
-   {
-        $this->db->where('id', $id);
-        $this->db->delete('telur');
-   }
+    //delete telur
+    public function delete_data($id)
+    {
+            $this->db->where('id', $id);
+            $this->db->delete('telur');
+    }
 
-   public function edit_data($where,$table)
-   {
-    return $this->db->get_where($table,$where);
-   }
+    // Function ambil telur-----------------------------------------------------------------------------------------------------------------------
 
-   public function update_data($where,$data,$table)
-   {
-    $this->db->where($where);
-    $this->db->update($table,$data);
-   }
+    //Get Ambil Telur
+    public function join_anggota_telur()
+    {
+        $this->db->select('*,(jumlah*harga)AS total');
+        $this->db->from('ambil_telur');
+        $this->db->join('anggota', 'anggota.id_anggota = ambil_telur.id_anggota');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function get_anggota()
+    {
+    return $this->db->get('anggota');
+    }
 
-  
-
-
-
-    // // Hitung Jumlah Ambil Telur
-    // public function hitungTelur($jumlah)
-    // {
-    //     $this->db->select_sum('harga');
-    //     $this->db->where('jumlah',$jumlah);
-    //     $query = $this->db->get('total');
-    //     return $query->result();
-    // }
-
+    //insert ambil telur
     public function simpan_ambiltelur($data)
     {
        $query = $this->db->insert('ambil_telur',$data);
        return $query;
     }
 
+ 
+    public function edit_ambiltelur($where,$table)
+    {
+        return $this->db->get_where($table,['id_anggota' => $where]);
+    }
+    public function update_telur($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->update($table,$data);
+    }
+
+   //delete ambil telur
     public function delete_ambiltelur($id_anggota)
     {
         $this->db->where('id_anggota', $id_anggota);
         $this->db->delete('ambil_telur');
         return $query;
     }
-
-    public function edit_ambiltelur($where,$table)
-   {
-    return $this->db->get_where($table,['id' => $where]);
-   }
 
 
 }

@@ -37,6 +37,7 @@
                   <tr class="text-center">
                     <th>No</th>
                     <th>Nama Anggota</th>
+                    <th>User Name</th>
                     <th>Status</th>
                     <th>Jabatan</th>
                     <th>Tanggal Gabung</th>
@@ -51,13 +52,11 @@
                         <?= $no++ ?>
                       </td>
                       <td><?= $row->nama_anggota ?></td>
-                      <td>
-                        <?= $row->status_txt ?>
-                      </td>
+                      <td><?= $row->username ?></td>
+                      <td><?= $row->status_txt ?></td>
                       <td><?= $row->jabatan ?></td>
-                      <td>
-                        <?= $row->tanggal_gabung ?>
-                      </td>
+                      <td><?= $row->tanggal_gabung ?></td>
+                        
                       <td>
                         <a class="btn btn-warning" href="<?= base_url('Anggota/edit') ?>/<?= $row->id_anggota ?>"><i
                             class="fa fa-edit"></i></a>
@@ -102,6 +101,7 @@
             <label for="nama_anggota">Nama Anggota</label>
             <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota" placeholder="Nama Anggota">
           </div>
+
           <div class="form-group">
             <label>Status</label>
             <select class="form-control" type="select" name="status">
@@ -110,10 +110,22 @@
               <option value="na">Non aktif</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="username">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" name="password" placeholder="password">
+          </div>
+
           <div class="form-group">
             <label for="Jabatan">Jabatan</label>
             <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
           </div>
+
           <div class="form-group">
             <label for="exampleInpTanggal">Tanggal Gabung</label>
             <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung"

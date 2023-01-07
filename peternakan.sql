@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 29 Des 2022 pada 01.36
--- Versi server: 5.7.33
--- Versi PHP: 7.4.19
+-- Host: 127.0.0.1
+-- Generation Time: Jan 06, 2023 at 02:36 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ambil_pakan`
+-- Table structure for table `ambil_pakan`
 --
 
 CREATE TABLE `ambil_pakan` (
@@ -37,10 +37,11 @@ CREATE TABLE `ambil_pakan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ambil_telur`
+-- Table structure for table `ambil_telur`
 --
 
 CREATE TABLE `ambil_telur` (
+  `id` int(11) NOT NULL,
   `id_anggota` int(11) NOT NULL,
   `tanggal_ambil` date NOT NULL,
   `jumlah` int(50) NOT NULL,
@@ -48,10 +49,17 @@ CREATE TABLE `ambil_telur` (
   `total` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ambil_telur`
+--
+
+INSERT INTO `ambil_telur` (`id`, `id_anggota`, `tanggal_ambil`, `jumlah`, `harga`, `total`) VALUES
+(2, 0, '2023-01-05', 9, 1000, 9000);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `anggota`
+-- Table structure for table `anggota`
 --
 
 CREATE TABLE `anggota` (
@@ -62,13 +70,21 @@ CREATE TABLE `anggota` (
   `jabatan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `anggota`
+--
+
+INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `tanggal_gabung`, `status`, `jabatan`) VALUES
+(2, 'R', '2023-01-03', 'a', 'HRD');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_pakan`
+-- Table structure for table `data_pakan`
 --
 
 CREATE TABLE `data_pakan` (
+  `id` int(11) NOT NULL,
   `id_team` int(11) NOT NULL,
   `tgl_produksi_pakan` date NOT NULL,
   `jumlah` int(50) NOT NULL
@@ -77,7 +93,7 @@ CREATE TABLE `data_pakan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal`
+-- Table structure for table `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -89,7 +105,7 @@ CREATE TABLE `jadwal` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `panen`
+-- Table structure for table `panen`
 --
 
 CREATE TABLE `panen` (
@@ -102,10 +118,17 @@ CREATE TABLE `panen` (
   `buyer` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `panen`
+--
+
+INSERT INTO `panen` (`id`, `tanggal`, `id_anggota`, `jumlah`, `harga`, `total`, `buyer`) VALUES
+(1, '2023-01-03', 0, 12, 2333, 23232, 'adsdax');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `team`
+-- Table structure for table `team`
 --
 
 CREATE TABLE `team` (
@@ -117,7 +140,7 @@ CREATE TABLE `team` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `telur`
+-- Table structure for table `telur`
 --
 
 CREATE TABLE `telur` (
@@ -126,142 +149,152 @@ CREATE TABLE `telur` (
   `sumber` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `telur`
+--
+
+INSERT INTO `telur` (`id`, `tanggal`, `sumber`) VALUES
+(1, '2023-01-05', 'PT Jaya abadi');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `id_anggota` int(11) DEFAULT NULL,
+  `nama` int(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `id_anggota`, `username`, `password`) VALUES
-(3, NULL, 'admin', 'admin'),
-(5, NULL, 'user', 'ee11cbb19052e40b07aac0ca060c23ee');
+INSERT INTO `user` (`id_user`, `id_anggota`, `nama`, `username`, `password`) VALUES
+(3, NULL, 0, 'admin', 'admin'),
+(5, NULL, 0, 'user', 'ee11cbb19052e40b07aac0ca060c23ee'),
+(7, 6, 0, 'demo', 'd41d8cd98f00b204e9800998ecf8427e'),
+(8, NULL, 0, 'admin', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `ambil_pakan`
+-- Indexes for table `ambil_pakan`
 --
 ALTER TABLE `ambil_pakan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ambil_telur`
+-- Indexes for table `ambil_telur`
 --
 ALTER TABLE `ambil_telur`
-  ADD PRIMARY KEY (`id_anggota`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `anggota`
+-- Indexes for table `anggota`
 --
 ALTER TABLE `anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
--- Indeks untuk tabel `data_pakan`
+-- Indexes for table `data_pakan`
 --
 ALTER TABLE `data_pakan`
-  ADD PRIMARY KEY (`id_team`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jadwal`
+-- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indeks untuk tabel `panen`
+-- Indexes for table `panen`
 --
 ALTER TABLE `panen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `team`
+-- Indexes for table `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id_team`);
 
 --
--- Indeks untuk tabel `telur`
+-- Indexes for table `telur`
 --
 ALTER TABLE `telur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `ambil_pakan`
+-- AUTO_INCREMENT for table `ambil_pakan`
 --
 ALTER TABLE `ambil_pakan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `ambil_telur`
+-- AUTO_INCREMENT for table `ambil_telur`
 --
 ALTER TABLE `ambil_telur`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `anggota`
+-- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `data_pakan`
+-- AUTO_INCREMENT for table `data_pakan`
 --
 ALTER TABLE `data_pakan`
-  MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal`
+-- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `panen`
+-- AUTO_INCREMENT for table `panen`
 --
 ALTER TABLE `panen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `team`
+-- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
   MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `telur`
+-- AUTO_INCREMENT for table `telur`
 --
 ALTER TABLE `telur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
