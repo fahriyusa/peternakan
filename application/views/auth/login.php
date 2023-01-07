@@ -45,15 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
+                    
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -61,12 +53,7 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                <p class="mb-2">
-                    <a href="#">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="<?= base_url('Auth/registrasi')?>" class="text-center">Register a new membership</a>
-                </p>
+                
             </div>
             <!-- /.login-card-body -->
         </div>

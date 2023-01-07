@@ -50,7 +50,7 @@ class Anggota extends CI_Controller
         $data = array(
             'nama_anggota' => $nama_anggota,
             'username' => $username,
-            'password' => $password,
+            'password' => md5($password),
             'tanggal_gabung' => $tanggal_gabung,
             'status' => $status,
             'jabatan' => $jabatan,
@@ -65,7 +65,7 @@ class Anggota extends CI_Controller
         $id_anggota = $this->input->post('id_anggota');
         $nama_anggota = $this->input->post('nama_anggota');
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = md5($this->input->post('password'));
         $tanggal_gabung = $this->input->post('tanggal_gabung');
         $status = $this->input->post('status');
         $jabatan = $this->input->post('jabatan');
@@ -73,7 +73,7 @@ class Anggota extends CI_Controller
         $data = array(
             'nama_anggota' => $nama_anggota,
             'username' => $username,
-            'password' => $password,
+            'password' => md5($password),
             'tanggal_gabung' => $tanggal_gabung,
             'status' => $status,
             'jabatan' => $jabatan
