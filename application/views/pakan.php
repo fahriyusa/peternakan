@@ -52,7 +52,8 @@
                     <td><?= $row->jumlah ?></td>
                     <td>
                     <a class="btn btn-warning"
-                          href="<?= base_url('Pakan/edit_data') ?>/<?= $row->id ?>"><i
+                          href="<?= base_url('Pakan/edit_data/'.$row->id);?>">
+                          <i
                             class="fa fa-edit"></i></a>
                         
                       <a class="btn btn-danger" href="<?= base_url('Pakan/delete_pakan') ?>/<?= $row->id ?>"
@@ -101,7 +102,8 @@
                   <select class="form-control" name="id_team">
                   <option> Pilih Team </option>
                   <?php foreach($team as $row) { ?>
-                      <option value="<?php echo $row->id_team; ?>"><?php echo $row->nama_team; ?></option>
+                      <option value="<?php echo $row->id_team; ?>">
+                      <?php echo $row->nama_team; ?></option>
                     <?php } ?>
                   </select>
 
