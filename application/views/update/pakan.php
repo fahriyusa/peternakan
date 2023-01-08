@@ -20,30 +20,32 @@
     <!-- Main content -->
 <!-- /.card -->
     <div class="card card-info">  
-      <?php foreach ($data_pakan as $row){?>         
       <form method="post" action="<?= base_url('Pakan/update_dataPakan') ?>">
+      <input type="hidden" value="<?= $row['id'] ?>" class="form-control" name="id" id="id">
         <div class="card-body">
           <label>Team</label>
-             <select name="edit_team" class="form-control">
-              <?php foreach ($team as $key ) : ?>
-                <option value="<?php echo $key->id_team?>"><?php echo $key->nama_team ?></option>
-              <?php endforeach ?>
-             </select>
+          <select class="form-control" name="id_team ">
+                  <option> Pilih  Team </option>
+                  <?php foreach($team as $buku) { ?>
+                  <option value="<?php echo $buku->id_team; ?>">
+                  <?php echo $buku->nama_team; ?></option>
+                  <?php } ?>
+                  </select>   
           <div class="form-group">
             <label for="tanggal">Tanggal Produksi Pakan</label>
-            <input type="date" class="form-control" id="tgl_produksi_pakan" name="tgl_produksi_pakan" value="<?= $row->tgl_produksi_pakan ?>">
+            <input type="date" class="form-control" id="tgl_produksi_pakan" name="tgl_produksi_pakan" value="<?= $row['tgl_produksi_pakan']; ?>">
           </div>
           <div class="form-group">
             <label for="jumlah">Jumlah</label>
-            <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $row->jumlah ?>">
+            <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $row['jumlah'] ?>">
           </div>
          <!-- /.card-body -->
-          <<div class="modal-footer">
+          <div class="modal-footer">
           <a href="<?= base_url(); ?>/pakan"  class="btn btn-danger">Batal</a>
-          <a href="<?= base_url(); ?>/pakan"  class="btn btn-success" id="tombolSimpan">Simpan</a>
-          </div>
+          <button type="submit" value="simpan" class="btn btn-success" id="tombolSimpan">Simpan</button>
+                  </div>
+        </div>
         </div>
       </form>
-      <?php }?>
     </div>
  
