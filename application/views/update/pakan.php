@@ -41,20 +41,12 @@
                 </div>
               </div>
               </div>
-            </div>
-              <!-- /.card-body -->
-              <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         <!-- /.card-body -->
+         <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
+            </div>
+      </form>
           </div>
-          </div>
-                    </from>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-      
-
-       
-         
+  </div>
+</div>
