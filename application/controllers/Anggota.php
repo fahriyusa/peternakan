@@ -21,7 +21,7 @@ class Anggota extends CI_Controller
         //menampilkan view
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-        $this->load->view('angg ota', $data);
+        $this->load->view('anggota', $data);
         $this->load->view('layout/footer');
     }
 
@@ -43,7 +43,7 @@ class Anggota extends CI_Controller
     {
         $nama_anggota = $this->input->post('nama_anggota');
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = md5($this->input->post('password'));
         $tanggal_gabung = $this->input->post('tanggal_gabung');
         $status = $this->input->post('status');
         $jabatan = $this->input->post('jabatan');
