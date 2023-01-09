@@ -101,6 +101,7 @@ class Telur extends CI_Controller {
      // edit ambil telur
      public function update_telur()
     {
+        $id = $this->input->post('id'); //+
         $id_anggota     =$this->input->post('id_anggota');
         $tanggal_ambil  =$this->input->post('tanggal_ambil');
         $jumlah         =$this->input->post('jumlah');
@@ -114,11 +115,12 @@ class Telur extends CI_Controller {
         );
 
         $where = array(
-            'id_anggota' => $id_anggota
+            'id' => $id //u
         );      
         
         $this->M_telur->update_telur($where,$data,'ambil_telur');
         redirect('ambiltelur');
+        // var_dump($data);
     }
 
      // untuk menyimpan ambil telur

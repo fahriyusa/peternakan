@@ -21,11 +21,11 @@
   <!-- /.card -->
   <div class="card card-info">
     <form method="post" action="<?= base_url('Telur/update_telur') ?>">
+      <input type="hidden" value="<?= $row['id']; ?>" name="id">
       <div class="card-body">
-        <!-- <?php var_dump($row); ?> -->
         <div class="form-group">
           <label for="nama_anggota">Nama Anggota</label>
-          <select class="form-control" id="id_anggota" name="id_anggota" value="<?= $row['id_anggota']; ?>">
+          <select class="form-control" id="id_anggota" name="id_anggota">
             <option> nama anggota </option>
             <?php foreach ($anggota->result() as $telo) { ?>
               <option value="<?php echo $telo->id_anggota ?>">
