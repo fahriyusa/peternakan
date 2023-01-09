@@ -17,7 +17,7 @@ class M_panen extends CI_Model
     // Ambil Telur
     public function join_anggota_panen()
     {
-        $this->db->select('*');
+        $this->db->select('*,(jumlah*harga)AS total');
         $this->db->from('panen');
         $this->db->join('anggota', 'panen.id_anggota = anggota.id_anggota', 'LEFT');
         $query = $this->db->get();
