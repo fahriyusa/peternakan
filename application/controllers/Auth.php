@@ -6,7 +6,45 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_auth');
+        // if(!$this->M_auth->current_user()){
+        //     redirect("auth/login");
+        // }
     }
+
+    // public function index()
+    // {
+    //     $this->load->view('auth/login');
+    // }
+
+    // public function login()
+    // {
+    //     $this->load->model('M_auth');
+    //     $this->load->library('form_validation');
+
+    //     $rules = $this->M_auth->rules();
+    //     $this->form_validation->set_rules($rules);
+
+    //     if($this->form_validation->run() == FALSE){
+    //         return $this->load->view('auth/login');
+    //     };
+
+    //     $username = $this->input->post('username');
+    //     $password = $this->input->post('password');
+
+    //     if($this->M_auth->login($username, $password)){
+    //         redirect('dashboard');
+    //     }else{
+    //         $this->session->set_flashdata('message_login_error', 'Login Gagal, pastikan username dan passwrod benar!');
+    //     }
+    //     $this->load->view('auth/login');
+    // }
+
+    // public function logout()
+    // {
+    //     $this->load->model('M_auth');
+    //     $this->M_auth->logout();
+    //     redirect(site_url(''));
+    // }
 
     public function index()
     {
