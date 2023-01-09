@@ -21,7 +21,7 @@ class Anggota extends CI_Controller
         //menampilkan view
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-        $this->load->view('angg ota', $data);
+        $this->load->view('anggota', $data);
         $this->load->view('layout/footer');
     }
 
