@@ -45,6 +45,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?=$this->session->flashdata('notif')?>
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row): ?>
                     <tr class="text-center">

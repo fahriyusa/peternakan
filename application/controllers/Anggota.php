@@ -56,6 +56,7 @@ class Anggota extends CI_Controller
             'jabatan' => $jabatan,
         );
         $this->M_Anggota->insert_anggota($data, 'anggota');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Anggota');
     }
 
@@ -82,6 +83,7 @@ class Anggota extends CI_Controller
             'id_anggota' => $id_anggota
         );
         $this->M_Anggota->update_data($data, $where);
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Anggota');
     }
 
@@ -89,6 +91,7 @@ class Anggota extends CI_Controller
     public function delete_anggota($id_anggota)
     {
         $this->M_Anggota->delete_anggota($id_anggota);
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Anggota');
     }
 }
