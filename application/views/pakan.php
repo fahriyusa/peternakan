@@ -36,7 +36,7 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Team</th>
                     <th>Tanggal Produksi Pakan</th>
@@ -45,9 +45,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?=$this->session->flashdata('notif')?>  
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row) { ?>
-                  <tr>
+                    <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= $row->nama_team ?></td>
                     <td><?= $row->tgl_produksi_pakan ?></td>

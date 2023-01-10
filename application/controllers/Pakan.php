@@ -41,10 +41,8 @@ class Pakan extends CI_Controller {
             'jumlah' => $jumlah
         );
         $this->M_Pakan->insert_datapakan($data, 'data_pakan');
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-        <p> Tambah Data Pakan Sukses !</p>
-        </div></div>');
-        redirect('pakan');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan');
     }
 
     //get data team by id
@@ -90,27 +88,18 @@ class Pakan extends CI_Controller {
         );
 
         $this->M_Pakan->update_dataPakan($where,$data,'data_pakan');
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-        <p> Edit Data Pakan Sukses !</p>
-    </div></div>');
-        redirect('pakan');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan');
     }  
     
     //delete
     public function delete_pakan($id)
     {
         $this->M_Pakan->delete_pakan($id);
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-danger">
-        <p> Hapus Data Pakan Sukses !</p>
-    </div></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Pakan');
     }
 
-
-
-
-
-    
         //Ambil Pakan
         public function ambil_pakan()
         {
@@ -141,19 +130,15 @@ class Pakan extends CI_Controller {
             'jumlah' => $jumlah
         );
         $this->M_Pakan->simpan_ambilPakan($data,'ambil_pakan');
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-        <p>  Data Ambil Pakan Berhasil Ditambah !</p>
-        </div></div>');
-        redirect('pakan/ambil_pakan');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan');
     }
     
     public function delete_ambilPakan($id)
     {
         $this->M_Pakan->delete_ambilPakan($id);
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-danger">
-        <p> Data Ambil Pakan Berhasil Dihapus !</p>
-    </div></div>');
-        redirect('pakan/ambil_pakan');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan');
     }
 
     //edit ambil pakan
@@ -173,10 +158,8 @@ class Pakan extends CI_Controller {
             'id' => $id
         );
         $this->M_Pakan->update_ambilPakan($where,$data,'ambil_pakan');
-        $this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-warning">
-        <p>  Data Ambil Pakan Berhasil Diubah !</p>
-        </div></div>');
-        redirect('pakan/ambil_pakan');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan');
     } 
     //mengarahkan ke view edit ambil pakan
      public function edit_ambilPakan($id_anggota)
@@ -192,6 +175,6 @@ class Pakan extends CI_Controller {
         $this->load->view('layout/footer');
     }
 
-
+    
 
 }
