@@ -19,6 +19,8 @@
 
   <!-- Main content -->
   <section class="content">
+  <?php if(!empty($this->session->flashdata())){ echo $this->session->flashdata('pesan');}?>
+       
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
