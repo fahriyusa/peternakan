@@ -37,7 +37,7 @@
                   <tr class="text-center">
                     <th>No</th>
                     <th>Nama Anggota</th>
-                    <th>User Name</th>
+                    <th>Username</th>
                     <th>Status</th>
                     <th>Jabatan</th>
                     <th>Tanggal Gabung</th>
@@ -113,7 +113,7 @@
           </div>
 
           <div class="form-group">
-            <label for="username">User Name</label>
+            <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="username">
           </div>
 

@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-          <label for="username">User Name</label>
+          <label for="username">Username</label>
           <input type="text" class="form-control" id="username" name="username"
             value="<?= $data->username ?>" placeholder="username">
         </div>
