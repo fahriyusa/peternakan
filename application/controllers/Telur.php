@@ -160,6 +160,7 @@ class Telur extends CI_Controller {
         $data = [];
         $data['row']=$this->M_telur->edit_ambiltelur($id_anggota,'ambil_telur')->row_array();
         $data['anggota'] = $this->M_telur->get_anggota();
+        $data['telur'] = $this->M_telur->getTelur();
 
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');

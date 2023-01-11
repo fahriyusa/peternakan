@@ -34,6 +34,17 @@
             <?php } ?>
           </select>
         </div>
+        <div class="form-group">
+          <label for="nama_anggota">Sumber</label>
+          <select class="form-control" id="id_telur" name="id_telur">
+            <option> Sumber </option>
+            <?php foreach ($telur as $telo) { ?>
+              <option value="<?php echo $telo->id_telur ?>">
+                <?php echo $telo->sumber ?>
+              </option>
+            <?php } ?>
+          </select>
+        </div>
 
         <div class="form-group">
           <label for="tanggal_ambil">Tanggal Ambil</label>
