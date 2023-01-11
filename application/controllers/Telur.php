@@ -44,7 +44,7 @@ class Telur extends CI_Controller {
     // Update Telur
     public function edit_data($id)
     {
-        $where = array('id' => $id);
+        $where = array('id_telur' => $id);
         $data['telur']=$this->M_telur->edit_data($where,'telur')->result();
 
         $this->load->view('layout/header');
@@ -55,7 +55,7 @@ class Telur extends CI_Controller {
     // Update Telur 
     public function update()
     {
-        $id = $this->input->post('id');
+        $id = $this->input->post('id_telur');
         $tanggal = $this->input->post('tanggal');
         $sumber = $this->input->post('sumber');
 
@@ -65,7 +65,7 @@ class Telur extends CI_Controller {
         );
 
         $where = array(
-            'id' => $id
+            'id_telur' => $id
         );      
         
         $this->M_telur->update_data($where,$data,'telur');
@@ -84,9 +84,11 @@ class Telur extends CI_Controller {
 	{
         //mengambil data
         $query = $this->M_telur->join_anggota_telur();
+        $query = $this->M_telur->join_ambiltelur_telur();
         $data = array(
             'data' => $query,
             'anggota' =>  $this->M_telur->get_anggota(),
+            'telur' =>  $this->M_telur->getTelur()
             // 'team' => $this->M_telur->getAmbilTelur()
         );
         
@@ -103,12 +105,14 @@ class Telur extends CI_Controller {
     {
         $id = $this->input->post('id'); //+
         $id_anggota     =$this->input->post('id_anggota');
+        $id_telur     =$this->input->post('id_telur');
         $tanggal_ambil  =$this->input->post('tanggal_ambil');
         $jumlah         =$this->input->post('jumlah');
         $harga          =$this->input->post('harga');
 
         $data = array(
             'id_anggota' => $id_anggota,
+            'id_telur' => $id_telur,
             'tanggal_ambil' => $tanggal_ambil,
             'jumlah' => $jumlah,
             'harga' => $harga
@@ -127,12 +131,14 @@ class Telur extends CI_Controller {
      public function simpan_ambiltelur()
      {
         $id_anggota     =$this->input->post('id_anggota');
+        $id_telur     =$this->input->post('id_telur');
         $tanggal_ambil  =$this->input->post('tanggal_ambil');
         $jumlah         =$this->input->post('jumlah');
         $harga          =$this->input->post('harga');
 
         $data = array(
             'id_anggota' => $id_anggota,
+            'id_telur' => $id_telur,
             'tanggal_ambil' => $tanggal_ambil,
             'jumlah' => $jumlah,
             'harga' => $harga
