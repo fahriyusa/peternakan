@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2023 at 02:58 PM
+-- Generation Time: Jan 11, 2023 at 02:13 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,13 +34,6 @@ CREATE TABLE `ambil_pakan` (
   `jumlah` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `ambil_pakan`
---
-
-INSERT INTO `ambil_pakan` (`id`, `id_anggota`, `tanggal`, `jumlah`) VALUES
-(8, 1010, '2023-01-08', 300000);
-
 -- --------------------------------------------------------
 
 --
@@ -63,7 +56,7 @@ INSERT INTO `ambil_telur` (`id`, `id_anggota`, `tanggal_ambil`, `jumlah`, `harga
 (1011, 1003, '2023-01-05', 2, 1000),
 (1013, 1001, '2023-01-06', 8, 1000),
 (1015, 1001, '2023-01-06', 10, 10000),
-(1019, 1010, '2023-01-21', 90000, 9990);
+(1019, 1011, '2023-01-07', 12, 1000);
 
 -- --------------------------------------------------------
 
@@ -75,7 +68,7 @@ CREATE TABLE `anggota` (
   `id_anggota` int(11) NOT NULL,
   `nama_anggota` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL,
   `tanggal_gabung` date NOT NULL,
   `status` enum('a','na') NOT NULL,
   `jabatan` varchar(50) NOT NULL
@@ -86,7 +79,10 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `username`, `password`, `tanggal_gabung`, `status`, `jabatan`) VALUES
-(1010, 'Irfan', 'irfan', '12345', '2023-01-07', 'a', 'Anggota');
+(1012, 'rehan', 'rehan', 'd41d8cd98f00b204e9800998ecf8427e', '2023-01-07', 'a', 'Anggota'),
+(1014, 'Irfan', 'irfan', '202cb962ac59075b964b07152d234b70', '2023-01-09', 'a', 'Anggota'),
+(1020, 'ipin', 'ipin', '$2y$10$Ft8TZf/i212foU51vBjwLOuw0dRn.4A0Wj4BQ7Z2jY3', '2023-01-01', 'a', 'Anggota'),
+(1021, 'p', 'admin', '$2y$10$pe9h4CBE0snr6PmsPavokOvPW0vVse9ho7cbdoKOHg8qFJ2grgFhq', '2023-01-10', 'a', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -95,18 +91,10 @@ INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `username`, `password`, `ta
 --
 
 CREATE TABLE `data_pakan` (
-  `id` int(11) NOT NULL,
   `id_team` int(11) NOT NULL,
   `tgl_produksi_pakan` date NOT NULL,
   `jumlah` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `data_pakan`
---
-
-INSERT INTO `data_pakan` (`id`, `id_team`, `tgl_produksi_pakan`, `jumlah`) VALUES
-(40, 1, '2023-01-07', 2);
 
 -- --------------------------------------------------------
 
@@ -136,13 +124,6 @@ CREATE TABLE `panen` (
   `buyer` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `panen`
---
-
-INSERT INTO `panen` (`id`, `tanggal`, `id_anggota`, `jumlah`, `harga`, `total`, `buyer`) VALUES
-(1, '2023-01-07', 1, 94, 52, 88, '0');
-
 -- --------------------------------------------------------
 
 --
@@ -161,10 +142,7 @@ CREATE TABLE `team` (
 
 INSERT INTO `team` (`id_team`, `id_anggota`, `nama_team`) VALUES
 (1, 1001, 'qqq'),
-(2, 1003, 'qqq'),
-(3, 1010, 'ytt'),
-(4, 1010, 'erditaaa'),
-(5, 1010, 'erditaaa');
+(2, 1003, 'qqq');
 
 -- --------------------------------------------------------
 
@@ -183,7 +161,9 @@ CREATE TABLE `telur` (
 --
 
 INSERT INTO `telur` (`id`, `tanggal`, `sumber`) VALUES
-(3, '2023-01-05', 'PT ');
+(3, '2023-01-05', 'PT Abal '),
+(4, '2023-01-06', 'PT Jaya Abadi'),
+(6, '2023-01-06', 'PT Susu Bendera');
 
 --
 -- Indexes for dumped tables
@@ -211,7 +191,7 @@ ALTER TABLE `anggota`
 -- Indexes for table `data_pakan`
 --
 ALTER TABLE `data_pakan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_team`);
 
 --
 -- Indexes for table `jadwal`
@@ -245,7 +225,7 @@ ALTER TABLE `telur`
 -- AUTO_INCREMENT for table `ambil_pakan`
 --
 ALTER TABLE `ambil_pakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ambil_telur`
@@ -257,13 +237,13 @@ ALTER TABLE `ambil_telur`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1022;
 
 --
 -- AUTO_INCREMENT for table `data_pakan`
 --
 ALTER TABLE `data_pakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -275,13 +255,13 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `panen`
 --
 ALTER TABLE `panen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `telur`

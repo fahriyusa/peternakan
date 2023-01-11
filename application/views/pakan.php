@@ -57,10 +57,9 @@
                     <a class="btn btn-warning"
                           href="<?= base_url('Pakan/edit_data/'.$row->id);?>">
                           <i
-                            class="fa fa-edit"></i></a>
-                        
+                            class="fa fa-edit"></i></a>    
                       <a class="btn btn-danger" href="<?= base_url('Pakan/delete_pakan') ?>/<?= $row->id ?>"
-                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id?>)');"><i
+                      onclick="return confirmToDelete(this)"><i
                       class="fa fa-trash"></i></a>
                       <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
                       </button> -->
@@ -69,6 +68,27 @@
                   <?php } ?>
                 </tbody>
               </table>
+              <div id="confirm-dialog" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h2 class="h2">Apakah yakin menghapus?</h2>
+                    <p>Data akan dihapus dan hilang selamanya</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" role="button" id="delete-button" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+            function confirmToDelete(el){
+                $("#delete-button").attr("href", el.dataset.href);
+                $("#confirm-dialog").modal('show');
+            }
+            </script>
             </div>
             <!-- /.card-body -->
           </div>

@@ -88,7 +88,7 @@ class Pakan extends CI_Controller {
         );
 
         $this->M_Pakan->update_dataPakan($where,$data,'data_pakan');
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-warning" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Pakan');
     }  
     
@@ -96,7 +96,7 @@ class Pakan extends CI_Controller {
     public function delete_pakan($id)
     {
         $this->M_Pakan->delete_pakan($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Pakan');
     }
 
@@ -137,7 +137,7 @@ class Pakan extends CI_Controller {
     public function delete_ambilPakan($id)
     {
         $this->M_Pakan->delete_ambilPakan($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-denger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Pakan');
     }
 
@@ -158,7 +158,7 @@ class Pakan extends CI_Controller {
             'id' => $id
         );
         $this->M_Pakan->update_ambilPakan($where,$data,'ambil_pakan');
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-warning" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Pakan');
     } 
     //mengarahkan ke view edit ambil pakan
