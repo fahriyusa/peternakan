@@ -11,7 +11,7 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        var_dump($this->session->userdata('username'));
+        // var_dump($this->session->userdata('username'));
         $this->load->view('auth/login');
     }
 
