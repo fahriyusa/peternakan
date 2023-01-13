@@ -37,11 +37,11 @@ class M_telur extends CI_Model
     //delete telur
     public function delete_data($id)
     {
-            $this->db->where('id', $id);
+            $this->db->where('id_telur', $id);
             $this->db->delete('telur');
     }
 
-    // Function ambil telur-----------------------------------------------------------------------------------------------------------------------
+    // Function ambil telur
 
     //Get Ambil Telur
     public function join_anggota_telur()

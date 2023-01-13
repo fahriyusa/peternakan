@@ -22,7 +22,7 @@
     <div class="card card-info">
       <?php foreach ($telur as $row){?>          
       <form method="post" action="<?= base_url('Telur/update') ?>">
-      <input type="hidden" name="id" value="<?=$row->id;?>">
+      <input type="hidden" name="id_telur" value="<?=$row->id_telur;?>">
         <div class="card-body">
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
