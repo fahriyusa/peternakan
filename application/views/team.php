@@ -56,11 +56,11 @@
                     <td><?=$row->nama_team?></td>
                     <td><?=$row->nama_anggota?></td>
                     <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-edit">
+                    <i class="fa fa-edit"></i>
                     </button>
-                    <a class="btn btn-danger" href="<?= base_url('Team/delete_team') ?>/<?= $row->id_team ?>"
-                       onclick="return confirm('Apakah Anda ingin <?= $row->nama_team ?> ?');"><i class="fa-solid fa-trash"></i></a>
+                    <a class="btn btn-outline-danger" href="<?= base_url('Team/delete_team') ?>/<?= $row->id_team ?>"
+                       onclick="return confirm('Apakah Anda ingin <?= $row->nama_team ?> ?');"><i class="fa fa-trash"></i></a>
                     </td>
                   <?php } ?>
                   <?php } ?>
