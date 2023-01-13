@@ -49,10 +49,10 @@
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <center><a class="btn btn-outline-warning" href="<?=base_url('Telur/edit_data/'.$row->id);?>">
+                    <center><a class="btn btn-outline-warning" href="<?=base_url('Telur/edit_data/'.$row->id_telur);?>">
                       <i class="fa fa-edit"></i></a>
-                    <a class="btn btn-outline-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id ?>"
-                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id ?>)');"><i
+                    <a class="btn btn-outline-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id_telur ?>"
+                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id_telur ?>)');"><i
                       class="fa fa-trash"></i></a></center>
                   </td>                    
                   </tr>

@@ -52,6 +52,16 @@ class M_telur extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function join_ambiltelur_telur()
+    {
+        $this->db->select('*,(jumlah*harga)AS total');
+        $this->db->from('ambil_telur');
+        $this->db->join('telur', 'telur.id_telur = ambil_telur.id_telur');
+        $this->db->join('anggota', 'anggota.id_anggota = ambil_telur.id_anggota');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
     public function get_anggota()
     {
     return $this->db->get('anggota');
@@ -67,7 +77,7 @@ class M_telur extends CI_Model
  
     public function edit_ambiltelur($where,$table)
     {
-        return $this->db->get_where($table,['id_anggota' => $where]);
+        return $this->db->get_where($table,['id_anggota' => $where]); //u
     }
     public function update_telur($where,$data,$table)
     {
@@ -78,7 +88,7 @@ class M_telur extends CI_Model
    //delete ambil telur
     public function delete_ambiltelur($id_anggota)
     {
-        $this->db->where('id_anggota', $id_anggota);
+        $this->db->where('id_anggota', $id_anggota); //u
         $this->db->delete('ambil_telur');
         return $query;
     }

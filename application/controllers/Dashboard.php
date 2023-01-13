@@ -7,13 +7,14 @@ class Dashboard extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-
-		// if ($this->session->userdata('authenticated') != true) {
-		// 	redirect(base_url("auth"));
-		// }
-	}
+		if ($this->session->userdata('username') == '') {
+            redirect('auth');
+        }
+        }
+	
 	public function index()
 	{
+
 		$anggota = $this->db->count_all_results('anggota');
 		$team = $this->db->count_all_results('team');
 		$telur = $this->db->count_all_results('telur');
@@ -34,10 +35,5 @@ class Dashboard extends CI_Controller
 		$this->load->view('dashboard',$data);
 		$this->load->view('layout/footer');
 
-	}
-
-	public function jumlah()
-	{
-		
 	}
 }

@@ -43,6 +43,7 @@ class Panen extends CI_Controller
             );
          
          $this->M_panen->insert_panen($data, 'panen');
+         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('panen');
        
     }
@@ -100,12 +101,14 @@ class Panen extends CI_Controller
         );      
         
         $this->M_panen->update_data($where,$data,'panen');
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('panen');
     }
     //delete
     public function delete_panen($id)
     {
         $this->M_panen->delete_panen($id);
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Panen');
     }
 }

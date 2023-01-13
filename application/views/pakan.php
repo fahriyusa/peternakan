@@ -19,6 +19,8 @@
 
   <!-- Main content -->
   <section class="content">
+  <?php if(!empty($this->session->flashdata())){ echo $this->session->flashdata('pesan');}?>
+       
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -34,7 +36,7 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Team</th>
                     <th>Tanggal Produksi Pakan</th>
@@ -43,9 +45,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?=$this->session->flashdata('notif')?>  
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row) { ?>
-                  <tr>
+                    <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= $row->nama_team ?></td>
                     <td><?= $row->tgl_produksi_pakan ?></td>
@@ -54,10 +57,9 @@
                     <a class="btn btn-warning"
                           href="<?= base_url('Pakan/edit_data/'.$row->id);?>">
                           <i
-                            class="fa fa-edit"></i></a>
-                        
+                            class="fa fa-edit"></i></a>    
                       <a class="btn btn-danger" href="<?= base_url('Pakan/delete_pakan') ?>/<?= $row->id ?>"
-                      onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id?>)');"><i
+                      onclick="return confirmToDelete(this)"><i
                       class="fa fa-trash"></i></a>
                       <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">Hapus
                       </button> -->
@@ -66,6 +68,27 @@
                   <?php } ?>
                 </tbody>
               </table>
+              <div id="confirm-dialog" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h2 class="h2">Apakah yakin menghapus?</h2>
+                    <p>Data akan dihapus dan hilang selamanya</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" role="button" id="delete-button" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+            function confirmToDelete(el){
+                $("#delete-button").attr("href", el.dataset.href);
+                $("#confirm-dialog").modal('show');
+            }
+            </script>
             </div>
             <!-- /.card-body -->
           </div>

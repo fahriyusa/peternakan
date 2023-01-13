@@ -43,7 +43,7 @@
               </div>
          <!-- /.card-body -->
          <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         <a class="btn btn-danger" href="javascript:history.back()">Kembali</a>
             <button type="submit" class="btn btn-success" id="tombolSimpan">Simpan</button>
             </div>
       </form>
