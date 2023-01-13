@@ -130,15 +130,15 @@ class Pakan extends CI_Controller {
             'jumlah' => $jumlah
         );
         $this->M_Pakan->simpan_ambilPakan($data,'ambil_pakan');
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('Pakan');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan/ambil_pakan');
     }
     
     public function delete_ambilPakan($id)
     {
         $this->M_Pakan->delete_ambilPakan($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-denger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('Pakan');
+        $this->session->set_flashdata('pesan','<div class="alert alert-denger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan/ambil_pakan');
     }
 
     //edit ambil pakan
@@ -158,8 +158,8 @@ class Pakan extends CI_Controller {
             'id' => $id
         );
         $this->M_Pakan->update_ambilPakan($where,$data,'ambil_pakan');
-        $this->session->set_flashdata('notif','<div class="alert alert-warning" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('Pakan');
+        $this->session->set_flashdata('pesan','<div class="alert alert-warning" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Pakan/ambil_pakan');
     } 
     //mengarahkan ke view edit ambil pakan
      public function edit_ambilPakan($id_anggota)
