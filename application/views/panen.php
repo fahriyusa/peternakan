@@ -184,11 +184,6 @@
                 <input type="number" value="<?= $row->harga ?>" class="form-control" id="harga" name="harga"
                 placeholder="Harga">
               </div>
-              <div class="form-group">
-                <label for="total">Total</label>
-                <input type="number" value="<?= $row->total ?>" class="form-control" id="total" name="total"
-                placeholder="Total">
-              </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="reset" class="btn btn-warning">Riset</button>

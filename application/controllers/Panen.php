@@ -32,14 +32,13 @@ class Panen extends CI_Controller
         $buyer = $this->input->post('buyer');
         $jumlah = $this->input->post('jumlah');
         $harga = $this->input->post('harga');
-        $total = $this->input->post('total');
+
              $data = array(
                 'tanggal' => $tanggal,
                 'id_anggota' => $id_anggota,
                 'buyer' => $buyer,
                 'jumlah' => $jumlah,
                 'harga' => $harga,
-                'total' => $total,
             );
          
          $this->M_panen->insert_panen($data, 'panen');
@@ -85,7 +84,7 @@ class Panen extends CI_Controller
         $buyer = $this->input->post('buyer');
         $jumlah = $this->input->post('jumlah');
         $harga = $this->input->post('harga');
-        $total = $this->input->post('total');
+
              $data = array(
 
                 'tanggal' => $tanggal,
@@ -93,7 +92,6 @@ class Panen extends CI_Controller
                 'buyer' => $buyer,
                 'jumlah' => $jumlah,
                 'harga' => $harga,
-                'total' => $total,
             );
 
         $where = array(
