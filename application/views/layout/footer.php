@@ -1,19 +1,17 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2022 <a href="">Peternakan</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.0
-    </div>
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+  <strong>Copyright &copy; 2022 <a href="">Peternakan</a>.</strong>
+  All rights reserved.
+  <div class="float-right d-none d-sm-inline-block">
+    <b>Version</b> 1.0.0
+  </div>
+</footer>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -23,7 +21,7 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Select2 -->
-<script src="<?= base_url('assets/plugins/select2/js/select2.full.min.js')?>"></script>
+<script src="<?= base_url('assets/plugins/select2/js/select2.full.min.js') ?>"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- ChartJS -->
@@ -47,9 +45,9 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/dist/js/adminlte.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?= base_url('assets/dist/js/demo.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/dist/js/demo.js') ?>"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url('assets/dist/js/pages/dashboard.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/dist/js/pages/dashboard.js') ?>"></script> -->
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
@@ -64,8 +62,8 @@
 <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
 <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 <!-- fullCalendar 2.2.5 -->
-<script src="<?= base_url('assets/plugins/moment/moment.min.js')?>"></script>
-<script src="<?= base_url('assets/plugins/fullcalendar/main.js')?>"></script>
+<script src="<?= base_url('assets/plugins/moment/moment.min.js') ?>"></script>
+<script src="<?= base_url('assets/plugins/fullcalendar/main.js') ?>"></script>
 <script>
   $(function () {
 
@@ -85,8 +83,8 @@
 
         // make the event draggable using jQuery UI
         $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
+          zIndex: 1070,
+          revert: true, // will cause the event to go back to its
           revertDuration: 0  //  original position after the drag
         })
 
@@ -99,9 +97,9 @@
      -----------------------------------------------------------------*/
     //Date for the calendar events (dummy data)
     var date = new Date()
-    var d    = date.getDate(),
-        m    = date.getMonth(),
-        y    = date.getFullYear()
+    var d = date.getDate(),
+      m = date.getMonth(),
+      y = date.getFullYear()
 
     var Calendar = FullCalendar.Calendar;
     var Draggable = FullCalendar.Draggable;
@@ -115,74 +113,74 @@
 
     new Draggable(containerEl, {
       itemSelector: '.external-event',
-      eventData: function(eventEl) {
+      eventData: function (eventEl) {
         return {
           title: eventEl.innerText,
-          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
+          backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+          borderColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+          textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
         };
       }
     });
 
     var calendar = new Calendar(calendarEl, {
       headerToolbar: {
-        left  : 'prev,next today',
+        left: 'prev,next today',
         center: 'title',
-        right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       themeSystem: 'bootstrap',
       //Random default events
       events: [
         {
-          title          : 'All Day Event',
-          start          : new Date(y, m, 1),
+          title: 'All Day Event',
+          start: new Date(y, m, 1),
           backgroundColor: '#f56954', //red
-          borderColor    : '#f56954', //red
-          allDay         : true
+          borderColor: '#f56954', //red
+          allDay: true
         },
         {
-          title          : 'Long Event',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
+          title: 'Long Event',
+          start: new Date(y, m, d - 5),
+          end: new Date(y, m, d - 2),
           backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
+          borderColor: '#f39c12' //yellow
         },
         {
-          title          : 'Meeting',
-          start          : new Date(y, m, d, 10, 30),
-          allDay         : false,
+          title: 'Meeting',
+          start: new Date(y, m, d, 10, 30),
+          allDay: false,
           backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
+          borderColor: '#0073b7' //Blue
         },
         {
-          title          : 'Lunch',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
+          title: 'Lunch',
+          start: new Date(y, m, d, 12, 0),
+          end: new Date(y, m, d, 14, 0),
+          allDay: false,
           backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
+          borderColor: '#00c0ef' //Info (aqua)
         },
         {
-          title          : 'Birthday Party',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
+          title: 'Birthday Party',
+          start: new Date(y, m, d + 1, 19, 0),
+          end: new Date(y, m, d + 1, 22, 30),
+          allDay: false,
           backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
+          borderColor: '#00a65a' //Success (green)
         },
         {
-          title          : 'Click for Google',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'https://www.google.com/',
+          title: 'Click for Google',
+          start: new Date(y, m, 28),
+          end: new Date(y, m, 29),
+          url: 'https://www.google.com/',
           backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
+          borderColor: '#3c8dbc' //Primary (light-blue)
         }
       ],
-      editable  : true,
-      droppable : true, // this allows things to be dropped onto the calendar !!!
-      drop      : function(info) {
+      editable: true,
+      droppable: true, // this allows things to be dropped onto the calendar !!!
+      drop: function (info) {
         // is the "remove after drop" checkbox checked?
         if (checkbox.checked) {
           // if so, remove the element from the "Draggable Events" list
@@ -204,7 +202,7 @@
       // Add color effect to button
       $('#add-new-event').css({
         'background-color': currColor,
-        'border-color'    : currColor
+        'border-color': currColor
       })
     })
     $('#add-new-event').click(function (e) {
@@ -219,8 +217,8 @@
       var event = $('<div />')
       event.css({
         'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
+        'border-color': currColor,
+        'color': '#fff'
       }).addClass('external-event')
       event.text(val)
       $('#external-events').prepend(event)
@@ -270,7 +268,7 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'L'
+      format: 'L'
     });
 
     //Date and time picker
@@ -289,16 +287,16 @@
     //Date range as a button
     $('#daterange-btn').daterangepicker(
       {
-        ranges   : {
-          'Today'       : [moment(), moment()],
-          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
         },
         startDate: moment().subtract(29, 'days'),
-        endDate  : moment()
+        endDate: moment()
       },
       function (start, end) {
         $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
@@ -318,11 +316,11 @@
     //color picker with addon
     $('.my-colorpicker2').colorpicker()
 
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+    $('.my-colorpicker2').on('colorpickerChange', function (event) {
       $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
     })
 
-    $("input[data-bootstrap-switch]").each(function(){
+    $("input[data-bootstrap-switch]").each(function () {
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })
 
@@ -352,17 +350,17 @@
     clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
   })
 
-  myDropzone.on("addedfile", function(file) {
+  myDropzone.on("addedfile", function (file) {
     // Hookup the start button
-    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
+    file.previewElement.querySelector(".start").onclick = function () { myDropzone.enqueueFile(file) }
   })
 
   // Update the total progress bar
-  myDropzone.on("totaluploadprogress", function(progress) {
+  myDropzone.on("totaluploadprogress", function (progress) {
     document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
   })
 
-  myDropzone.on("sending", function(file) {
+  myDropzone.on("sending", function (file) {
     // Show the total progress bar when upload starts
     document.querySelector("#total-progress").style.opacity = "1"
     // And disable the start button
@@ -370,21 +368,22 @@
   })
 
   // Hide the total progress bar when nothing's uploading anymore
-  myDropzone.on("queuecomplete", function(progress) {
+  myDropzone.on("queuecomplete", function (progress) {
     document.querySelector("#total-progress").style.opacity = "0"
   })
 
   // Setup the buttons for all transfers
   // The "add files" button doesn't need to be setup because the config
   // `clickable` has already been specified.
-  document.querySelector("#actions .start").onclick = function() {
+  document.querySelector("#actions .start").onclick = function () {
     myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
   }
-  document.querySelector("#actions .cancel").onclick = function() {
+  document.querySelector("#actions .cancel").onclick = function () {
     myDropzone.removeAllFiles(true)
   }
   // DropzoneJS Demo Code End
 </script>
 
 </body>
+
 </html>
