@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit ('No Direct script access allowed');
+defined('BASEPATH') or exit('No Direct script access allowed');
 
 class M_Pakan extends CI_Model
 {
@@ -15,7 +15,6 @@ class M_Pakan extends CI_Model
     {
         $this->db->group_by('nama_team');
         return $this->db->get('team')->result();
-
     }
     public function join_team_pakan()
     {
@@ -27,22 +26,22 @@ class M_Pakan extends CI_Model
     }
 
     //READ
-   // public function get_datapakan()
+    // public function get_datapakan()
     //{
-     //   $this->db->select('*');
-       // $this->db->from('data_pakan');
-       // $this->db->join('team','team.id_team = data_pakan.id_team');
-      //  $query = $this->db->get();
-      //  return $query->result();
-   // }
+    //   $this->db->select('*');
+    // $this->db->from('data_pakan');
+    // $this->db->join('team','team.id_team = data_pakan.id_team');
+    //  $query = $this->db->get();
+    //  return $query->result();
+    // }
 
-     //insert
-     public function insert_datapakan($data)
-     {
-       $query = $this->db->insert('data_pakan',$data);
-       return $query;
-     }
- 
+    //insert
+    public function insert_datapakan($data)
+    {
+        $query = $this->db->insert('data_pakan', $data);
+        return $query;
+    }
+
     //delete
     public function delete_pakan($id)
     {
@@ -50,30 +49,22 @@ class M_Pakan extends CI_Model
         $this->db->delete('data_pakan');
     }
 
-    
+
     public function getPakan_id($id)
     {
-         $this->db->get_where("data_pakan", ['id'=> $id])->row();
+        $this->db->get_where("data_pakan", ['id' => $id])->row();
     }
+    row
 
     //update 
-    public function edit_data($where,$table)
+    public function edit_data($where, $table)
     {
-        return $this->db->get_where($table,$where);
+        return $this->db->get_where($table, $where);
     }
 
-    public function update_dataPakan($where,$data,$table)
+    public function update_dataPakan($where, $data, $table)
     {
         $this->db->where($where);
-        $this->db->update($table,$data);
+        $this->db->update($table, $data);
     }
-
-
-
-    
-    
-    
-    
-
-
 }

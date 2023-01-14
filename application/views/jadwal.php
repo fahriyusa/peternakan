@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Calendar</h1>
+          <h1>Aktifitas Team</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
           <div class="sticky-top mb-3">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Draggable Events</h4>
+                <h4 class="card-title">Kegiatan Team</h4>
               </div>
               <div class="card-body">
                 <!-- the events -->

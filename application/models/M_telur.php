@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit ('No Direct script access allowed');
+defined('BASEPATH') or exit('No Direct script access allowed');
 
 class M_telur extends CI_Model
 {
@@ -11,34 +11,34 @@ class M_telur extends CI_Model
     }
 
     //simpan telur
-    public function update_data($where,$data,$table)
+    public function update_data($where, $data, $table)
     {
         $this->db->where($where);
-        $this->db->update($table,$data);
+        $this->db->update($table, $data);
     }
-    
-     //insert telur
+
+    //insert telur
     public function insert_telur($data)
     {
-        $this->db->insert('telur',$data);
-    } 
+        $this->db->insert('telur', $data);
+    }
 
     //update TELUR
-    public function edit_data($where,$table)
+    public function edit_data($where, $table)
     {
-        return $this->db->get_where($table,$where);
+        return $this->db->get_where($table, $where);
     }
-    public function update($where,$data,$table)
+    public function update($where, $data, $table)
     {
         $this->db->where($where);
-        $this->db->update($table,$data);
+        $this->db->update($table, $data);
     }
 
     //delete telur
     public function delete_data($id)
     {
-            $this->db->where('id_telur', $id);
-            $this->db->delete('telur');
+        $this->db->where('id_telur', $id);
+        $this->db->delete('telur');
     }
 
     // Function ambil telur
@@ -61,37 +61,35 @@ class M_telur extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     public function get_anggota()
     {
-    return $this->db->get('anggota');
+        return $this->db->get('anggota')->result();
     }
 
     //insert ambil telur
     public function simpan_ambiltelur($data)
     {
-       $query = $this->db->insert('ambil_telur',$data);
-       return $query;
+        $query = $this->db->insert('ambil_telur', $data);
+        return $query;
     }
 
- 
-    public function edit_ambiltelur($where,$table)
+
+    public function edit_ambiltelur($where, $table)
     {
-        return $this->db->get_where($table,['id_anggota' => $where]); //u
+        return $this->db->get_where($table, ['id_anggota' => $where]); //u
     }
-    public function update_telur($where,$data,$table)
+    public function update_telur($where, $data, $table)
     {
         $this->db->where($where);
-        $this->db->update($table,$data);
+        $this->db->update($table, $data);
     }
 
-   //delete ambil telur
+    //delete ambil telur
     public function delete_ambiltelur($id_anggota)
     {
         $this->db->where('id_anggota', $id_anggota); //u
         $this->db->delete('ambil_telur');
         return $query;
     }
-
-
 }

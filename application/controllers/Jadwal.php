@@ -7,17 +7,17 @@ class Jadwal extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_jadwal');
-        
+
         // if ($this->session->userdata('authenticated') != true) {
-		// 	redirect(base_url("auth"));
-		// }
+        // 	redirect(base_url("auth"));
+        // }
     }
-    
-    
+
+
     public function index()
     {
         //mengambil data
-        $data['team '] = $this->M_jadwal->get_team();
+        $data['team'] = $this->M_jadwal->get_team();
         $data['jadwal'] = $this->M_jadwal->get_jadwal();
         //menampilkan view
         $this->load->view('layout/header');

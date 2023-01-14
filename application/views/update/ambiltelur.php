@@ -27,7 +27,7 @@
           <label for="nama_anggota">Nama Anggota</label>
           <select class="form-control" id="id_anggota" name="id_anggota">
             <option> nama anggota </option>
-            <?php foreach ($anggota->result() as $telo) { ?>
+            <?php foreach ($anggota as $telo) { ?>
               <option value="<?php echo $telo->id_anggota ?>">
                 <?php echo $telo->nama_anggota ?>
               </option>
@@ -48,8 +48,7 @@
 
         <div class="form-group">
           <label for="tanggal_ambil">Tanggal Ambil</label>
-          <input type="date" class="form-control" id="tanggal_ambil" name="tanggal_ambil"
-            value="<?= $row['tanggal_ambil']; ?>">
+          <input type="date" class="form-control" id="tanggal_ambil" name="tanggal_ambil" value="<?= $row['tanggal_ambil']; ?>">
         </div>
 
         <div class="form-group">

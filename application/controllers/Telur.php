@@ -39,7 +39,7 @@ class Telur extends CI_Controller
             'sumber' => $sumber,
         );
         $this->M_telur->insert_telur($data, 'telur');
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('telur');
     }
 
@@ -71,14 +71,14 @@ class Telur extends CI_Controller
         );
 
         $this->M_telur->update_data($where, $data, 'telur');
-        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil Diupdate <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil Diupdate <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('telur');
     }
     public function delete_data($id)
     {
         //lempar kedalam model untuk menyimpan database
         $this->M_telur->delete_data($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif', '<div class="alert alert-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Telur');
     }
 
@@ -188,12 +188,11 @@ class Telur extends CI_Controller
         $data['row'] = $this->M_telur->edit_ambiltelur($id_anggota, 'ambil_telur')->row_array();
         $data['anggota'] = $this->M_telur->get_anggota();
         $data['telur'] = $this->M_telur->getTelur();
-
+        $data['id_anggota'] = $data['row']['id_anggota'];
+        $data['id_telur'] = $data['row']['id_telur'];
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('update/ambiltelur', $data);
         $this->load->view('layout/footer');
     }
-
-
 }

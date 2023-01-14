@@ -6,7 +6,6 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_auth');
-
     }
 
     public function index()
@@ -41,13 +40,15 @@ class Auth extends CI_Controller
                 redirect('dashboard');
             } else {
                 $this->session->set_flashdata(
-                    'message', '<div class=" salah">'
+                    'message',
+                    '<div class=" salah">'
                 );
                 redirect('auth');
             }
         } else {
             $this->session->set_flashdata(
-                'message', '<div class="tidakada">'
+                'message',
+                '<div class="tidakada">'
             );
             redirect('auth');
         }
