@@ -19,29 +19,31 @@
 
   <!-- Main content -->
   <section class="content">
+  <?php if(!empty($this->session->flashdata())){ echo $this->session->flashdata('notif');}?>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <!-- /.card -->
 
           <div class="card">
-            <div class="card-header">
+            <div class="card-header ">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
                 +Tambah
               </button>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+            <div class="card-body ">
+              <table id="example1" class="table table-bordered table-striped text-center">
                 <thead>
                   <tr>
-                    <th><center>No</th>
-                    <th><center>Tanggal Datang</th>
-                    <th><center>Sumber</th>
-                    <th><center>Aksi</th>
+                    <th>No</th>
+                    <th>Tanggal Datang</th>
+                    <th>Sumber</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?=$this->session->flashdata('notif')?>
                   <?php $no = 1 ?>
                   <?php foreach ($data as $row):?>
                   <tr class="text-center" >
@@ -49,11 +51,11 @@
                     <td><?= $row->tanggal ?></td>
                     <td><?= $row->sumber ?></td>
                     <td>
-                    <center><a class="btn btn-outline-warning" href="<?=base_url('Telur/edit_data/'.$row->id_telur);?>">
+                    <a class="btn btn-outline-warning" href="<?=base_url('Telur/edit_data/'.$row->id_telur);?>">
                       <i class="fa fa-edit"></i></a>
                     <a class="btn btn-outline-danger" href="<?= base_url('Telur/delete_data') ?>/<?= $row->id_telur ?>"
                       onclick="return confirm('Apakah Anda ingin menghapus  : (<?= $row->id_telur ?>)');"><i
-                      class="fa fa-trash"></i></a></center>
+                      class="fa fa-trash"></i></a>
                   </td>                    
                   </tr>
                   <?php endforeach; ?>
@@ -109,15 +111,13 @@
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
               <button type="submit" class="btn btn-primary" id="tombolSimpan">Simpan</button>
             </div>
+            <script>
+            function confirmToDelete(el){
+                $("#delete-button").attr("href", el.dataset.href);
+                $("#confirm-dialog").modal('show');
+            }
+            </script>
           </div>
-
-
-
-
-
-
-
-          
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

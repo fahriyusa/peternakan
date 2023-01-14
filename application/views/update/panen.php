@@ -51,10 +51,6 @@
             <label for="harga">Harga</label>
             <input type="number" class="form-control" id="harga" name="harga" value="<?= $data->harga ?>" placeholder="Harga">
           </div>
-          <div class="form-group">
-            <label for="total">Jumlah*Harga</label>
-            <input type="number" class="form-control" id="total" name="total" value="<?= $data->total ?>" placeholder="Total">
-          </div>
           <!-- /.card-body -->
           <div class="modal-footer">
           <a href="<?= base_url(); ?>/panen"  class="btn btn-danger">Batal</a>

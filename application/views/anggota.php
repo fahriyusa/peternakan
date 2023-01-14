@@ -100,12 +100,12 @@
         <div class="card-body">
           <div class="form-group">
             <label for="nama_anggota">Nama Anggota</label>
-            <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota" placeholder="Nama Anggota">
+            <input type="nama" class="form-control" id="nama_anggota" name="nama_anggota" placeholder="Nama Anggota" required>
           </div>
 
           <div class="form-group">
             <label>Status</label>
-            <select class="form-control" type="select" name="status">
+            <select class="form-control" type="select" name="status" required>
               <option value="">- Pilih -</option>
               <option value="a">Aktif</option>
               <option value="na">Non aktif</option>
@@ -114,23 +114,23 @@
 
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
           </div>
 
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" class="form-control" id="password" name="password" placeholder="password">
+            <input type="text" class="form-control" id="password" name="password" placeholder="password" required>
           </div>
 
           <div class="form-group">
             <label for="Jabatan">Jabatan</label>
-            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
+            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan" required>
           </div>
 
           <div class="form-group">
             <label for="exampleInpTanggal">Tanggal Gabung</label>
             <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung"
-              placeholder="Tanggal Gabung">
+              placeholder="Tanggal Gabung" required>
           </div>
           <!-- /.card-body -->
           <div class="modal-footer">
