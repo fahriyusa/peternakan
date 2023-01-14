@@ -131,6 +131,27 @@ class Telur extends CI_Controller
     // untuk menyimpan ambil telur
     public function simpan_ambiltelur()
     {
+        // $this->form_validation->set_rules('id_anggota','Id_anggota','required|min_length[5]|max_length[255]');
+        // $this->form_validation->set_rules('id_telur','Id_telur','required');
+        // $this->form_validation->set_rules('tanggal_ambl','Tanggal_ambl','required');
+        // $this->form_validation->set_rules('jumlah','Jumlah','required');
+        // $this->form_validation->set_rules('harga','Harga','required');
+
+        // if($this->form_validation->run() != false){
+		// 	echo "Form validation oke";
+        // {
+        //     $data['id_anggota']      = $this->input-post('id_anggota');
+        //     $data['id_telur']        = $this->input-post('id_telur');
+        //     $data['tanggal_ambil']   = $this->input-post('tanggal_ambil');
+        //     $data['jumlah']          = $this->input-post('jumlah');
+        //     $data['harga']           = $this->input-post('harga');
+        //     $this->load->view('ambil_telur',$data);
+        // }
+        // }else{
+        //     $this->load->view('ambil_telur');
+        // }
+
+
         $id_anggota = $this->input->post('id_anggota');
         $id_telur = $this->input->post('id_telur');
         $tanggal_ambil = $this->input->post('tanggal_ambil');
@@ -146,6 +167,8 @@ class Telur extends CI_Controller
         );
         $this->M_telur->simpan_ambiltelur($data, 'ambil_telur');
         redirect('ambiltelur');
+        // $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        // redirect('ambiltelur');
     }
 
     public function delete_ambiltelur($id)

@@ -65,7 +65,6 @@
         <!-- /.card-body -->
         <div class="modal-footer">
           <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>
-          <button type="reset" class="btn btn-warning">Riset</button>
           <button type="submit" class="btn btn-success">Simpan</button>
         </div>
       </div>
