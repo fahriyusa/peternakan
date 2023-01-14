@@ -28,7 +28,7 @@
           <select class="form-control" id="id_anggota" name="id_anggota">
             <option> nama anggota </option>
             <?php foreach ($anggota as $telo) { ?>
-              <option value="<?php echo $telo->id_anggota ?>">
+              <option <?= ($id_anggota == $telo->id_anggota) ? 'selected' : ''; ?> value="<?php echo $telo->id_anggota ?>">
                 <?php echo $telo->nama_anggota ?>
               </option>
             <?php } ?>
@@ -39,7 +39,7 @@
           <select class="form-control" id="id_telur" name="id_telur">
             <option> Sumber </option>
             <?php foreach ($telur as $telo) { ?>
-              <option value="<?php echo $telo->id_telur ?>">
+              <option <?= ($id_telur == $telo->id_telur) ? 'selected' : ''; ?> value="<?php echo $telo->id_telur ?>">
                 <?php echo $telo->sumber ?>
               </option>
             <?php } ?>
