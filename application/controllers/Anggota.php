@@ -47,7 +47,7 @@ class Anggota extends CI_Controller
         $tanggal_gabung = $this->input->post('tanggal_gabung');
         $status = $this->input->post('status');
         $jabatan = $this->input->post('jabatan');
-        $data = array(
+        $data  = array(
             'nama_anggota' => $nama_anggota,
             'username' => $username,
             'password' => $password,
